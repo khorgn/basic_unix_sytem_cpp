@@ -1,0 +1,22 @@
+cmake_minimum_required(VERSION 3.10)
+project(HelloCMake)
+
+set (HelloCMake_VERSION_MAJOR 1)
+set (HelloCMake_VERSION_MINOR 0)
+set (HelloCMake_VERSION_PATCH 0)
+
+# use the CMakeLists.txt in thirdparty/catch
+# make the target catch available
+add_subdirectory(thirdparty/catch)
+
+set (HelloCMake_SOURCES hello.cpp hello.hpp)
+
+add_executable(HelloCMake main.cpp ${HelloCMake_SOURCES})
+
+add_executable(tests testmain.cpp ${HelloCMake_SOURCES})
+
+# PRIVATE means this property is used to build the target and is not used by other targets calling this target
+# since this target is an executable, it will never be called by another target
+#target_include_directories(tests PRIVATE thirdparty/catch/include)
+
+target_link_libraries(tests PRIVATE catch)

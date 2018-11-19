@@ -1,0 +1,1 @@
+clang++ helloworld.cpp -gfull -Wall -Weffc++ -Wextra -Wsign-conversion -pedantic-errors

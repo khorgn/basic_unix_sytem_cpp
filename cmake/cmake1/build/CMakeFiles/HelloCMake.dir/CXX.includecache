@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/hugo/Documents/Programming/C++/cmake/cmake1/hello.cpp
+hello.hpp
+/home/hugo/Documents/Programming/C++/cmake/cmake1/hello.hpp
+string
+-
+iostream
+-
+
+/home/hugo/Documents/Programming/C++/cmake/cmake1/hello.hpp
+string
+-
+
+/home/hugo/Documents/Programming/C++/cmake/cmake1/main.cpp
+hello.hpp
+/home/hugo/Documents/Programming/C++/cmake/cmake1/hello.hpp
+

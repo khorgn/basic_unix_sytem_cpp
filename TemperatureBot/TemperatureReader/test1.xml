@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<Temperatures>
+    <Temperature>
+        <Temp>8</Temp>
+        <Location>Cherbourg</Location>
+        <DateTime>2018-10-30T10:00:00</DateTime>
+    </Temperature>
+    <Temperature>
+        <Temp>12</Temp>
+        <Location>Cherbourg</Location>
+        <DateTime>2018-10-30T12:00:00</DateTime>
+    </Temperature>
+    <Temperature>
+        <Temp>13</Temp>
+        <Location>Caen</Location>
+        <DateTime>2018-10-30T10:00:00</DateTime>
+    </Temperature>
+    <Temperature>
+        <Temp>15</Temp>
+        <Location>Caen</Location>
+        <DateTime>2018-10-30T12:30:00</DateTime>
+    </Temperature>
+</Temperatures>

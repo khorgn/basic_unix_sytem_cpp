@@ -1,0 +1,11 @@
+/home/hugo/Documents/Programming/C++/cmake/cmake2/build/CMakeFiles/rebuild_cache.dir
+/home/hugo/Documents/Programming/C++/cmake/cmake2/build/CMakeFiles/edit_cache.dir
+/home/hugo/Documents/Programming/C++/cmake/cmake2/build/thirdparty/catch/CMakeFiles/rebuild_cache.dir
+/home/hugo/Documents/Programming/C++/cmake/cmake2/build/thirdparty/catch/CMakeFiles/edit_cache.dir
+/home/hugo/Documents/Programming/C++/cmake/cmake2/build/src/CMakeFiles/edit_cache.dir
+/home/hugo/Documents/Programming/C++/cmake/cmake2/build/src/CMakeFiles/rebuild_cache.dir
+/home/hugo/Documents/Programming/C++/cmake/cmake2/build/src/CMakeFiles/hello_lib.dir
+/home/hugo/Documents/Programming/C++/cmake/cmake2/build/src/CMakeFiles/prog.dir
+/home/hugo/Documents/Programming/C++/cmake/cmake2/build/test/CMakeFiles/rebuild_cache.dir
+/home/hugo/Documents/Programming/C++/cmake/cmake2/build/test/CMakeFiles/tests.dir
+/home/hugo/Documents/Programming/C++/cmake/cmake2/build/test/CMakeFiles/edit_cache.dir
