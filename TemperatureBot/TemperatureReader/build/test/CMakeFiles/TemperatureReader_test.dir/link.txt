@@ -1,0 +1,1 @@
+/usr/bin/clang++-6.0  -g   CMakeFiles/TemperatureReader_test.dir/testmain.cpp.o  -o TemperatureReader_test -Wl,-rpath,/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/build/src ../src/libTemperatureReader_lib.so ../../test/thirdparty/googletest/gtest_main.a 

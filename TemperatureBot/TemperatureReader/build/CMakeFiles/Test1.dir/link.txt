@@ -1,1 +1,0 @@
-/usr/bin/clang++-6.0  -g  -rdynamic CMakeFiles/Test1.dir/main.cpp.o  -o Test1 -Wl,-rpath,/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/build libTemperatureReader.so -lstdc++fs 

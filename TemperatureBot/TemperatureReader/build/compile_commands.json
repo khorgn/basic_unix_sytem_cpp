@@ -1,17 +1,22 @@
 [
 {
-  "directory": "/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/build",
-  "command": "/usr/bin/clang++-6.0  -DTemperatureReader_EXPORTS -I/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/..  -g -fPIC   -o CMakeFiles/TemperatureReader.dir/TemperatureData.cpp.o -c /home/hugo/Programming/C++/TemperatureBot/TemperatureReader/TemperatureData.cpp",
-  "file": "/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/TemperatureData.cpp"
+  "directory": "/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/build/src",
+  "command": "/usr/bin/clang++-6.0   -I/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/..  -g   -Wall -Wextra -Wpedantic -std=c++17 -o CMakeFiles/TemperatureReader_prog.dir/main.cpp.o -c /home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src/main.cpp",
+  "file": "/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src/main.cpp"
 },
 {
-  "directory": "/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/build",
-  "command": "/usr/bin/clang++-6.0  -DTemperatureReader_EXPORTS -I/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/..  -g -fPIC   -o CMakeFiles/TemperatureReader.dir/TemperatureReader.cpp.o -c /home/hugo/Programming/C++/TemperatureBot/TemperatureReader/TemperatureReader.cpp",
-  "file": "/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/TemperatureReader.cpp"
+  "directory": "/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/build/src",
+  "command": "/usr/bin/clang++-6.0  -DTemperatureReader_lib_EXPORTS -I/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/..  -g -fPIC   -Wall -Wextra -Wpedantic -std=c++17 -o CMakeFiles/TemperatureReader_lib.dir/TemperatureData.cpp.o -c /home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src/TemperatureData.cpp",
+  "file": "/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src/TemperatureData.cpp"
 },
 {
-  "directory": "/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/build",
-  "command": "/usr/bin/clang++-6.0   -I/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/..  -g   -o CMakeFiles/Test1.dir/main.cpp.o -c /home/hugo/Programming/C++/TemperatureBot/TemperatureReader/main.cpp",
-  "file": "/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/main.cpp"
+  "directory": "/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/build/src",
+  "command": "/usr/bin/clang++-6.0  -DTemperatureReader_lib_EXPORTS -I/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/..  -g -fPIC   -Wall -Wextra -Wpedantic -std=c++17 -o CMakeFiles/TemperatureReader_lib.dir/TemperatureReader.cpp.o -c /home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src/TemperatureReader.cpp",
+  "file": "/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src/TemperatureReader.cpp"
+},
+{
+  "directory": "/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/build/test",
+  "command": "/usr/bin/clang++-6.0   -I/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/test/thirdparty/googletest/include -I/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/..  -g   -Wall -Wextra -Wpedantic -std=c++17 -o CMakeFiles/TemperatureReader_test.dir/testmain.cpp.o -c /home/hugo/Programming/C++/TemperatureBot/TemperatureReader/test/testmain.cpp",
+  "file": "/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/test/testmain.cpp"
 }
 ]
