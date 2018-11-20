@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="Linux-clang++-6.0"
+	BuildStamp="20181120-1521-Experimental"
+	Name="hugo-VirtualBox"
+	Generator="ctest-3.10.2"
+	CompilerName="/usr/bin/clang++-6.0"
+	CompilerVersion="6.0.0"
+	OSName="Linux"
+	Hostname="hugo-VirtualBox"
+	OSRelease="4.15.0-39-generic"
+	OSVersion="#42-Ubuntu SMP Tue Oct 23 15:48:01 UTC 2018"
+	OSPlatform="x86_64"
+	Is64Bits="1"
+	VendorString="GenuineIntel"
+	VendorID="Intel Corporation"
+	FamilyID="6"
+	ModelID="58"
+	ProcessorCacheSize="6144"
+	NumberOfLogicalCPU="4"
+	NumberOfPhysicalCPU="4"
+	TotalVirtualMemory="2047"
+	TotalPhysicalMemory="4636"
+	LogicalProcessorsPerPhysical="1"
+	ProcessorClockFrequency="3392.31"
+	>
+	<Testing>
+		<StartDateTime>Nov 20 16:25 CET</StartDateTime>
+		<StartTestTime>1542727533</StartTestTime>
+		<TestList/>
+		<EndDateTime>Nov 20 16:25 CET</EndDateTime>
+		<EndTestTime>1542727533</EndTestTime>
+		<ElapsedMinutes>0</ElapsedMinutes>
+	</Testing>
+</Site>

@@ -25,10 +25,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    TemperatureItemModel.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    TemperatureItemModel.h
 
 FORMS += \
         mainwindow.ui
@@ -37,5 +39,5 @@ win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../TemperatureReader/build
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../TemperatureReader/build/debug/ -lTemperatureReader
 else:unix: LIBS += -L$$PWD/../TemperatureReader/build/ -lTemperatureReader
 
-INCLUDEPATH += $$PWD/../TemperatureReader
-DEPENDPATH += $$PWD/../TemperatureReader
+INCLUDEPATH += $$PWD/../TemperatureReader/src/
+DEPENDPATH += $$PWD/../TemperatureReader/src/

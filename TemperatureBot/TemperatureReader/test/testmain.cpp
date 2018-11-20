@@ -1,9 +1,9 @@
 #include "TemperatureReader/src/TemperatureData.hpp"
-#include "TemperatureReader/thirdparty/googletest/include/gtest.h"
+#include "gtest/gtest.h"
 
 #include <chrono>
 
-using namespace basicLib;
+using namespace TemperatureBot;
 
 TEST(BasicTest, returnValue)
 {

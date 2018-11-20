@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -Wall -Wextra -Wpedantic -std=c++17
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/test/thirdparty/googletest/include -I/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/.. 
+CXX_INCLUDES = -I/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/thirdparty/googletest/include -I/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/.. 
 

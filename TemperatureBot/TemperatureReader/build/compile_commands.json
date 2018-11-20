@@ -16,7 +16,7 @@
 },
 {
   "directory": "/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/build/test",
-  "command": "/usr/bin/clang++-6.0   -I/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/test/thirdparty/googletest/include -I/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/..  -g   -Wall -Wextra -Wpedantic -std=c++17 -o CMakeFiles/TemperatureReader_test.dir/testmain.cpp.o -c /home/hugo/Programming/C++/TemperatureBot/TemperatureReader/test/testmain.cpp",
+  "command": "/usr/bin/clang++-6.0   -I/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/thirdparty/googletest/include -I/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/..  -g   -Wall -Wextra -Wpedantic -std=c++17 -o CMakeFiles/TemperatureReader_test.dir/testmain.cpp.o -c /home/hugo/Programming/C++/TemperatureBot/TemperatureReader/test/testmain.cpp",
   "file": "/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/test/testmain.cpp"
 }
 ]

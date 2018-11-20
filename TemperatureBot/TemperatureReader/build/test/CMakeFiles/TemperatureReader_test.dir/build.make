@@ -91,7 +91,7 @@ TemperatureReader_test_EXTERNAL_OBJECTS =
 test/TemperatureReader_test: test/CMakeFiles/TemperatureReader_test.dir/testmain.cpp.o
 test/TemperatureReader_test: test/CMakeFiles/TemperatureReader_test.dir/build.make
 test/TemperatureReader_test: src/libTemperatureReader_lib.so
-test/TemperatureReader_test: ../test/thirdparty/googletest/gtest_main.a
+test/TemperatureReader_test: ../thirdparty/googletest/libgtest.a
 test/TemperatureReader_test: test/CMakeFiles/TemperatureReader_test.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable TemperatureReader_test"
 	cd /home/hugo/Programming/C++/TemperatureBot/TemperatureReader/build/test && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/TemperatureReader_test.dir/link.txt --verbose=$(VERBOSE)

@@ -6,14 +6,14 @@
 
 namespace fs = std::experimental::filesystem;
 
-int main(int argc, char const *argv[])
+int main()
 {
     std::cout << "START" << std::endl;
     TemperatureBot::TemperatureReader tpr;
 
     fs::path currPath = fs::current_path();
     currPath = currPath.parent_path();
-    currPath = currPath / "test1.xml";
+    currPath = currPath / "TemperatureReader" / "resources" / "test1.xml";
     // TCHAR NPath[1024];
     // GetCurrentDirectory(1024, NPath);
     std::cout << "START Current directory" << '\n';
@@ -25,7 +25,7 @@ int main(int argc, char const *argv[])
 
     std::cout << "START Read file" << std::endl;
     // tpr.RecoverData(std::ifstream("test1.xml"));
-    tpr.RecoverData("../test1.xml");
+    tpr.RecoverData(currPath.string());
     std::cout << "END Read file" << std::endl;
 
     return 0;
