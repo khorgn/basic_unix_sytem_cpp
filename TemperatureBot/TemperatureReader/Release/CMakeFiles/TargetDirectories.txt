@@ -1,0 +1,9 @@
+/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/Release/CMakeFiles/rebuild_cache.dir
+/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/Release/CMakeFiles/edit_cache.dir
+/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/Release/src/CMakeFiles/edit_cache.dir
+/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/Release/src/CMakeFiles/TemperatureReader_prog.dir
+/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/Release/src/CMakeFiles/rebuild_cache.dir
+/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/Release/src/CMakeFiles/TemperatureReader_lib.dir
+/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/Release/test/CMakeFiles/rebuild_cache.dir
+/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/Release/test/CMakeFiles/TemperatureReader_test.dir
+/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/Release/test/CMakeFiles/edit_cache.dir

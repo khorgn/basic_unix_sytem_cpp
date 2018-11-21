@@ -6,9 +6,6 @@ project(TemperatureReader_test)
 
 message(${CMAKE_SOURCE_DIR}/thirdparty/googletest/include/)
 
-# add_library(gtest_lib SHARED IMPORTED)
-# set_target_properties(gtest_lib PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}/thirdparty/googletest)
-
 add_executable(TemperatureReader_test testmain.cpp)
 target_link_libraries(TemperatureReader_test PRIVATE TemperatureReader_lib ${CMAKE_SOURCE_DIR}/thirdparty/googletest/libgtest.a pthread)
 

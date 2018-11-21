@@ -15,7 +15,7 @@ CXX           = g++
 DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I../TemperatureDisplay -I. -I../TemperatureReader -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -I. -isystem /usr/include/libdrm -I. -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++
+INCPATH       = -I../TemperatureDisplay -I. -I../TemperatureReader/src -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -I. -isystem /usr/include/libdrm -I. -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++
 QMAKE         = /usr/lib/qt5/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -51,10 +51,14 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../TemperatureDisplay/main.cpp \
-		../TemperatureDisplay/mainwindow.cpp moc_mainwindow.cpp
+		../TemperatureDisplay/mainwindow.cpp \
+		../TemperatureDisplay/TemperatureItemModel.cpp moc_mainwindow.cpp \
+		moc_TemperatureItemModel.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
-		moc_mainwindow.o
+		TemperatureItemModel.o \
+		moc_mainwindow.o \
+		moc_TemperatureItemModel.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -118,6 +122,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		../TemperatureDisplay/.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -137,8 +142,10 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		../TemperatureDisplay/TemperatureDisplay.pro ../TemperatureDisplay/mainwindow.h ../TemperatureDisplay/main.cpp \
-		../TemperatureDisplay/mainwindow.cpp
+		../TemperatureDisplay/TemperatureDisplay.pro ../TemperatureDisplay/mainwindow.h \
+		../TemperatureDisplay/TemperatureItemModel.h ../TemperatureDisplay/main.cpp \
+		../TemperatureDisplay/mainwindow.cpp \
+		../TemperatureDisplay/TemperatureItemModel.cpp
 QMAKE_TARGET  = TemperatureDisplay
 DESTDIR       = 
 TARGET        = TemperatureDisplay
@@ -213,6 +220,7 @@ Makefile: ../TemperatureDisplay/TemperatureDisplay.pro /usr/lib/x86_64-linux-gnu
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -300,6 +308,7 @@ Makefile: ../TemperatureDisplay/TemperatureDisplay.pro /usr/lib/x86_64-linux-gnu
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf:
@@ -338,8 +347,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../TemperatureDisplay/mainwindow.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../TemperatureDisplay/main.cpp ../TemperatureDisplay/mainwindow.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../TemperatureDisplay/mainwindow.h ../TemperatureDisplay/TemperatureItemModel.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../TemperatureDisplay/main.cpp ../TemperatureDisplay/mainwindow.cpp ../TemperatureDisplay/TemperatureItemModel.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../TemperatureDisplay/mainwindow.ui $(DISTDIR)/
 
 
@@ -372,13 +381,18 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -Wall -W -dM -E -o moc_predefs.h /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_TemperatureItemModel.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_TemperatureItemModel.cpp
 moc_mainwindow.cpp: ../TemperatureDisplay/mainwindow.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/hugo/Programming/C++/TemperatureBot/TemperatureDisplay -I/home/hugo/Programming/C++/TemperatureBot/TemperatureReader -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../TemperatureDisplay/mainwindow.h -o moc_mainwindow.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/hugo/Programming/C++/TemperatureBot/TemperatureDisplay -I/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../TemperatureDisplay/mainwindow.h -o moc_mainwindow.cpp
+
+moc_TemperatureItemModel.cpp: ../TemperatureDisplay/TemperatureItemModel.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/hugo/Programming/C++/TemperatureBot/TemperatureDisplay -I/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../TemperatureDisplay/TemperatureItemModel.h -o moc_TemperatureItemModel.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -403,11 +417,20 @@ main.o: ../TemperatureDisplay/main.cpp ../TemperatureDisplay/mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../TemperatureDisplay/main.cpp
 
 mainwindow.o: ../TemperatureDisplay/mainwindow.cpp ../TemperatureDisplay/mainwindow.h \
-		ui_mainwindow.h
+		ui_mainwindow.h \
+		../TemperatureReader/src/TemperatureData.hpp \
+		../TemperatureReader/src/TemperatureReader.hpp \
+		../TemperatureReader/src/EmptyContainerException.hpp
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../TemperatureDisplay/mainwindow.cpp
+
+TemperatureItemModel.o: ../TemperatureDisplay/TemperatureItemModel.cpp ../TemperatureDisplay/TemperatureItemModel.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o TemperatureItemModel.o ../TemperatureDisplay/TemperatureItemModel.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
+
+moc_TemperatureItemModel.o: moc_TemperatureItemModel.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_TemperatureItemModel.o moc_TemperatureItemModel.cpp
 
 ####### Install
 

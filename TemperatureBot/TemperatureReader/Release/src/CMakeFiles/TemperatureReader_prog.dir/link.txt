@@ -1,0 +1,1 @@
+/usr/bin/clang++  -Wall -Wextra -pedantic -O3 -DNDEBUG   CMakeFiles/TemperatureReader_prog.dir/main.cpp.o  -o TemperatureReader_prog -Wl,-rpath,/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/Release/src libTemperatureReader_lib.so -lstdc++fs 

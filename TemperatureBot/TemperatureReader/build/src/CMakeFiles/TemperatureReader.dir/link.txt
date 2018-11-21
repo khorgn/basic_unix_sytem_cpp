@@ -1,1 +1,0 @@
-/usr/bin/clang++-6.0 -fPIC -g  -shared -Wl,-soname,libTemperatureReader.so -o libTemperatureReader.so CMakeFiles/TemperatureReader.dir/TemperatureData.cpp.o CMakeFiles/TemperatureReader.dir/TemperatureReader.cpp.o 
