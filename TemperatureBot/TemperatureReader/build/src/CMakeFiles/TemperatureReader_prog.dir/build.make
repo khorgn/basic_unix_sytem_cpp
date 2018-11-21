@@ -60,15 +60,15 @@ include src/CMakeFiles/TemperatureReader_prog.dir/flags.make
 src/CMakeFiles/TemperatureReader_prog.dir/main.cpp.o: src/CMakeFiles/TemperatureReader_prog.dir/flags.make
 src/CMakeFiles/TemperatureReader_prog.dir/main.cpp.o: ../src/main.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/TemperatureReader_prog.dir/main.cpp.o"
-	cd /home/hugo/Programming/C++/TemperatureBot/TemperatureReader/build/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TemperatureReader_prog.dir/main.cpp.o -c /home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src/main.cpp
+	cd /home/hugo/Programming/C++/TemperatureBot/TemperatureReader/build/src && /usr/bin/clang++-6.0  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/TemperatureReader_prog.dir/main.cpp.o -c /home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src/main.cpp
 
 src/CMakeFiles/TemperatureReader_prog.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TemperatureReader_prog.dir/main.cpp.i"
-	cd /home/hugo/Programming/C++/TemperatureBot/TemperatureReader/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src/main.cpp > CMakeFiles/TemperatureReader_prog.dir/main.cpp.i
+	cd /home/hugo/Programming/C++/TemperatureBot/TemperatureReader/build/src && /usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src/main.cpp > CMakeFiles/TemperatureReader_prog.dir/main.cpp.i
 
 src/CMakeFiles/TemperatureReader_prog.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TemperatureReader_prog.dir/main.cpp.s"
-	cd /home/hugo/Programming/C++/TemperatureBot/TemperatureReader/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src/main.cpp -o CMakeFiles/TemperatureReader_prog.dir/main.cpp.s
+	cd /home/hugo/Programming/C++/TemperatureBot/TemperatureReader/build/src && /usr/bin/clang++-6.0 $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src/main.cpp -o CMakeFiles/TemperatureReader_prog.dir/main.cpp.s
 
 src/CMakeFiles/TemperatureReader_prog.dir/main.cpp.o.requires:
 

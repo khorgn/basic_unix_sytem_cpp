@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src/EmptyContainerException.hpp
+exception
+-
+stdexcept
+-
+string
+-
+
+/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src/TemperatureData.hpp
+string
+-
+chrono
+-
+
+/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src/TemperatureReader.hpp
+TemperatureData.hpp
+/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src/TemperatureData.hpp
+EmptyContainerException.hpp
+/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src/EmptyContainerException.hpp
+fstream
+-
+queue
+-
+vector
+-
+exception
+-
+
+/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src/main.cpp
+TemperatureData.hpp
+/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src/TemperatureData.hpp
+TemperatureReader.hpp
+/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src/TemperatureReader.hpp
+iostream
+-
+experimental/filesystem
+-
+

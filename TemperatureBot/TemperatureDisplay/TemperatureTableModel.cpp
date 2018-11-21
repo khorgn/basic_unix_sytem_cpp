@@ -1,11 +1,13 @@
-#include "TemperatureItemModel.h"
+#include "TemperatureTableModel.h"
 
-TemperatureItemModel::TemperatureItemModel(QObject *parent)
-    : QAbstractItemModel(parent)
+TemperatureTableModel::TemperatureTableModel(QObject *parent)
+    : QAbstractTableModel(parent)
 {
+    m_rowCount = 0;
+    m_columnCount = 3;
 }
 
-QVariant TemperatureItemModel::headerData(int section, Qt::Orientation orientation, int role) const
+QVariant TemperatureTableModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
     if (Qt::DisplayRole == role)
     {
@@ -30,33 +32,17 @@ QVariant TemperatureItemModel::headerData(int section, Qt::Orientation orientati
     return QVariant();
 }
 
-QModelIndex TemperatureItemModel::index(int row, int column, const QModelIndex &parent) const
+int TemperatureTableModel::rowCount(const QModelIndex &parent) const
 {
-    // FIXME: Implement me!
+    return m_columnCount;
 }
 
-QModelIndex TemperatureItemModel::parent(const QModelIndex &index) const
+int TemperatureTableModel::columnCount(const QModelIndex &parent) const
 {
-    // FIXME: Implement me!
+   return m_rowCount;
 }
 
-int TemperatureItemModel::rowCount(const QModelIndex &parent) const
-{
-    if (!parent.isValid())
-        return 0;
-
-    // FIXME: Implement me!
-}
-
-int TemperatureItemModel::columnCount(const QModelIndex &parent) const
-{
-    if (!parent.isValid())
-        return 0;
-
-    // FIXME: Implement me!
-}
-
-QVariant TemperatureItemModel::data(const QModelIndex &index, int role) const
+QVariant TemperatureTableModel::data(const QModelIndex &index, int role) const
 {
     int row = index.row();
     int column = index.column();
@@ -65,7 +51,7 @@ QVariant TemperatureItemModel::data(const QModelIndex &index, int role) const
     case Qt::DisplayRole:
         if(column == 0)
         {
-            const tm* datetime = &m_temperatureData[row].Datetime;
+            const tm* datetime = &m_temperatureData[row].datetime;
             return QString("%1-%2-%3T%4:%5:%6")
                 .arg(datetime->tm_year)
                 .arg(datetime->tm_mon, /* fieldWith */ 2, /* base */ 10, /* fillChar */ QChar('0'))
@@ -76,15 +62,24 @@ QVariant TemperatureItemModel::data(const QModelIndex &index, int role) const
         }
         else if (column == 1)
         {
-            return QString::fromStdString(m_temperatureData[row].Location);
+            return QString::fromStdString(m_temperatureData[row].location);
         }
         else if (column == 2)
         {
-            return m_temperatureData[row].Temperature;
+            return m_temperatureData[row].temperature;
         }
         break;
     default:
         break;
     }
     return QVariant();
+}
+
+void TemperatureTableModel::addTemperatureData(std::vector<TemperatureBot::TemperatureData> temperatureData)
+{
+    beginInsertRows(QModelIndex(), m_rowCount, m_rowCount + temperatureData.size() - 1);
+    m_temperatureData.insert(m_temperatureData.end(), temperatureData.begin(), temperatureData.end());
+    m_rowCount = m_temperatureData.size();
+
+    endInsertRows();
 }

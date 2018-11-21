@@ -6,7 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/test/testmain.cpp" "/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/build/test/CMakeFiles/TemperatureReader_test.dir/testmain.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "Clang")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH

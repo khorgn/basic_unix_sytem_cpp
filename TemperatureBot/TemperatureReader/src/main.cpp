@@ -25,7 +25,8 @@ int main()
 
     std::cout << "START Read file" << std::endl;
     // tpr.RecoverData(std::ifstream("test1.xml"));
-    tpr.RecoverData(currPath.string());
+    std::string path_str = currPath.string();
+    tpr.RecoverData(path_str);
     std::cout << "END Read file" << std::endl;
 
     return 0;
