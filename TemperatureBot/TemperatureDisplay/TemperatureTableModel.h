@@ -5,6 +5,9 @@
 #include "TemperatureData.hpp"
 #include <vector>
 
+//!
+//! \brief The representation of a group of temperatures for use in a widget
+//!
 class TemperatureTableModel : public QAbstractTableModel
 {
     Q_OBJECT
@@ -23,7 +26,7 @@ public:
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
 
-    // Add temperature data to the list
+    //! Add temperature data to the list
     void addTemperatureData(std::vector<TemperatureBot::TemperatureData> temperatureData);
 
 private:

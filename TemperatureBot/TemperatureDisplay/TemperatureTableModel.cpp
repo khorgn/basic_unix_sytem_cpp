@@ -34,12 +34,12 @@ QVariant TemperatureTableModel::headerData(int section, Qt::Orientation orientat
 
 int TemperatureTableModel::rowCount(const QModelIndex &parent) const
 {
-    return m_columnCount;
+    return m_rowCount;
 }
 
 int TemperatureTableModel::columnCount(const QModelIndex &parent) const
 {
-   return m_rowCount;
+   return m_columnCount;
 }
 
 QVariant TemperatureTableModel::data(const QModelIndex &index, int role) const

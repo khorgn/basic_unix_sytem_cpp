@@ -17,7 +17,6 @@ void ListenerThread::run()
     std::set<fs::path> fileListing;
     fs::path filepath(std::string(getenv("HOME"))+std::string("/Documents/TempDir"));
 
-    fs::directory_iterator iteDirectory(filepath);
     TemperatureBot::TemperatureReader tpr;
 
     std::vector<TemperatureBot::TemperatureData>* dataToSend = new std::vector<TemperatureBot::TemperatureData>();
@@ -38,6 +37,7 @@ void ListenerThread::run()
     while (!this->isInterruptionRequested()) {
         dataToSend = new std::vector<TemperatureBot::TemperatureData>();
 
+        emit StartWaiting(5000);
         mutex.lock();
         codeExiting.wait(&mutex, 5000);
         mutex.unlock();
@@ -60,5 +60,9 @@ void ListenerThread::run()
             emit newTemperatureData(dataToSend);
             dataToSend = nullptr;
         }
+    }
+    if(!dataToSend)
+    {
+        delete(dataToSend);
     }
 }

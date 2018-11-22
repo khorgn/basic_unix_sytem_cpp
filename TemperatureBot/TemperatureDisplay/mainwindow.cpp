@@ -8,6 +8,8 @@
 #include <QString>
 #include <QFileDialog>
 #include <QDebug>
+#include <QProgressBar>
+#include <QTimer>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -15,12 +17,23 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    m_temperatureModel = new TemperatureTableModel(0);
+    mp_temperatureModel = new TemperatureTableModel(this);
 
     QSortFilterProxyModel* proxyModel = new QSortFilterProxyModel;
-    proxyModel->setSourceModel(m_temperatureModel);
+    proxyModel->setSourceModel(mp_temperatureModel);
 
     ui->temperatureTableView->setModel(proxyModel);
+
+    // setup the status bar
+    mp_progressBar = new QProgressBar(this);
+    ui->statusBar->addWidget(mp_progressBar);
+    mp_progressBar->setAlignment(Qt::AlignCenter);
+    mp_progressBar->setInvertedAppearance(true);
+    mp_progressBar->setFormat(QString("%vms-%mms"));
+    // setup the timer
+    mp_progressBarTimer = new QTimer(this);
+    mp_progressBarTimer->setInterval(500);
+    QObject::connect(mp_progressBarTimer, &QTimer::timeout, this, &MainWindow::slotUpdateProgressBar);
 
     // setup the menu bar
     QObject::connect(ui->actionLoad_XML, &QAction::triggered, this, &MainWindow::slotLoadXml);
@@ -29,6 +42,8 @@ MainWindow::MainWindow(QWidget *parent) :
     mp_listenerThread = new ListenerThread(this);
     QObject::connect(mp_listenerThread, &ListenerThread::newTemperatureData, this, &MainWindow::slotGetNewTemperatureData);
     mp_listenerThread->start();
+
+    QObject::connect(mp_listenerThread, &ListenerThread::StartWaiting, this, &MainWindow::slotWorkerThreadStartedWaiting);
 }
 
 MainWindow::~MainWindow()
@@ -40,11 +55,14 @@ MainWindow::~MainWindow()
     codeExiting.wakeAll();
     mutex.unlock();
     mp_listenerThread->wait();
+
+//    delete(mp_temperatureModel);
+//    delete(mp_progressBarTimer);
 }
 
 void MainWindow::fillTemperatureView(std::vector<TemperatureBot::TemperatureData> xmlContent)
 {
-    m_temperatureModel->addTemperatureData(xmlContent);
+    mp_temperatureModel->addTemperatureData(xmlContent);
 }
 
 void MainWindow::slotLoadXml()
@@ -78,11 +96,28 @@ void MainWindow::slotOpenAboutWindow()
     {
         mp_newWindow = new AboutWidget;
         mp_newWindow->show();
-        QObject::connect(mp_newWindow, &AboutWidget::widgetClosed, this, &MainWindow::slotResetAvoutWindow);
+        QObject::connect(mp_newWindow, &AboutWidget::widgetClosed, this, &MainWindow::slotResetAboutWindow);
     }
 }
 
-void MainWindow::slotResetAvoutWindow()
+void MainWindow::slotResetAboutWindow()
 {
     mp_newWindow = nullptr;
+}
+
+void MainWindow::slotWorkerThreadStartedWaiting(long milliseconds)
+{
+    m_milliSecondsLeftUntilThreadCheck = milliseconds;
+    mp_progressBar->setMaximum(milliseconds);
+    mp_progressBarTimer->start();
+}
+
+void MainWindow::slotUpdateProgressBar()
+{
+    m_milliSecondsLeftUntilThreadCheck-=500;
+    if(m_milliSecondsLeftUntilThreadCheck<0)
+        m_milliSecondsLeftUntilThreadCheck = 0;
+    mp_progressBar->setValue(m_milliSecondsLeftUntilThreadCheck);
+    if(m_milliSecondsLeftUntilThreadCheck != 0)
+        mp_progressBarTimer->start();
 }

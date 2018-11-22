@@ -1,0 +1,46 @@
+\hypertarget{classListenerThread}{}\section{Listener\+Thread Class Reference}
+\label{classListenerThread}\index{Listener\+Thread@{Listener\+Thread}}
+
+
+The thread used to check a directory for any new file containing temperature data, and signal it.  
+
+
+
+
+{\ttfamily \#include $<$Listener\+Thread.\+h$>$}
+
+
+
+Inheritance diagram for Listener\+Thread\+:
+% FIG 0
+
+
+Collaboration diagram for Listener\+Thread\+:
+% FIG 1
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classListenerThread_ac44c3cb7ca1133631198890fb8e92b4f}\label{classListenerThread_ac44c3cb7ca1133631198890fb8e92b4f}} 
+void \hyperlink{classListenerThread_ac44c3cb7ca1133631198890fb8e92b4f}{new\+Temperature\+Data} (std\+::vector$<$ Temperature\+Bot\+::\+Temperature\+Data $>$ $\ast$temperature\+Data)
+\begin{DoxyCompactList}\small\item\em signal that new temperature data is available \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classListenerThread_aeb1e2814ade4ad72fa5370c63e92aceb}\label{classListenerThread_aeb1e2814ade4ad72fa5370c63e92aceb}} 
+void {\bfseries Start\+Waiting} (long milliseconds)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classListenerThread_a968dbaed9be00d44d3f4affe07b28842}\label{classListenerThread_a968dbaed9be00d44d3f4affe07b28842}} 
+{\bfseries Listener\+Thread} (Q\+Object $\ast$parent)
+\item 
+\mbox{\Hypertarget{classListenerThread_a6d6d553be533bacbc3907f64535a863c}\label{classListenerThread_a6d6d553be533bacbc3907f64535a863c}} 
+void {\bfseries run} () override
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The thread used to check a directory for any new file containing temperature data, and signal it. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{ListenerThread_8h}{Listener\+Thread.\+h}\item 
+Listener\+Thread.\+cpp\end{DoxyCompactItemize}

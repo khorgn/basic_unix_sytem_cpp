@@ -1,0 +1,34 @@
+\hypertarget{classAboutWidget}{}\section{About\+Widget Class Reference}
+\label{classAboutWidget}\index{About\+Widget@{About\+Widget}}
+
+
+Inheritance diagram for About\+Widget\+:
+% FIG 0
+
+
+Collaboration diagram for About\+Widget\+:
+% FIG 1
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAboutWidget_a8165eb269c2c77c89c87880a4c1c8206}\label{classAboutWidget_a8165eb269c2c77c89c87880a4c1c8206}} 
+void {\bfseries widget\+Closed} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAboutWidget_a381767a2b22686ad4d663176160aadcb}\label{classAboutWidget_a381767a2b22686ad4d663176160aadcb}} 
+{\bfseries About\+Widget} (Q\+Widget $\ast$parent=0)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classAboutWidget_a732fcf757c2ab8b54db85d011c894638}\label{classAboutWidget_a732fcf757c2ab8b54db85d011c894638}} 
+void {\bfseries close\+Event} (Q\+Close\+Event $\ast$event) override
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+About\+Widget.\+h\item 
+About\+Widget.\+cpp\end{DoxyCompactItemize}

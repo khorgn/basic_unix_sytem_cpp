@@ -1,0 +1,49 @@
+\hypertarget{classTemperatureTableModel}{}\section{Temperature\+Table\+Model Class Reference}
+\label{classTemperatureTableModel}\index{Temperature\+Table\+Model@{Temperature\+Table\+Model}}
+
+
+The representation of a group of temperatures for use in a widget.  
+
+
+
+
+{\ttfamily \#include $<$Temperature\+Table\+Model.\+h$>$}
+
+
+
+Inheritance diagram for Temperature\+Table\+Model\+:
+% FIG 0
+
+
+Collaboration diagram for Temperature\+Table\+Model\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classTemperatureTableModel_acc3ccea22bfd19c4e93863175ae43bfd}\label{classTemperatureTableModel_acc3ccea22bfd19c4e93863175ae43bfd}} 
+{\bfseries Temperature\+Table\+Model} (Q\+Object $\ast$parent=nullptr)
+\item 
+\mbox{\Hypertarget{classTemperatureTableModel_ab50e35137a162d9a65bba048a8258a62}\label{classTemperatureTableModel_ab50e35137a162d9a65bba048a8258a62}} 
+Q\+Variant {\bfseries header\+Data} (int section, Qt\+::\+Orientation orientation, int role=Qt\+::\+Display\+Role) const override
+\item 
+\mbox{\Hypertarget{classTemperatureTableModel_a87a759e29a7386004078d551907cdf99}\label{classTemperatureTableModel_a87a759e29a7386004078d551907cdf99}} 
+int {\bfseries row\+Count} (const Q\+Model\+Index \&parent=Q\+Model\+Index()) const override
+\item 
+\mbox{\Hypertarget{classTemperatureTableModel_aafd09fffe950c9c758862f6c3203def6}\label{classTemperatureTableModel_aafd09fffe950c9c758862f6c3203def6}} 
+int {\bfseries column\+Count} (const Q\+Model\+Index \&parent=Q\+Model\+Index()) const override
+\item 
+\mbox{\Hypertarget{classTemperatureTableModel_ac44983cd88fff72038e482495d02b445}\label{classTemperatureTableModel_ac44983cd88fff72038e482495d02b445}} 
+Q\+Variant {\bfseries data} (const Q\+Model\+Index \&index, int role=Qt\+::\+Display\+Role) const override
+\item 
+\mbox{\Hypertarget{classTemperatureTableModel_a952279da7d3bb99ad61c255fb31347bf}\label{classTemperatureTableModel_a952279da7d3bb99ad61c255fb31347bf}} 
+void \hyperlink{classTemperatureTableModel_a952279da7d3bb99ad61c255fb31347bf}{add\+Temperature\+Data} (std\+::vector$<$ Temperature\+Bot\+::\+Temperature\+Data $>$ temperature\+Data)
+\begin{DoxyCompactList}\small\item\em Add temperature data to the list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The representation of a group of temperatures for use in a widget. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Temperature\+Table\+Model.\+h\item 
+Temperature\+Table\+Model.\+cpp\end{DoxyCompactItemize}
