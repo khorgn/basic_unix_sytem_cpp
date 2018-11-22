@@ -28,13 +28,15 @@ SOURCES += \
         mainwindow.cpp \
     TemperatureTableModel.cpp \
     ListenerThread.cpp \
-    AboutWidget.cpp
+    AboutWidget.cpp \
+    StarDelegate.cpp
 
 HEADERS += \
         mainwindow.h \
     TemperatureTableModel.h \
     ListenerThread.h \
-    AboutWidget.h
+    AboutWidget.h \
+    StarDelegate.h
 
 FORMS += \
         mainwindow.ui \

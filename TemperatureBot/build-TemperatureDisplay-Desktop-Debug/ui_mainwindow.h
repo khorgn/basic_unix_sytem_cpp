@@ -18,6 +18,7 @@
 #include <QtWidgets/QDockWidget>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QKeySequenceEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
@@ -45,6 +46,10 @@ public:
     QWidget *tab;
     QHBoxLayout *horizontalLayout_2;
     QTableView *temperatureTableView;
+    QWidget *tab_3;
+    QVBoxLayout *verticalLayout_4;
+    QKeySequenceEdit *keySequenceEdit;
+    QWidget *tab_4;
     QWidget *tab_2;
     QVBoxLayout *verticalLayout_3;
     QOpenGLWidget *openGLWidget;
@@ -65,7 +70,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(400, 300);
+        MainWindow->resize(800, 600);
         actionLoad_XML = new QAction(MainWindow);
         actionLoad_XML->setObjectName(QStringLiteral("actionLoad_XML"));
         actionQuit = new QAction(MainWindow);
@@ -95,6 +100,21 @@ public:
         horizontalLayout_2->addWidget(temperatureTableView);
 
         tabWidget->addTab(tab, QString());
+        tab_3 = new QWidget();
+        tab_3->setObjectName(QStringLiteral("tab_3"));
+        verticalLayout_4 = new QVBoxLayout(tab_3);
+        verticalLayout_4->setSpacing(6);
+        verticalLayout_4->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
+        keySequenceEdit = new QKeySequenceEdit(tab_3);
+        keySequenceEdit->setObjectName(QStringLiteral("keySequenceEdit"));
+
+        verticalLayout_4->addWidget(keySequenceEdit);
+
+        tabWidget->addTab(tab_3, QString());
+        tab_4 = new QWidget();
+        tab_4->setObjectName(QStringLiteral("tab_4"));
+        tabWidget->addTab(tab_4, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QStringLiteral("tab_2"));
         verticalLayout_3 = new QVBoxLayout(tab_2);
@@ -113,7 +133,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 400, 30));
+        menuBar->setGeometry(QRect(0, 0, 800, 30));
         menuFIle = new QMenu(menuBar);
         menuFIle->setObjectName(QStringLiteral("menuFIle"));
         menuHelp = new QMenu(menuBar);
@@ -167,7 +187,7 @@ public:
         retranslateUi(MainWindow);
         QObject::connect(actionQuit, SIGNAL(triggered()), MainWindow, SLOT(close()));
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -180,9 +200,11 @@ public:
         actionQuit->setText(QApplication::translate("MainWindow", "&Quit", Q_NULLPTR));
         actionAbout->setText(QApplication::translate("MainWindow", "&About", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Tab 1", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "Page", Q_NULLPTR));
+        tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("MainWindow", "Page", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Tab 2", Q_NULLPTR));
         menuFIle->setTitle(QApplication::translate("MainWindow", "Fi&le", Q_NULLPTR));
-        menuHelp->setTitle(QApplication::translate("MainWindow", "Help", Q_NULLPTR));
+        menuHelp->setTitle(QApplication::translate("MainWindow", "Hel&p", Q_NULLPTR));
     } // retranslateUi
 
 };

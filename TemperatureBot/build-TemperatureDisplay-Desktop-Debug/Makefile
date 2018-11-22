@@ -54,19 +54,23 @@ SOURCES       = ../TemperatureDisplay/main.cpp \
 		../TemperatureDisplay/mainwindow.cpp \
 		../TemperatureDisplay/TemperatureTableModel.cpp \
 		../TemperatureDisplay/ListenerThread.cpp \
-		../TemperatureDisplay/AboutWidget.cpp moc_mainwindow.cpp \
+		../TemperatureDisplay/AboutWidget.cpp \
+		../TemperatureDisplay/StarDelegate.cpp moc_mainwindow.cpp \
 		moc_TemperatureTableModel.cpp \
 		moc_ListenerThread.cpp \
-		moc_AboutWidget.cpp
+		moc_AboutWidget.cpp \
+		moc_StarDelegate.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		TemperatureTableModel.o \
 		ListenerThread.o \
 		AboutWidget.o \
+		StarDelegate.o \
 		moc_mainwindow.o \
 		moc_TemperatureTableModel.o \
 		moc_ListenerThread.o \
-		moc_AboutWidget.o
+		moc_AboutWidget.o \
+		moc_StarDelegate.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -153,11 +157,13 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../TemperatureDisplay/TemperatureDisplay.pro ../TemperatureDisplay/mainwindow.h \
 		../TemperatureDisplay/TemperatureTableModel.h \
 		../TemperatureDisplay/ListenerThread.h \
-		../TemperatureDisplay/AboutWidget.h ../TemperatureDisplay/main.cpp \
+		../TemperatureDisplay/AboutWidget.h \
+		../TemperatureDisplay/StarDelegate.h ../TemperatureDisplay/main.cpp \
 		../TemperatureDisplay/mainwindow.cpp \
 		../TemperatureDisplay/TemperatureTableModel.cpp \
 		../TemperatureDisplay/ListenerThread.cpp \
-		../TemperatureDisplay/AboutWidget.cpp
+		../TemperatureDisplay/AboutWidget.cpp \
+		../TemperatureDisplay/StarDelegate.cpp
 QMAKE_TARGET  = TemperatureDisplay
 DESTDIR       = 
 TARGET        = TemperatureDisplay
@@ -359,8 +365,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../TemperatureDisplay/mainwindow.h ../TemperatureDisplay/TemperatureTableModel.h ../TemperatureDisplay/ListenerThread.h ../TemperatureDisplay/AboutWidget.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../TemperatureDisplay/main.cpp ../TemperatureDisplay/mainwindow.cpp ../TemperatureDisplay/TemperatureTableModel.cpp ../TemperatureDisplay/ListenerThread.cpp ../TemperatureDisplay/AboutWidget.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../TemperatureDisplay/mainwindow.h ../TemperatureDisplay/TemperatureTableModel.h ../TemperatureDisplay/ListenerThread.h ../TemperatureDisplay/AboutWidget.h ../TemperatureDisplay/StarDelegate.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../TemperatureDisplay/main.cpp ../TemperatureDisplay/mainwindow.cpp ../TemperatureDisplay/TemperatureTableModel.cpp ../TemperatureDisplay/ListenerThread.cpp ../TemperatureDisplay/AboutWidget.cpp ../TemperatureDisplay/StarDelegate.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../TemperatureDisplay/mainwindow.ui ../TemperatureDisplay/AboutWidget.ui $(DISTDIR)/
 
 
@@ -393,9 +399,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -Wall -W -dM -E -o moc_predefs.h /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_TemperatureTableModel.cpp moc_ListenerThread.cpp moc_AboutWidget.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_TemperatureTableModel.cpp moc_ListenerThread.cpp moc_AboutWidget.cpp moc_StarDelegate.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_TemperatureTableModel.cpp moc_ListenerThread.cpp moc_AboutWidget.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_TemperatureTableModel.cpp moc_ListenerThread.cpp moc_AboutWidget.cpp moc_StarDelegate.cpp
 moc_mainwindow.cpp: ../TemperatureReader/src/TemperatureData.hpp \
 		../TemperatureDisplay/TemperatureTableModel.h \
 		../TemperatureDisplay/ListenerThread.h \
@@ -425,6 +431,11 @@ moc_AboutWidget.cpp: ../TemperatureDisplay/AboutWidget.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/hugo/Programming/C++/TemperatureBot/TemperatureDisplay -I/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../TemperatureDisplay/AboutWidget.h -o moc_AboutWidget.cpp
+
+moc_StarDelegate.cpp: ../TemperatureDisplay/StarDelegate.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/hugo/Programming/C++/TemperatureBot/TemperatureDisplay -I/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../TemperatureDisplay/StarDelegate.h -o moc_StarDelegate.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -482,6 +493,9 @@ AboutWidget.o: ../TemperatureDisplay/AboutWidget.cpp ../TemperatureDisplay/About
 		ui_AboutWidget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o AboutWidget.o ../TemperatureDisplay/AboutWidget.cpp
 
+StarDelegate.o: ../TemperatureDisplay/StarDelegate.cpp ../TemperatureDisplay/StarDelegate.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o StarDelegate.o ../TemperatureDisplay/StarDelegate.cpp
+
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
 
@@ -493,6 +507,9 @@ moc_ListenerThread.o: moc_ListenerThread.cpp
 
 moc_AboutWidget.o: moc_AboutWidget.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_AboutWidget.o moc_AboutWidget.cpp
+
+moc_StarDelegate.o: moc_StarDelegate.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_StarDelegate.o moc_StarDelegate.cpp
 
 ####### Install
 
