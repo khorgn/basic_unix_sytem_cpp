@@ -3,6 +3,7 @@
 #include "TemperatureData.hpp"
 #include "TemperatureReader.hpp"
 #include "TemperatureTableModel.h"
+#include "StarDelegate.h"
 
 #include <QSortFilterProxyModel>
 #include <QString>
@@ -19,10 +20,16 @@ MainWindow::MainWindow(QWidget *parent) :
 
     mp_temperatureModel = new TemperatureTableModel(this);
 
+    // setup proxy model
     QSortFilterProxyModel* proxyModel = new QSortFilterProxyModel;
     proxyModel->setSourceModel(mp_temperatureModel);
-
     ui->temperatureTableView->setModel(proxyModel);
+
+    // setup star delegate
+    StarDelegate* starDelegate = new StarDelegate(this);
+    ui->temperatureTableView->setItemDelegate(starDelegate);
+
+    ui->temperatureTableView->setSelectionBehavior(QAbstractItemView::SelectRows);
 
     // setup the status bar
     mp_progressBar = new QProgressBar(this);
