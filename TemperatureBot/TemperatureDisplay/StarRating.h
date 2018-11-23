@@ -26,6 +26,8 @@ public:
     void setStarCount(int starCount) { m_starCount = starCount; }
     void setMaxStarCount(int maxStarCount) { m_maxStarCount = maxStarCount; }
 
+    QString toString() const;
+
 private:
     QPolygonF m_starPolygon;
     QPolygonF m_diamondPolygon;

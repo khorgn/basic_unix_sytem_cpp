@@ -8,6 +8,7 @@
 #include "AboutWidget.h"
 #include <QTimer>
 #include <QProgressBar>
+#include <QItemSelection>
 
 namespace Ui {
 class MainWindow;
@@ -41,6 +42,7 @@ private slots:
     void slotResetAboutWindow();
     void slotWorkerThreadStartedWaiting(long milliseconds);
     void slotUpdateProgressBar();
+    void slotTableSelectionChanged(const QItemSelection& newSelection, const QItemSelection& oldSelection);
 
 private:
     Ui::MainWindow *ui;

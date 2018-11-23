@@ -10,7 +10,7 @@ StarEditor::StarEditor(QWidget *parent) : QWidget(parent)
 
 QSize StarEditor::sizeHint() const
 {
-
+    return m_starRating.sizeHint();
 }
 
 void StarEditor::paintEvent(QPaintEvent *event)

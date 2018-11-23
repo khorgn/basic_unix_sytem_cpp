@@ -54,3 +54,8 @@ QSize StarRating::sizeHint() const
     // the prefered size is just enough to paint the maximum number of stars
     return c_paintingScaleFactor * QSize(m_maxStarCount, 1);
 }
+
+QString StarRating::toString() const
+{
+    return QString::number(m_starCount)+QString("/")+QString::number(m_maxStarCount);
+}

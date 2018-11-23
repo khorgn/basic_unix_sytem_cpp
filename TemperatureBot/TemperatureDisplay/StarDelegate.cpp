@@ -1,6 +1,8 @@
 #include "StarDelegate.h"
 #include "StarEditor.h"
 
+#include <QDebug>
+
 void StarDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     // if the item is a StarRating
@@ -74,6 +76,7 @@ void StarDelegate::setModelData(QWidget *editor, QAbstractItemModel *model, cons
     {
         StarEditor *starEditor = qobject_cast<StarEditor *>(editor);
         model->setData(index, QVariant::fromValue(starEditor->starRating()));
+
     }
     else
     {

@@ -20,6 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     mp_temperatureModel = new TemperatureTableModel(this);
 
+    // ==setup table view==
     // setup proxy model
     QSortFilterProxyModel* proxyModel = new QSortFilterProxyModel;
     proxyModel->setSourceModel(mp_temperatureModel);
@@ -29,7 +30,11 @@ MainWindow::MainWindow(QWidget *parent) :
     StarDelegate* starDelegate = new StarDelegate(this);
     ui->temperatureTableView->setItemDelegate(starDelegate);
 
+    // selection
     ui->temperatureTableView->setSelectionBehavior(QAbstractItemView::SelectRows);
+    QItemSelectionModel * selectionModel = ui->temperatureTableView->selectionModel();
+    QObject::connect(selectionModel, &QItemSelectionModel::selectionChanged, this, &MainWindow::slotTableSelectionChanged);
+    // ==setup table view==
 
     // setup the status bar
     mp_progressBar = new QProgressBar(this);
@@ -127,4 +132,20 @@ void MainWindow::slotUpdateProgressBar()
     mp_progressBar->setValue(m_milliSecondsLeftUntilThreadCheck);
     if(m_milliSecondsLeftUntilThreadCheck != 0)
         mp_progressBarTimer->start();
+}
+
+void MainWindow::slotTableSelectionChanged(const QItemSelection &newSelection, const QItemSelection &oldSelection)
+{
+    // get the index of the selected item
+//    const QModelIndex index = ui->temperatureTableView->selectionModel()->currentIndex();
+    int row = ui->temperatureTableView->selectionModel()->currentIndex().row();
+//    QString labelText = index.data(Qt::DisplayRole).toString();
+    QString labelText;
+
+    labelText += ui->temperatureTableView->model()->index(row, 0).data().toString();
+    (labelText += " ") += ui->temperatureTableView->model()->index(row, 1).data().toString();
+    (labelText += " ") += ui->temperatureTableView->model()->index(row, 2).data().toString();
+    (labelText += " ") += qvariant_cast<StarRating>(ui->temperatureTableView->model()->index(row, 3).data()).toString();
+
+    ui->temperatureLabel->setText(labelText);
 }

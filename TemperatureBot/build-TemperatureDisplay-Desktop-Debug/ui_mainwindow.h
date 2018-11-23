@@ -19,6 +19,7 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QKeySequenceEdit>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
@@ -41,11 +42,12 @@ public:
     QAction *actionQuit;
     QAction *actionAbout;
     QWidget *centralWidget;
-    QVBoxLayout *verticalLayout;
+    QHBoxLayout *horizontalLayout;
     QTabWidget *tabWidget;
     QWidget *tab;
-    QHBoxLayout *horizontalLayout_2;
+    QVBoxLayout *verticalLayout;
     QTableView *temperatureTableView;
+    QLabel *temperatureLabel;
     QWidget *tab_3;
     QVBoxLayout *verticalLayout_4;
     QKeySequenceEdit *keySequenceEdit;
@@ -79,25 +81,31 @@ public:
         actionAbout->setObjectName(QStringLiteral("actionAbout"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        verticalLayout = new QVBoxLayout(centralWidget);
-        verticalLayout->setSpacing(6);
-        verticalLayout->setContentsMargins(11, 11, 11, 11);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        horizontalLayout = new QHBoxLayout(centralWidget);
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         tabWidget = new QTabWidget(centralWidget);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
         tab = new QWidget();
         tab->setObjectName(QStringLiteral("tab"));
-        horizontalLayout_2 = new QHBoxLayout(tab);
-        horizontalLayout_2->setSpacing(6);
-        horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        verticalLayout = new QVBoxLayout(tab);
+        verticalLayout->setSpacing(6);
+        verticalLayout->setContentsMargins(11, 11, 11, 11);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         temperatureTableView = new QTableView(tab);
         temperatureTableView->setObjectName(QStringLiteral("temperatureTableView"));
         temperatureTableView->setGridStyle(Qt::DotLine);
         temperatureTableView->setSortingEnabled(true);
         temperatureTableView->verticalHeader()->setVisible(false);
 
-        horizontalLayout_2->addWidget(temperatureTableView);
+        verticalLayout->addWidget(temperatureTableView);
+
+        temperatureLabel = new QLabel(tab);
+        temperatureLabel->setObjectName(QStringLiteral("temperatureLabel"));
+        temperatureLabel->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(temperatureLabel);
 
         tabWidget->addTab(tab, QString());
         tab_3 = new QWidget();
@@ -128,7 +136,7 @@ public:
 
         tabWidget->addTab(tab_2, QString());
 
-        verticalLayout->addWidget(tabWidget);
+        horizontalLayout->addWidget(tabWidget);
 
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
@@ -199,6 +207,7 @@ public:
         actionLoad_XML->setText(QApplication::translate("MainWindow", "&Load XML", Q_NULLPTR));
         actionQuit->setText(QApplication::translate("MainWindow", "&Quit", Q_NULLPTR));
         actionAbout->setText(QApplication::translate("MainWindow", "&About", Q_NULLPTR));
+        temperatureLabel->setText(QApplication::translate("MainWindow", "TextLabel", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Tab 1", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "Page", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("MainWindow", "Page", Q_NULLPTR));
