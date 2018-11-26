@@ -14,20 +14,29 @@ class TemperatureTableModel : public QAbstractTableModel
     Q_OBJECT
 
 public:
-    explicit TemperatureTableModel(QObject *parent = nullptr);
+    explicit TemperatureTableModel(QObject *parent = nullptr): QAbstractTableModel(parent), m_rowCount(0), m_columnCount(4) {}
 
     // Header:
     QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
 
     // Basic functionality:
 
-    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    int columnCount(const QModelIndex &parent = QModelIndex()) const override;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override
+    {
+        return m_rowCount;
+    }
+    int columnCount(const QModelIndex &parent = QModelIndex()) const override
+    {
+       return m_columnCount;
+    }
 
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
     bool setData(const QModelIndex & index, const QVariant & value, int role = Qt::EditRole) override;
-    Qt::ItemFlags flags(const QModelIndex & index) const override ;
+    Qt::ItemFlags flags(const QModelIndex & index) const override
+    {
+        return Qt::ItemIsEditable | QAbstractTableModel::flags(index);
+    }
 
     //! Add temperature data to the list
     void addTemperatureData(std::vector<TemperatureBot::TemperatureData> temperatureData);

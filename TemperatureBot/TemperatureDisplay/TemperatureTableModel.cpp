@@ -2,13 +2,7 @@
 
 #include "StarDelegate.h"
 
-TemperatureTableModel::TemperatureTableModel(QObject *parent)
-    : QAbstractTableModel(parent)
-{
-    m_rowCount = 0;
-    m_columnCount = 4;
 
-}
 
 QVariant TemperatureTableModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
@@ -36,16 +30,6 @@ QVariant TemperatureTableModel::headerData(int section, Qt::Orientation orientat
         }
     }
     return QVariant();
-}
-
-int TemperatureTableModel::rowCount(const QModelIndex &parent) const
-{
-    return m_rowCount;
-}
-
-int TemperatureTableModel::columnCount(const QModelIndex &parent) const
-{
-   return m_columnCount;
 }
 
 QVariant TemperatureTableModel::data(const QModelIndex &index, int role) const
@@ -113,11 +97,6 @@ bool TemperatureTableModel::setData(const QModelIndex &index, const QVariant &va
         }
     }
     return true;
-}
-
-Qt::ItemFlags TemperatureTableModel::flags(const QModelIndex &index) const
-{
-    return Qt::ItemIsEditable | QAbstractTableModel::flags(index);
 }
 
 void TemperatureTableModel::addTemperatureData(std::vector<TemperatureBot::TemperatureData> temperatureData)
