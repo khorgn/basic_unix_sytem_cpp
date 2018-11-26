@@ -14,7 +14,7 @@ CC            = gcc
 CXX           = g++
 DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-CXXFLAGS      = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
+CXXFLAGS      = -pipe -g -Wall -W -Wno-unused-parameter -D_REENTRANT -fPIC $(DEFINES)
 INCPATH       = -I../TemperatureDisplay -I. -I../TemperatureReader/src -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -I. -isystem /usr/include/libdrm -I. -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++
 QMAKE         = /usr/lib/qt5/bin/qmake
 DEL_FILE      = rm -f
@@ -407,13 +407,14 @@ compiler_moc_predefs_make_all: moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) moc_predefs.h
 moc_predefs.h: /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
-	g++ -pipe -g -Wall -W -dM -E -o moc_predefs.h /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
+	g++ -pipe -g -Wall -W -Wno-unused-parameter -dM -E -o moc_predefs.h /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 
 compiler_moc_header_make_all: moc_mainwindow.cpp moc_TemperatureTableModel.cpp moc_ListenerThread.cpp moc_AboutWidget.cpp moc_StarDelegate.cpp moc_StarEditor.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) moc_mainwindow.cpp moc_TemperatureTableModel.cpp moc_ListenerThread.cpp moc_AboutWidget.cpp moc_StarDelegate.cpp moc_StarEditor.cpp
 moc_mainwindow.cpp: ../TemperatureReader/src/TemperatureData.hpp \
 		../TemperatureDisplay/TemperatureTableModel.h \
+		../TemperatureDisplay/StarRating.h \
 		../TemperatureDisplay/ListenerThread.h \
 		../TemperatureReader/src/TemperatureReader.hpp \
 		../TemperatureReader/src/EmptyContainerException.hpp \
@@ -424,6 +425,7 @@ moc_mainwindow.cpp: ../TemperatureReader/src/TemperatureData.hpp \
 	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/hugo/Programming/C++/TemperatureBot/TemperatureDisplay -I/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../TemperatureDisplay/mainwindow.h -o moc_mainwindow.cpp
 
 moc_TemperatureTableModel.cpp: ../TemperatureReader/src/TemperatureData.hpp \
+		../TemperatureDisplay/StarRating.h \
 		../TemperatureDisplay/TemperatureTableModel.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
@@ -480,6 +482,7 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 main.o: ../TemperatureDisplay/main.cpp ../TemperatureDisplay/mainwindow.h \
 		../TemperatureReader/src/TemperatureData.hpp \
 		../TemperatureDisplay/TemperatureTableModel.h \
+		../TemperatureDisplay/StarRating.h \
 		../TemperatureDisplay/ListenerThread.h \
 		../TemperatureReader/src/TemperatureReader.hpp \
 		../TemperatureReader/src/EmptyContainerException.hpp \
@@ -489,15 +492,19 @@ main.o: ../TemperatureDisplay/main.cpp ../TemperatureDisplay/mainwindow.h \
 mainwindow.o: ../TemperatureDisplay/mainwindow.cpp ../TemperatureDisplay/mainwindow.h \
 		../TemperatureReader/src/TemperatureData.hpp \
 		../TemperatureDisplay/TemperatureTableModel.h \
+		../TemperatureDisplay/StarRating.h \
 		../TemperatureDisplay/ListenerThread.h \
 		../TemperatureReader/src/TemperatureReader.hpp \
 		../TemperatureReader/src/EmptyContainerException.hpp \
 		../TemperatureDisplay/AboutWidget.h \
-		ui_mainwindow.h
+		ui_mainwindow.h \
+		../TemperatureDisplay/StarDelegate.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../TemperatureDisplay/mainwindow.cpp
 
 TemperatureTableModel.o: ../TemperatureDisplay/TemperatureTableModel.cpp ../TemperatureDisplay/TemperatureTableModel.h \
-		../TemperatureReader/src/TemperatureData.hpp
+		../TemperatureReader/src/TemperatureData.hpp \
+		../TemperatureDisplay/StarRating.h \
+		../TemperatureDisplay/StarDelegate.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o TemperatureTableModel.o ../TemperatureDisplay/TemperatureTableModel.cpp
 
 ListenerThread.o: ../TemperatureDisplay/ListenerThread.cpp ../TemperatureDisplay/ListenerThread.h \
@@ -511,7 +518,8 @@ AboutWidget.o: ../TemperatureDisplay/AboutWidget.cpp ../TemperatureDisplay/About
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o AboutWidget.o ../TemperatureDisplay/AboutWidget.cpp
 
 StarDelegate.o: ../TemperatureDisplay/StarDelegate.cpp ../TemperatureDisplay/StarDelegate.h \
-		../TemperatureDisplay/StarRating.h
+		../TemperatureDisplay/StarRating.h \
+		../TemperatureDisplay/StarEditor.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o StarDelegate.o ../TemperatureDisplay/StarDelegate.cpp
 
 StarRating.o: ../TemperatureDisplay/StarRating.cpp ../TemperatureDisplay/StarRating.h

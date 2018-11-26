@@ -46,6 +46,8 @@ FORMS += \
         mainwindow.ui \
     AboutWidget.ui
 
+QMAKE_CXXFLAGS_WARN_ON += -Wno-unused-parameter # removes the "unused parameter" warning
+
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../TemperatureReader/build/release/ -lTemperatureReader
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../TemperatureReader/build/debug/ -lTemperatureReader
 else:unix: LIBS += -L$$PWD/../TemperatureReader/build/src -lTemperatureReader_lib -lstdc++fs
