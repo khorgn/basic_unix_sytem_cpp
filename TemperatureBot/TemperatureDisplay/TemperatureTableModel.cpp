@@ -73,6 +73,8 @@ QVariant TemperatureTableModel::data(const QModelIndex &index, int role) const
 
 bool TemperatureTableModel::setData(const QModelIndex &index, const QVariant &value, int role)
 {
+    if(index.row() < 0 || index.row() > m_rowCount || index.column() < 0 || index.column() > m_columnCount)
+        return false;
     if(role == Qt::EditRole)
     {
         // Save value from editor to member m_temperatureData

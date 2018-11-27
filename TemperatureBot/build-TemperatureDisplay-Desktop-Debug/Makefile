@@ -15,7 +15,7 @@ CXX           = g++
 DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -g -Wall -W -Wno-unused-parameter -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I../TemperatureDisplay -I. -I../TemperatureReader/src -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -I. -isystem /usr/include/libdrm -I. -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++
+INCPATH       = -I../TemperatureDisplay -I. -I../TemperatureReader/src -I../modeltest -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -I. -isystem /usr/include/libdrm -I. -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++
 QMAKE         = /usr/lib/qt5/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -57,12 +57,14 @@ SOURCES       = ../TemperatureDisplay/main.cpp \
 		../TemperatureDisplay/AboutWidget.cpp \
 		../TemperatureDisplay/StarDelegate.cpp \
 		../TemperatureDisplay/StarRating.cpp \
-		../TemperatureDisplay/StarEditor.cpp moc_mainwindow.cpp \
+		../TemperatureDisplay/StarEditor.cpp \
+		../modeltest/modeltest.cpp moc_mainwindow.cpp \
 		moc_TemperatureTableModel.cpp \
 		moc_ListenerThread.cpp \
 		moc_AboutWidget.cpp \
 		moc_StarDelegate.cpp \
-		moc_StarEditor.cpp
+		moc_StarEditor.cpp \
+		moc_modeltest.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		TemperatureTableModel.o \
@@ -71,12 +73,14 @@ OBJECTS       = main.o \
 		StarDelegate.o \
 		StarRating.o \
 		StarEditor.o \
+		modeltest.o \
 		moc_mainwindow.o \
 		moc_TemperatureTableModel.o \
 		moc_ListenerThread.o \
 		moc_AboutWidget.o \
 		moc_StarDelegate.o \
-		moc_StarEditor.o
+		moc_StarEditor.o \
+		moc_modeltest.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -144,6 +148,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
+		../modeltest/modeltest.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resolve_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_post.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qml_debug.prf \
@@ -166,14 +171,16 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../TemperatureDisplay/AboutWidget.h \
 		../TemperatureDisplay/StarDelegate.h \
 		../TemperatureDisplay/StarRating.h \
-		../TemperatureDisplay/StarEditor.h ../TemperatureDisplay/main.cpp \
+		../TemperatureDisplay/StarEditor.h \
+		../modeltest/modeltest.h ../TemperatureDisplay/main.cpp \
 		../TemperatureDisplay/mainwindow.cpp \
 		../TemperatureDisplay/TemperatureTableModel.cpp \
 		../TemperatureDisplay/ListenerThread.cpp \
 		../TemperatureDisplay/AboutWidget.cpp \
 		../TemperatureDisplay/StarDelegate.cpp \
 		../TemperatureDisplay/StarRating.cpp \
-		../TemperatureDisplay/StarEditor.cpp
+		../TemperatureDisplay/StarEditor.cpp \
+		../modeltest/modeltest.cpp
 QMAKE_TARGET  = TemperatureDisplay
 DESTDIR       = 
 TARGET        = TemperatureDisplay
@@ -252,6 +259,7 @@ Makefile: ../TemperatureDisplay/TemperatureDisplay.pro /usr/lib/x86_64-linux-gnu
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
+		../modeltest/modeltest.pri \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resolve_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_post.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qml_debug.prf \
@@ -340,6 +348,7 @@ Makefile: ../TemperatureDisplay/TemperatureDisplay.pro /usr/lib/x86_64-linux-gnu
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf:
+../modeltest/modeltest.pri:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resolve_config.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_post.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qml_debug.prf:
@@ -375,8 +384,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../TemperatureDisplay/mainwindow.h ../TemperatureDisplay/TemperatureTableModel.h ../TemperatureDisplay/ListenerThread.h ../TemperatureDisplay/AboutWidget.h ../TemperatureDisplay/StarDelegate.h ../TemperatureDisplay/StarRating.h ../TemperatureDisplay/StarEditor.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../TemperatureDisplay/main.cpp ../TemperatureDisplay/mainwindow.cpp ../TemperatureDisplay/TemperatureTableModel.cpp ../TemperatureDisplay/ListenerThread.cpp ../TemperatureDisplay/AboutWidget.cpp ../TemperatureDisplay/StarDelegate.cpp ../TemperatureDisplay/StarRating.cpp ../TemperatureDisplay/StarEditor.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../TemperatureDisplay/mainwindow.h ../TemperatureDisplay/TemperatureTableModel.h ../TemperatureDisplay/ListenerThread.h ../TemperatureDisplay/AboutWidget.h ../TemperatureDisplay/StarDelegate.h ../TemperatureDisplay/StarRating.h ../TemperatureDisplay/StarEditor.h ../modeltest/modeltest.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../TemperatureDisplay/main.cpp ../TemperatureDisplay/mainwindow.cpp ../TemperatureDisplay/TemperatureTableModel.cpp ../TemperatureDisplay/ListenerThread.cpp ../TemperatureDisplay/AboutWidget.cpp ../TemperatureDisplay/StarDelegate.cpp ../TemperatureDisplay/StarRating.cpp ../TemperatureDisplay/StarEditor.cpp ../modeltest/modeltest.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../TemperatureDisplay/mainwindow.ui ../TemperatureDisplay/AboutWidget.ui $(DISTDIR)/
 
 
@@ -409,9 +418,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -Wall -W -Wno-unused-parameter -dM -E -o moc_predefs.h /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_TemperatureTableModel.cpp moc_ListenerThread.cpp moc_AboutWidget.cpp moc_StarDelegate.cpp moc_StarEditor.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_TemperatureTableModel.cpp moc_ListenerThread.cpp moc_AboutWidget.cpp moc_StarDelegate.cpp moc_StarEditor.cpp moc_modeltest.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_TemperatureTableModel.cpp moc_ListenerThread.cpp moc_AboutWidget.cpp moc_StarDelegate.cpp moc_StarEditor.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_TemperatureTableModel.cpp moc_ListenerThread.cpp moc_AboutWidget.cpp moc_StarDelegate.cpp moc_StarEditor.cpp moc_modeltest.cpp
 moc_mainwindow.cpp: ../TemperatureReader/src/TemperatureData.hpp \
 		../TemperatureDisplay/TemperatureTableModel.h \
 		../TemperatureDisplay/StarRating.h \
@@ -422,14 +431,14 @@ moc_mainwindow.cpp: ../TemperatureReader/src/TemperatureData.hpp \
 		../TemperatureDisplay/mainwindow.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/hugo/Programming/C++/TemperatureBot/TemperatureDisplay -I/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../TemperatureDisplay/mainwindow.h -o moc_mainwindow.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/hugo/Programming/C++/TemperatureBot/TemperatureDisplay -I/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src -I/home/hugo/Programming/C++/TemperatureBot/modeltest -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../TemperatureDisplay/mainwindow.h -o moc_mainwindow.cpp
 
 moc_TemperatureTableModel.cpp: ../TemperatureReader/src/TemperatureData.hpp \
 		../TemperatureDisplay/StarRating.h \
 		../TemperatureDisplay/TemperatureTableModel.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/hugo/Programming/C++/TemperatureBot/TemperatureDisplay -I/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../TemperatureDisplay/TemperatureTableModel.h -o moc_TemperatureTableModel.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/hugo/Programming/C++/TemperatureBot/TemperatureDisplay -I/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src -I/home/hugo/Programming/C++/TemperatureBot/modeltest -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../TemperatureDisplay/TemperatureTableModel.h -o moc_TemperatureTableModel.cpp
 
 moc_ListenerThread.cpp: ../TemperatureReader/src/TemperatureReader.hpp \
 		../TemperatureReader/src/TemperatureData.hpp \
@@ -437,24 +446,29 @@ moc_ListenerThread.cpp: ../TemperatureReader/src/TemperatureReader.hpp \
 		../TemperatureDisplay/ListenerThread.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/hugo/Programming/C++/TemperatureBot/TemperatureDisplay -I/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../TemperatureDisplay/ListenerThread.h -o moc_ListenerThread.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/hugo/Programming/C++/TemperatureBot/TemperatureDisplay -I/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src -I/home/hugo/Programming/C++/TemperatureBot/modeltest -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../TemperatureDisplay/ListenerThread.h -o moc_ListenerThread.cpp
 
 moc_AboutWidget.cpp: ../TemperatureDisplay/AboutWidget.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/hugo/Programming/C++/TemperatureBot/TemperatureDisplay -I/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../TemperatureDisplay/AboutWidget.h -o moc_AboutWidget.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/hugo/Programming/C++/TemperatureBot/TemperatureDisplay -I/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src -I/home/hugo/Programming/C++/TemperatureBot/modeltest -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../TemperatureDisplay/AboutWidget.h -o moc_AboutWidget.cpp
 
 moc_StarDelegate.cpp: ../TemperatureDisplay/StarRating.h \
 		../TemperatureDisplay/StarDelegate.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/hugo/Programming/C++/TemperatureBot/TemperatureDisplay -I/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../TemperatureDisplay/StarDelegate.h -o moc_StarDelegate.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/hugo/Programming/C++/TemperatureBot/TemperatureDisplay -I/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src -I/home/hugo/Programming/C++/TemperatureBot/modeltest -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../TemperatureDisplay/StarDelegate.h -o moc_StarDelegate.cpp
 
 moc_StarEditor.cpp: ../TemperatureDisplay/StarRating.h \
 		../TemperatureDisplay/StarEditor.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/hugo/Programming/C++/TemperatureBot/TemperatureDisplay -I/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../TemperatureDisplay/StarEditor.h -o moc_StarEditor.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/hugo/Programming/C++/TemperatureBot/TemperatureDisplay -I/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src -I/home/hugo/Programming/C++/TemperatureBot/modeltest -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../TemperatureDisplay/StarEditor.h -o moc_StarEditor.cpp
+
+moc_modeltest.cpp: ../modeltest/modeltest.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/hugo/Programming/C++/TemperatureBot/TemperatureDisplay -I/home/hugo/Programming/C++/TemperatureBot/TemperatureReader/src -I/home/hugo/Programming/C++/TemperatureBot/modeltest -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../modeltest/modeltest.h -o moc_modeltest.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -498,7 +512,8 @@ mainwindow.o: ../TemperatureDisplay/mainwindow.cpp ../TemperatureDisplay/mainwin
 		../TemperatureReader/src/EmptyContainerException.hpp \
 		../TemperatureDisplay/AboutWidget.h \
 		ui_mainwindow.h \
-		../TemperatureDisplay/StarDelegate.h
+		../TemperatureDisplay/StarDelegate.h \
+		../modeltest/modeltest.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../TemperatureDisplay/mainwindow.cpp
 
 TemperatureTableModel.o: ../TemperatureDisplay/TemperatureTableModel.cpp ../TemperatureDisplay/TemperatureTableModel.h \
@@ -529,6 +544,9 @@ StarEditor.o: ../TemperatureDisplay/StarEditor.cpp ../TemperatureDisplay/StarEdi
 		../TemperatureDisplay/StarRating.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o StarEditor.o ../TemperatureDisplay/StarEditor.cpp
 
+modeltest.o: ../modeltest/modeltest.cpp ../modeltest/modeltest.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o modeltest.o ../modeltest/modeltest.cpp
+
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
 
@@ -546,6 +564,9 @@ moc_StarDelegate.o: moc_StarDelegate.cpp
 
 moc_StarEditor.o: moc_StarEditor.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_StarEditor.o moc_StarEditor.cpp
+
+moc_modeltest.o: moc_modeltest.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_modeltest.o moc_modeltest.cpp
 
 ####### Install
 

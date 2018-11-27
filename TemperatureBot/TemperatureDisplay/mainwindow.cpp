@@ -11,6 +11,7 @@
 #include <QDebug>
 #include <QProgressBar>
 #include <QTimer>
+#include "modeltest.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -25,6 +26,9 @@ MainWindow::MainWindow(QWidget *parent) :
     QSortFilterProxyModel* proxyModel = new QSortFilterProxyModel;
     proxyModel->setSourceModel(mp_temperatureModel);
     ui->temperatureTableView->setModel(proxyModel);
+
+    // setup the model test
+    new ModelTest(mp_temperatureModel, this);
 
     // setup star delegate
     StarDelegate* starDelegate = new StarDelegate(this);

@@ -54,3 +54,5 @@ else:unix: LIBS += -L$$PWD/../TemperatureReader/build/src -lTemperatureReader_li
 
 INCLUDEPATH += $$PWD/../TemperatureReader/src/
 DEPENDPATH += $$PWD/../TemperatureReader/src/
+
+include(../modeltest/modeltest.pri)
