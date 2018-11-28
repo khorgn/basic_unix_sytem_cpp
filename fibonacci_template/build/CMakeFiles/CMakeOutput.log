@@ -1,0 +1,59 @@
+The system is: Linux - sh: 0: getcwd() failed: No such file or directory
+4.15.0-39-generic - sh: 0: getcwd() failed: No such file or directory
+x86_64
+Determining if the C compiler works passed with the following output:
+Change Dir: /home/hugo/Programming/C++/fibonacci_template/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_b5c20/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b5c20.dir/build.make CMakeFiles/cmTC_b5c20.dir/build
+make[1]: Entering directory '/home/hugo/Programming/C++/fibonacci_template/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b5c20.dir/testCCompiler.c.o
+/usr/bin/clang-6.0    -o CMakeFiles/cmTC_b5c20.dir/testCCompiler.c.o   -c /home/hugo/Programming/C++/fibonacci_template/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_b5c20
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b5c20.dir/link.txt --verbose=1
+/usr/bin/clang-6.0      CMakeFiles/cmTC_b5c20.dir/testCCompiler.c.o  -o cmTC_b5c20 
+make[1]: Leaving directory '/home/hugo/Programming/C++/fibonacci_template/build/CMakeFiles/CMakeTmp'
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /home/hugo/Programming/C++/fibonacci_template/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ae404/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ae404.dir/build.make CMakeFiles/cmTC_ae404.dir/build
+make[1]: Entering directory '/home/hugo/Programming/C++/fibonacci_template/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ae404.dir/CMakeCCompilerABI.c.o
+/usr/bin/clang-6.0    -o CMakeFiles/cmTC_ae404.dir/CMakeCCompilerABI.c.o   -c /usr/local/share/cmake-3.12/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_ae404
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ae404.dir/link.txt --verbose=1
+/usr/bin/clang-6.0      CMakeFiles/cmTC_ae404.dir/CMakeCCompilerABI.c.o  -o cmTC_ae404 
+make[1]: Leaving directory '/home/hugo/Programming/C++/fibonacci_template/build/CMakeFiles/CMakeTmp'
+
+
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /home/hugo/Programming/C++/fibonacci_template/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_56442/fast"
+/usr/bin/make -f CMakeFiles/cmTC_56442.dir/build.make CMakeFiles/cmTC_56442.dir/build
+make[1]: Entering directory '/home/hugo/Programming/C++/fibonacci_template/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_56442.dir/testCXXCompiler.cxx.o
+/usr/bin/clang++-6.0     -o CMakeFiles/cmTC_56442.dir/testCXXCompiler.cxx.o -c /home/hugo/Programming/C++/fibonacci_template/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_56442
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_56442.dir/link.txt --verbose=1
+/usr/bin/clang++-6.0       CMakeFiles/cmTC_56442.dir/testCXXCompiler.cxx.o  -o cmTC_56442 
+make[1]: Leaving directory '/home/hugo/Programming/C++/fibonacci_template/build/CMakeFiles/CMakeTmp'
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /home/hugo/Programming/C++/fibonacci_template/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_dcfd7/fast"
+/usr/bin/make -f CMakeFiles/cmTC_dcfd7.dir/build.make CMakeFiles/cmTC_dcfd7.dir/build
+make[1]: Entering directory '/home/hugo/Programming/C++/fibonacci_template/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_dcfd7.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/clang++-6.0     -o CMakeFiles/cmTC_dcfd7.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/share/cmake-3.12/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_dcfd7
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dcfd7.dir/link.txt --verbose=1
+/usr/bin/clang++-6.0       CMakeFiles/cmTC_dcfd7.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_dcfd7 
+make[1]: Leaving directory '/home/hugo/Programming/C++/fibonacci_template/build/CMakeFiles/CMakeTmp'
+
+

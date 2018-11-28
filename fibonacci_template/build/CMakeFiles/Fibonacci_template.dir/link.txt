@@ -1,0 +1,1 @@
+/usr/bin/clang++-6.0  -Wall -Wextra -pedantic   CMakeFiles/Fibonacci_template.dir/main.cpp.o CMakeFiles/Fibonacci_template.dir/Fibonacci.cpp.o  -o Fibonacci_template 

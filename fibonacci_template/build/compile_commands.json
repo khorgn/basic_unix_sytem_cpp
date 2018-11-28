@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/home/hugo/Programming/C++/fibonacci_template/build",
+  "command": "/usr/bin/clang++-6.0   -I/home/hugo/include  -Wall -Wextra -pedantic   -o CMakeFiles/Fibonacci_template.dir/main.cpp.o -c /home/hugo/Programming/C++/fibonacci_template/main.cpp",
+  "file": "/home/hugo/Programming/C++/fibonacci_template/main.cpp"
+},
+{
+  "directory": "/home/hugo/Programming/C++/fibonacci_template/build",
+  "command": "/usr/bin/clang++-6.0   -I/home/hugo/include  -Wall -Wextra -pedantic   -o CMakeFiles/Fibonacci_template.dir/Fibonacci.cpp.o -c /home/hugo/Programming/C++/fibonacci_template/Fibonacci.cpp",
+  "file": "/home/hugo/Programming/C++/fibonacci_template/Fibonacci.cpp"
+},
+{
+  "directory": "/home/hugo/Programming/C++/fibonacci_template/build",
+  "command": "/usr/bin/clang++-6.0   -I/home/hugo/include  -Wall -Wextra -pedantic   -o CMakeFiles/FirstTest.dir/Fibonacci_test.cpp.o -c /home/hugo/Programming/C++/fibonacci_template/Fibonacci_test.cpp",
+  "file": "/home/hugo/Programming/C++/fibonacci_template/Fibonacci_test.cpp"
+},
+{
+  "directory": "/home/hugo/Programming/C++/fibonacci_template/build",
+  "command": "/usr/bin/clang++-6.0   -I/home/hugo/include  -Wall -Wextra -pedantic   -o CMakeFiles/FirstTest.dir/Fibonacci.cpp.o -c /home/hugo/Programming/C++/fibonacci_template/Fibonacci.cpp",
+  "file": "/home/hugo/Programming/C++/fibonacci_template/Fibonacci.cpp"
+}
+]
