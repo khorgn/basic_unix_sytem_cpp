@@ -4,6 +4,7 @@ project(Fibonacci_template VERSION 0.1.0)
 include(GoogleTest)
 enable_testing()
 
+# tests args
 message("args before")
 foreach(ARG ${CMAKE_CC_FLAGS})
 message(${ARG})
@@ -22,7 +23,7 @@ endforeach(ARG ${CMAKE_CC_FLAGS})
 foreach(ARG ${CMAKE_CXX_FLAGS})
 message(${ARG})
 endforeach(ARG ${CMAKE_CXX_FLAGS})
-
+# test args
 
 add_executable(Fibonacci_template main.cpp Fibonacci.cpp Fibonacci.hpp Fibonacci_template.hpp)
 
