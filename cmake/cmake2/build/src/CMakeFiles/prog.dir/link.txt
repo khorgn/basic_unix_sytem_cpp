@@ -1,1 +1,0 @@
-/usr/bin/c++     CMakeFiles/prog.dir/main.cpp.o  -o prog libhello_lib.a 

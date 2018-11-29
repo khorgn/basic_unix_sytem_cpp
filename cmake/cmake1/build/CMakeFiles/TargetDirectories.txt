@@ -1,4 +1,0 @@
-/home/hugo/Documents/Programming/C++/cmake/cmake1/build/CMakeFiles/rebuild_cache.dir
-/home/hugo/Documents/Programming/C++/cmake/cmake1/build/CMakeFiles/edit_cache.dir
-/home/hugo/Documents/Programming/C++/cmake/cmake1/build/CMakeFiles/HelloCMake.dir
-/home/hugo/Documents/Programming/C++/cmake/cmake1/build/CMakeFiles/tests.dir

@@ -1,7 +1,0 @@
-/home/hugo/Programming/C++/fibonacci_template/build/CMakeFiles/rebuild_cache.dir
-/home/hugo/Programming/C++/fibonacci_template/build/CMakeFiles/Fibonacci_template.dir
-/home/hugo/Programming/C++/fibonacci_template/build/CMakeFiles/package_source.dir
-/home/hugo/Programming/C++/fibonacci_template/build/CMakeFiles/edit_cache.dir
-/home/hugo/Programming/C++/fibonacci_template/build/CMakeFiles/FirstTest.dir
-/home/hugo/Programming/C++/fibonacci_template/build/CMakeFiles/test.dir
-/home/hugo/Programming/C++/fibonacci_template/build/CMakeFiles/package.dir

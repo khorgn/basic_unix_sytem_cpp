@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.0.0)
 project(Fibonacci_template VERSION 0.1.0)
 
 include(GoogleTest)
+include(CTest) # necessary for running the google tests together through `make test`
 enable_testing()
 
 # tests args
@@ -35,6 +36,10 @@ include_directories(/home/hugo/include/)
 
 add_executable(FirstTest Fibonacci_test.cpp Fibonacci.cpp)
 target_link_libraries(FirstTest PRIVATE pthread ${CMAKE_SOURCE_DIR}/thirdparty/googletest/gtest_main.a)
-gtest_add_tests(TARGET FirstTest
 
-)
+add_test(NAME test COMMAND FirstTest)
+# gtest_add_tests(TARGET FirstTest
+#                 TEST_SUFFIX .noArgs
+#                 TEST_LIST noArgsTest
+# )
+# set_tests_properties(${noArgsTests}   PROPERTIES TIMEOUT 10)
