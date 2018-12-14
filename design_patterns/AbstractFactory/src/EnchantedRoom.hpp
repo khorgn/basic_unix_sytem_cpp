@@ -14,6 +14,8 @@ namespace abstractfactory::mazefactory
         Spell* m_spellCasted;
     public:
         EnchantedRoom(int roomNumber, Spell* spellCasted) : Room(roomNumber), m_spellCasted(spellCasted) {}
+        virtual bool enter() override;
+        const Spell* spell_casted() { return m_spellCasted; }
     };
     
 } // mazefactory

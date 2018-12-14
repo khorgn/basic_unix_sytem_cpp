@@ -1,12 +1,10 @@
 cmake_minimum_required(VERSION 3.10)
 
 SET (MAZEFACTORY_PROG_HEADERS
-    MazeGame.hpp
     )
 
 SET (MAZEFACTORY_PROG_SOURCES
     main.cpp
-    MazeGame.cpp
     )
 
 
@@ -29,6 +27,7 @@ SET (MAZEFACTORY_LIB_HEADERS
     BombedMazeFactory.hpp
     BombedWall.hpp
 
+    MazeGame.hpp
     )
 
 SET (MAZEFACTORY_LIB_SOURCES
@@ -46,6 +45,8 @@ SET (MAZEFACTORY_LIB_SOURCES
 
     BombedMazeFactory.cpp
     BombedWall.cpp
+
+    MazeGame.cpp
     )
 
 add_library(MazeFactory_lib SHARED ${MAZEFACTORY_LIB_SOURCES} ${MAZEFACTORY_LIB_HEADERS})

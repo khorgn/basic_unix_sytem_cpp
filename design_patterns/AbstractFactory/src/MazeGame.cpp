@@ -12,8 +12,6 @@ abstractfactory::mazefactory::Maze* MazeGame::create_maze(mazefactory::MazeFacto
     mazefactory::Room* r2 = factory.make_room(2);
     mazefactory::Door* aDoor = factory.make_door(r1, r2);
 
-    aMaze->add_room(r1);
-    aMaze->add_room(r2);
 
     r1->set_side(mazefactory::Room::ERoomSide::North, factory.make_wall());
     r1->set_side(mazefactory::Room::ERoomSide::South, factory.make_wall());
@@ -24,6 +22,9 @@ abstractfactory::mazefactory::Maze* MazeGame::create_maze(mazefactory::MazeFacto
     r2->set_side(mazefactory::Room::ERoomSide::South, factory.make_wall());
     r2->set_side(mazefactory::Room::ERoomSide::West, aDoor);
     r2->set_side(mazefactory::Room::ERoomSide::East, factory.make_wall());
+
+    aMaze->add_room(r1);
+    aMaze->add_room(r2);
 
     return aMaze;
 }

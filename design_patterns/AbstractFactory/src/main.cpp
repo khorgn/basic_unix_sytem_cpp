@@ -12,11 +12,11 @@ int main()
 
     auto game = abstractfactory::mazegame::MazeGame();
 
-    game.create_maze(*(new abstractfactory::mazefactory::MazeFactory));
+    auto maze = game.create_maze(*(new abstractfactory::mazefactory::MazeFactory));
 
-    game.create_maze(*(new abstractfactory::mazefactory::EnchantedMazeFactory));
+    maze = game.create_maze(*(new abstractfactory::mazefactory::EnchantedMazeFactory));
 
-    game.create_maze(*(new abstractfactory::mazefactory::BombedMazeFactory));
+    maze = game.create_maze(*(new abstractfactory::mazefactory::BombedMazeFactory));
 
 
     return 0;

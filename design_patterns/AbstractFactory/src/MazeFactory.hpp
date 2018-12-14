@@ -20,7 +20,8 @@ namespace abstractfactory::mazefactory
     class MazeFactory
     {
         public:
-        MazeFactory() {}
+        MazeFactory() = default;
+        virtual ~MazeFactory() = default;
         
         virtual Maze* make_maze() const { return new Maze; }
 
