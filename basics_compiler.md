@@ -1,0 +1,1 @@
+-Werror=old-style-cast
