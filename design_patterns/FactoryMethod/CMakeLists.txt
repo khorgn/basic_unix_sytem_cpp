@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.12)
-project(MazeFactoryMethond VERSION 0.1.0)
+project(MazeFactoryMethod VERSION 0.1.0)
 
 SET (CMAKE_CXX_FLAGS "-Wall -Wextra -pedantic -std=c++17")
 SET (CMAKE_CC_FLAGS "-Wall -Wextra -pedantic")

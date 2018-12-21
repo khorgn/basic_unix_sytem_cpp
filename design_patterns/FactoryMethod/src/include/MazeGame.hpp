@@ -1,3 +1,5 @@
+#pragma once
+
 #include "Maze.hpp"
 #include "Room.hpp"
 #include "Wall.hpp"
