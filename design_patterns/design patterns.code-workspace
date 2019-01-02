@@ -1,16 +1,22 @@
 {
 	"folders": [
 		{
-			"path": "Prototype"
+			"path": "structural_patterns/Adapter"
 		},
 		{
-			"path": "FactoryMethod"
+			"path": "creational_patterns/AbstractFactory"
 		},
 		{
-			"path": "Builder"
+			"path": "creational_patterns/Builder"
 		},
 		{
-			"path": "AbstractFactory"
+			"path": "creational_patterns/FactoryMethod"
+		},
+		{
+			"path": "creational_patterns/Prototype"
+		},
+		{
+			"path": "creational_patterns/Singleton"
 		}
 	],
 	"settings": {
