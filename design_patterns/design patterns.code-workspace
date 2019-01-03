@@ -1,6 +1,9 @@
 {
 	"folders": [
 		{
+			"path": "structural_patterns/Bridge"
+		},
+		{
 			"path": "structural_patterns/Adapter"
 		},
 		{
@@ -17,6 +20,9 @@
 		},
 		{
 			"path": "creational_patterns/Singleton"
+		},
+		{
+			"path": "structural_patterns/Composite"
 		}
 	],
 	"settings": {
