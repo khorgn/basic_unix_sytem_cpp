@@ -1,28 +1,44 @@
 # Adapter
 ## Abstract
-A class ensuring only one instance exists at all times
+Converts the interface of a class into another interface needed by the client
+
+Different from bridge in the goal. Adapter take an existing interface and converts it to be used as implementation of another interface.  
+Bridge is knowingly made this way from the start, to only have a weak link between an abstraction/its refinements and the concrete implementations
 
 
 ## Architecture
 ```ruby
 
-class Singleton
-    @@instance
+class Client
     def initialize()
     end
 
-    def self.instance
-        if(@@instance == nil)
-            @@instance = Singleton.new
-        end
-        @@instance
+    def self.action
+        # calls the target's interface
     end
+end
 
-    private_class_method :new
+class Target
+    def request
+    end
+end
+
+class Adapter < Target
+    def initialize
+        @adaptee = Adaptee.new
+    end
+    def request
+        @adaptee.specificRequest
+    end
+end
+
+class Adaptee
+    def specificRequest
+        # ...
+    end
 end
 
 ```
 
 
 ## Notes
-In C++ a static variable in a function can sometime be better

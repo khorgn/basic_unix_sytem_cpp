@@ -1,0 +1,4 @@
+{
+    "python.pythonPath": "/home/hugo/anaconda3/bin/python3",
+    "C_Cpp.default.configurationProvider": "vector-of-bool.cmake-tools"
+}

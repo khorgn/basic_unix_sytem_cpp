@@ -10,29 +10,35 @@ The relation between the main abstraction and the main implementor is the bridge
 ```ruby
 # The abstract representation of a window
 # typically provides higher-level operations using the primitive operations
-class Window:
-    private:
-    WindowImp imp
-    public:
-    action1():
+class Window
+    @imp # WindowImp
+    def action1
         ...
-        imp.methodA()
+        @imp.methodA
         ...
+    end
+end
 # The concrete representation of a window
 # typically only provides primitive operations whose details depend on a platform/context
-class WindowImp:
-    public:
-    methodA()
-    methodB()
+class WindowImp
+    def methodA
+    end
+    def methodB
+    end
+end
 # The abstract representation of a subclass of window, an icon
-class IconWindow extends Window:
-    public:
-    action2()
+class IconWindow < Window
+    def action2
+    end
+end
 # The concrete implementation of a window using the X framework
-class XWindowImp:
-    public:
-    override methodA()
-    override methodB()
+class XWindowImp < WindowImp
+    def methodA
+    end
+    def methodB
+    end
+end
+
 ```
 
 

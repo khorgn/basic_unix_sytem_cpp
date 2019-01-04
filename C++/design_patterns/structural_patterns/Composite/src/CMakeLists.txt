@@ -12,22 +12,20 @@ add_executable(EquipmentComposite_prog ${EQUIPMENTCOMPOSITE_PROG_SOURCES} ${EQUI
 target_link_libraries(EquipmentComposite_prog PRIVATE EquipmentComposite_lib)
 
 SET (EQUIPMENTCOMPOSITE_LIB_HEADERS
-    Coord.hpp
-    Point.hpp
-    Window.hpp
-    WindowImp.hpp
-    ApplicationWindow.hpp
-    IconWindow.hpp
+    Iterator.hpp
+    Equipment.hpp
+    FloppyDisk.hpp
+    CompositeEquipment.hpp
+    Chassis.hpp
 )
 LIST (TRANSFORM EQUIPMENTCOMPOSITE_LIB_HEADERS PREPEND include/)
 
 SET (EQUIPMENTCOMPOSITE_LIB_SOURCES
-    Coord.cpp
-    Point.cpp
-    Window.cpp
-    WindowImp.cpp
-    ApplicationWindow.cpp
-    IconWindow.cpp
+    Iterator.cpp
+    Equipment.cpp
+    FloppyDisk.cpp
+    CompositeEquipment.cpp
+    Chassis.cpp
 )
 
 add_library(EquipmentComposite_lib SHARED ${EQUIPMENTCOMPOSITE_LIB_SOURCES} ${EQUIPMENTCOMPOSITE_LIB_HEADERS})
