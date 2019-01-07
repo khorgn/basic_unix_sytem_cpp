@@ -1,6 +1,15 @@
 {
 	"folders": [
 		{
+			"path": "structural_patterns/Flyweight"
+		},
+		{
+			"path": "structural_patterns/Facade"
+		},
+		{
+			"path": "structural_patterns/Decorator"
+		},
+		{
 			"path": "structural_patterns/Composite"
 		},
 		{

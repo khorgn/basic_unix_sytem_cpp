@@ -1,0 +1,74 @@
+{
+    "C_Cpp.default.intelliSenseMode": "clang-x64",
+    "breadcrumbs.enabled": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.minimap.enabled": false,
+    "editor.multiCursorModifier": "alt",
+    "editor.renderControlCharacters": false,
+    "editor.renderWhitespace": "all",
+    "editor.wordWrap": "on",
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "python.linting.pylintPath": "pylint",
+    "python.pythonPath": "/home/hugo/anaconda3",
+    "vim.disableExtension": false,
+    "vim.enableNeovim": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "after": [
+                "<Esc>"
+            ],
+            "before": [
+                "f",
+                "g"
+            ]
+        },
+        {
+            "after": [
+                "<Esc>"
+            ],
+            "before": [
+                "F",
+                "G"
+            ]
+        }
+    ],
+    "vim.neovimPath": "nvim",
+    "vim.useSystemClipboard": true,
+    "workbench.tree.horizontalScrolling": true,
+
+    "python.linting.pylintArgs": [
+        "--extension-pkg-whitelist=numpy"
+    ],
+    "cmake.configureOnOpen": true,
+    "cSpell.userWords": [
+        "adaptee"
+    ],
+    "cSpell.enabledLanguageIds": [
+        "asciidoc",
+        "c",
+        "cpp",
+        "csharp",
+        "css",
+        "go",
+        "handlebars",
+        "html",
+        "jade",
+        "javascript",
+        "javascriptreact",
+        "json",
+        "latex",
+        "less",
+        "markdown",
+        "php",
+        "plaintext",
+        "pub",
+        "restructuredtext",
+        "rust",
+        "scss",
+        "text",
+        "typescript",
+        "typescriptreact",
+        "yml"
+    ],
+}

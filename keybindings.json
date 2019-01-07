@@ -1,0 +1,85 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+    {
+        "key": "[Backquote]",
+        "command": "workbench.action.terminal.toggleTerminal"
+    },
+    {
+        "key": "alt+v",
+        "command": "toggleVim"
+    },
+    {
+        "key": "alt+e n",
+        "command": "explorer.newFile"
+    },
+    {
+        "key": "alt+e d",
+        "command": "explorer.newFolder"
+    },
+    {
+        "key": "ctrl+q",
+        "command": "-workbench.action.quit"
+    },
+    {
+        "key": "alt+w e",
+        "command": "workbench.view.explorer"
+    },
+    {
+        "key": "ctrl+shift+e",
+        "command": "-workbench.view.explorer"
+    },
+    {
+        "key": "alt+w d",
+        "command": "workbench.view.debug"
+    },
+    {
+        "key": "ctrl+shift+d",
+        "command": "-workbench.view.debug"
+    },
+    {
+        "key": "alt+w x",
+        "command": "workbench.view.extensions"
+    },
+    {
+        "key": "ctrl+shift+x",
+        "command": "-workbench.view.extensions"
+    },
+    {
+        "key": "alt+w g",
+        "command": "workbench.view.scm"
+    },
+    {
+        "key": "ctrl+shift+g",
+        "command": "-workbench.view.scm"
+    },
+    {
+        "key": "alt+w f",
+        "command": "workbench.view.search",
+        "when": "!searchViewletVisible"
+    },
+    {
+        "key": "ctrl+shift+f",
+        "command": "-workbench.view.search",
+        "when": "!searchViewletVisible"
+    },
+    {
+        "key": "alt+w c",
+        "command": "workbench.view.extension.cmake__viewContainer"
+    },
+    {
+        "key": "alt+w r",
+        "command": "workbench.view.extension.references-view"
+    },
+    {
+        "key": "alt+w t",
+        "command": "workbench.view.extension.test"
+    },
+    {
+        "key": "alt+w shift+g",
+        "command": "workbench.view.extension.gitlens"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "-workbench.action.quickOpen"
+    }
+]
