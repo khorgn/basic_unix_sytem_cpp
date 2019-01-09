@@ -2,15 +2,16 @@
 #include <utility>
 #include <cstdlib>
 #include <cstring>
+#include <iostream>
 
 class string
 {
-	char* data;
 
 	public:
+	char* data;
 	string(const char* p); // constructor
 
-	string();
+//	string();
 	~ string(); // destructor
 
 	string(const string& that); // copy constructor
@@ -21,12 +22,14 @@ class string
 	friend void swap(string& first, string& second) // the friend function swap
 	// swap cannot be defined in the cpp, because its a friend direclty declared in the class, it can only be found by ADL (Argument-Dependent Lookup)
 	{
+		std::cout << "In swap: start" << '\n';
 		// we don't need to do a self-assignment check since there is virtually no const either way
 		using std::swap; // necessary to enable ADL for the following swaps
 		// for basic types, std::swap works perfectly, so by allowing it in the main namespace we let the compiler override its call when necessary
 
 		// we swaps the members of the two objects, and through ADL further swap redifinition will be called if the members needs it (are not basic types
 		swap(first.data, second.data);
+		std::cout << "In swap: end" << '\n';
 	}
 
 	string(string&& that); // move constructor

@@ -1,0 +1,71 @@
+string s1;
+In default constructor : start
+In default constructor : end
+
+string s2("foobar");
+In constructor : start
+In constructor : end
+
+string s3 = "foobar";
+In constructor : start
+In constructor : end
+
+s1 = s2;
+In copy constructor : start
+In copy constructor : end
+In copy assignment operator : start
+In swap: start
+In swap: end
+In copy assignment operator : end
+In destructor : start
+In destructor : end
+
+string s4(s2);
+In copy constructor : start
+In copy constructor : end
+
+string s5 = s2;
+In copy constructor : start
+In copy constructor : end
+
+string s6 = std::move(s2);
+In default constructor : start
+In default constructor : end
+In move constructor : start
+In swap: start
+In swap: end
+In move constructor : end
+
+string s7;
+In default constructor : start
+In default constructor : end
+s7 = std::move(s6);
+In default constructor : start
+In default constructor : end
+In move constructor : start
+In swap: start
+In swap: end
+In move constructor : end
+In copy assignment operator : start
+In swap: start
+In swap: end
+In copy assignment operator : end
+In destructor : start
+In destructor : end
+
+string&& s8 = std::move(s7);
+
+In destructor : start
+In destructor : end
+In destructor : start
+In destructor : end
+In destructor : start
+In destructor : end
+In destructor : start
+In destructor : end
+In destructor : start
+In destructor : end
+In destructor : start
+In destructor : end
+In destructor : start
+In destructor : end
