@@ -6,24 +6,33 @@ target remote localhost:2331
 
 C:\STM32Cube_FW_F3_V1.10.0\Projects\STM32F303RE-Nucleo\Examples\GPIO\GPIO_IOToggle\SW4STM32\STM32F303RE-Nucleo\Debug
 
-info breakpoints # list all breakpoints
+to have debug info: -g[3]
+
+info b[reakpoints] # list all breakpoints
 info watchpoints
 info functions
-info line
+f[rame] # gives current line
+up #go up in the stacktace, show the line calling the next stack
+down # go down in the stacktrace
+whe[re]|b[ack]t[race] [<negative number>] #give the line start of the functions in the stack. the negative arg gives the number of stack deep. no args means print all the stacks
+where|backtrace full # also print the local variables
+info line [*<address>|<function>] #gives info on the line at the given address. no argument is equivalent to the current line `info line *$pc` (the line address in the register pc)
 info locals # local variables
 info source
 show environment # list all environment variables
+info registers #list all the registers
 
 break main.c:120
 break 8 if val==50
 
-next # over
-step # into
+n[ext] [<line count>] # over. the number of lines to go over. no linecount is equivalent to 1
+s[tep] [<line count>] # into
 finish # continue until the stack frame returns
 until # until the loop is done
 backtrace # stacktrace
 print <variable> # print the content of the variable, the structure, or the member function (<object>.<member>)
 list [<linenum>|<file:linum>|<function>|<file:function>] # list the ten lines for the current line, or the next ten lines after the last list (`list -` goes back ten line instead)
+list *$pc # list the ten lines arround the current line
 p[type] <variable>|<function> # gets the type of the variable or function
 p[type] &<global variable>|<function> # gets the type and address of the pointer global variable or pointer function
 
@@ -40,6 +49,11 @@ shell clear # calls the clear shell command
 
 set logging file <filename>
 set logging on # turn on logging, if no file set previously, file is gdb.txt
+
+disas[semble] [<address>] # output the dump of the assembler code of the function surrounding the address of the program pointer or the given address
+disassemble [/m] [/r] # output also the source lines and the raw instructions in hex
+disassemble [['<file>'::]<function> # output for the function
+disassemble [<address start>,<address end>|+<length>] # output for the given memory range
 
 # === BREAKPOINT COMMAND LISTS ===
 # you can setup commands called when a breakpoint/watchpoint breaks the program
