@@ -1,0 +1,88 @@
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.2.0\ARMTools\bin
+
+& "C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.2.0\ARMTools\bin\arm-atollic-eabi-gdb.exe" "C:\STM32Cube_FW_F3_V1.10.0\Projects\STM32F303RE-Nucleo\Examples\GPIO\GPIO_IOToggle\SW4STM32\STM32F303RE-Nucleo\Debug"
+
+target remote localhost:2331
+
+C:\STM32Cube_FW_F3_V1.10.0\Projects\STM32F303RE-Nucleo\Examples\GPIO\GPIO_IOToggle\SW4STM32\STM32F303RE-Nucleo\Debug
+
+info breakpoints # list all breakpoints
+info watchpoints
+info functions
+info line
+info locals # local variables
+info source
+show environment # list all environment variables
+
+break main.c:120
+break 8 if val==50
+
+next # over
+step # into
+finish # continue until the stack frame returns
+until # until the loop is done
+backtrace # stacktrace
+print <variable> # print the content of the variable, the structure, or the member function (<object>.<member>)
+list [<linenum>|<file:linum>|<function>|<file:function>] # list the ten lines for the current line, or the next ten lines after the last list (`list -` goes back ten line instead)
+p[type] <variable>|<function> # gets the type of the variable or function
+p[type] &<global variable>|<function> # gets the type and address of the pointer global variable or pointer function
+
+watch <variable>|<expression>|<casted address> # set a watchpoint that break the program each time it is written, which changes its value. can be conditional
+rwatch <variable>|<expression>|<casted address> # set a watchpoint that break when read
+awatch <variable>|<expression>|<casted address> # set a watchpoint that break when read and written
+
+delete <breakpoint/watchpoint number> # remove the breakpoint/conditional breakpoint/watchpoint
+disable <breakpoint/watchpoint number> # disable the breakpoint/conditional breakpoint/watchpoint
+ignore <breakpoint number> <count> # ignore count times the breakpoint
+condition <breakpoint number> [<condition>] # if no condition, uncondition the breakpoint
+
+shell clear # calls the clear shell command
+
+set logging file <filename>
+set logging on # turn on logging, if no file set previously, file is gdb.txt
+
+# === BREAKPOINT COMMAND LISTS ===
+# you can setup commands called when a breakpoint/watchpoint breaks the program
+commands [<breakpoint number>] # if no number, the last breakpoint created
+
+# only breaks on bar if foo has already been called
+break foo
+commands
+  break bar
+  continue
+end
+
+# whenever it enters func, it watchs the local variable var (the watchpoint will disapear when the variable goes out of scope
+break func
+commands
+  watch var
+  continue
+end
+
+# set a watchpoint, still gives the modified information, doesn't break the program
+watch var
+commands
+  continue
+end
+
+# == save commands ==
+$ cat fileCommands
+break foo
+commands
+break bar
+continue
+end
+
+(gdb)$ source fileCommands
+
+#===== REMOTE CHIP CONTROL =====
+help monitor
+
+monitor reset
+monitor flash device = SMT32F303RE
+monitor flash download = 1
+
+load [<executable file>]
+
+monitor reset
+
