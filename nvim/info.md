@@ -45,6 +45,8 @@ marks can be of __X__ kinds:
 
 
 # COMMAND MODE (:)
+> :h ex-edit-index
 > same commands as in insert mode
 `<C-f>` to enter command-line window
-
+`<C-b>` to place cursor at the beginning of the line
+`<C-e>` to place cursor at the end of the line

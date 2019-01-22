@@ -1,4 +1,4 @@
-C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.2.0\ARMTools\bin
+"C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.2.0\ARMTools\bin"
 
 & "C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.2.0\ARMTools\bin\arm-atollic-eabi-gdb.exe" "C:\STM32Cube_FW_F3_V1.10.0\Projects\STM32F303RE-Nucleo\Examples\GPIO\GPIO_IOToggle\SW4STM32\STM32F303RE-Nucleo\Debug"
 
@@ -6,7 +6,19 @@ target remote localhost:2331
 
 C:\STM32Cube_FW_F3_V1.10.0\Projects\STM32F303RE-Nucleo\Examples\GPIO\GPIO_IOToggle\SW4STM32\STM32F303RE-Nucleo\Debug
 
-to have debug info: -g[3]
+to have debug info: use -O0, and -g[3] or -ggdb # also have symbol info gdb-related
+
+gdb --args <program> <arg1> [<arg2> [...]]
+
+start # set a temporary breakpoint at the first instruction of main and run (after all executions precluding the start of the main procedure main are done)
+starti # set a temporary breakpoint at the first instruction and run
+run # run with the current arg list
+run [<arg1> [...]]
+show args # show the arg list for the run
+set args [<arg1> [<arg2> [...]]] # set the arg list for the run
+
+run > outfile # the output is redirected to the given file
+run | tee outfile # tee output the result (&1) on stdout, and also into a file (add -a to tee if need to append instead of overwrite)
 
 info b[reakpoints] # list all breakpoints
 info watchpoints
@@ -19,15 +31,23 @@ where|backtrace full # also print the local variables
 info line [*<address>|<function>] #gives info on the line at the given address. no argument is equivalent to the current line `info line *$pc` (the line address in the register pc)
 info locals # local variables
 info source
-show environment # list all environment variables
+show environment [<var name] # list all environment variables, or the given variable
 info registers #list all the registers
+info threads
 
 break main.c:120
 break 8 if val==50
+b[reak] +|-<line offset> # set a breakpoint under|over the current line
+b[reak] line thread <thread number> # set breakpoint in the thread given
+tb[reak] # temporary breakpoint, removed after one use
+
+clear # delete all breakpoints
+clear <function> # delete all breakpoints in the given function
+clear <line number> # delete all breakpoints at the given line
 
 n[ext] [<line count>] # over. the number of lines to go over. no linecount is equivalent to 1
 s[tep] [<line count>] # into
-finish # continue until the stack frame returns
+f[inish] # continue until the stack frame returns
 until # until the loop is done
 backtrace # stacktrace
 print <variable> # print the content of the variable, the structure, or the member function (<object>.<member>)
@@ -45,7 +65,17 @@ disable <breakpoint/watchpoint number> # disable the breakpoint/conditional brea
 ignore <breakpoint number> <count> # ignore count times the breakpoint
 condition <breakpoint number> [<condition>] # if no condition, uncondition the breakpoint
 
+info disp[lay] # list the values displayed
+disp[lay] <variable name>|<expression> # print the value at each step
+undisp[lay] <display number> # unprint every step
+enable display <display number>
+disable display <display number>
+
+set variable <variable name> = <expression> # change the value of a variable
+jump <line number>|*<address> # jump the line given to continue execution
+
 shell clear # calls the clear shell command
+kill # end the execution of the program being debugged
 
 set logging file <filename>
 set logging on # turn on logging, if no file set previously, file is gdb.txt
@@ -100,3 +130,49 @@ load [<executable file>]
 
 monitor reset
 
+#===== CHECKPOINTS/SNAPSHOTS =====
+# only on GNU/Linux so far
+checkpoint # set a checkpoint for the current state of the program
+info checkpoints # list all checkpoints
+restart <checkpoint id> # restart in the state of the given checkpoint number
+# doesn't unwrite in files, but will rewind the files pointers, allowing rereading or overwriting the file content
+# the process id of the program will also be different, so process-id dependent programs must update this information
+# It doesn't rewind debugger state, such as breakpoints and watchpoints, they stay the same as before restart is called
+delete checkpoint <checkpoint id>
+
+#===== INFERIORS =====
+# gdb supports multiple programs running at the same time. each one is represented by an object called an inferior
+info inferiors # show a list of all inferiors, with their id, their process id if they have started, and the program executed
+inferior <inferior id> # switch the given inferior
+add-inferior [-copies <number copies>] [-exec <executable file>] # a number of inferiors for the given executable, or no executable, then addable with `file`
+clone-inferior [-copies <number copies>] [<inferior id>]
+remove-inferiors <iferior id> [<iferior id> [...]]
+
+#===== THREADS =====
+info threads # list threads
+thread <thread id> # switch thread
+
+#===== SHELL COMMANDS =====
+shell <command> # execute the given command
+!<command> # idem
+make|ls|cd|pwd # doesn't to precise shell or !
+
+#===== SKIPS =====
+# it's possible to set functions as to skip even when said to step into
+# ex: foo(bar()) if want to step in foo but not bar, one can to step then finish to enter bar then leave it and finally enter foo
+# or one can set skip bar
+skip function <function>
+skip file <filename>
+info skip [<range>] # all skips (in the given range)
+
+skip # current function is skipped
+    -fi[le] <filename>
+    -fu[nction] <function>
+    -gfi[le] <file pattern> # ex: skip -gfi utils/*.c
+    -rfu[nction] <function regex> # ex to skip all templated constructors and destructors in the std namespace: skip -rfu ^std::([a-zA-z0-9_]+)<.*>::~?\1 *\(
+
+skip delete [<range>]
+skip disable|enable [<range>]
+
+show debug skip # show wether the info that parts are skipped is printed
+set debug skip on|off
