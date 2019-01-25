@@ -1,0 +1,12 @@
+[package]
+name = "panic"
+version = "0.1.0"
+authors = ["DaMianYang <DaMianYang@outlook.fr>"]
+edition = "2018"
+
+[profile.release]
+panic = 'abort'
+# Instead of unwinding the stack in case of panic, the program simply abort.
+# The OS needs to take care of the data not cleaned up, but the executable is smaller
+
+[dependencies]

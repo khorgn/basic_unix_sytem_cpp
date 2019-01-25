@@ -7,8 +7,13 @@ fn main() {
     // relative path of the function
     sound::instrument::guitar();
 
-    use sound::voice::song;
-    song();
+    // relative path with use
+    use self::sound::voice;
+    voice::song();
+
+    use plant::Vegetable as Vegi;
+    let veg: Vegi = Vegi::new("Sweet Potato");
+
 }
 
 // a module
@@ -20,6 +25,7 @@ mod sound
         {
             println!("*guitare sound*");
         }
+        
     }
     // the module is available in the module "crate", but not oustide of it
     pub(crate) mod voice
@@ -71,7 +77,7 @@ mod plant
 
 //=== Enumerations ===//
 // enum are completely public if they are public
-mode menu
+mod menu
 {
     pub enum Appetizer
     {
@@ -79,3 +85,39 @@ mode menu
         Salade,
     }
 }
+
+//=== re-exportation of names ===//
+// pub use allows to transfert the path of an item
+mod performance_group
+{
+    // outside modules can access instrument through 
+    // performance_group::instrument
+    pub use crate::sound::instrument;
+
+    pub fn guitar_trio()
+    {
+        instrument::guitar();
+        instrument::guitar();
+        instrument::guitar();
+    }
+}
+
+fn perf()
+{
+    performance_group::guitar_trio();
+    performance_group::instrument::guitar();
+}
+
+
+//=== nested use ===//
+// use std::cmp::Ordering;
+// use std::collections;
+// can become
+use std::{cmp::Ordering, collections};
+
+// use std::io;
+// use std::io::Write;
+// can become
+use std::io::{self, Write};
+
+use std::collections::*;

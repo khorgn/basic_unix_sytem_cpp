@@ -2,6 +2,9 @@
 `cargo new <project name>`  
 this creates a new directory for the project, with the default structure and files.
 
+`cargo new <project name> --lib`
+this create a new directory for the library
+
 `cargo init`  
 initialize the curret folder instead of creating a named subfolder
 
