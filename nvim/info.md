@@ -1,12 +1,38 @@
+> :h  
+> :h ref  
+> :h mapleader
+
+:h index, `:h normal-index` `:h insert-index` `:h visual-index`  
+:h map-modes  
+:h map-which-keys  
+
 # NORMAL MODE (Esc)
 ## registers
+> :h registers
+> :h recording
+
 registers store text for future use.  
-registers can be of three kinds:
-1. the "user" registers (a-Z), the user set them
-1. the "time" registers ("0-9), give access to the last 10 yank/delete
-1. the "special" registers (+\*%#/:.-=), the copy(+) and the selected text(\*) of the system
+There are ten types of registers:
+1. the unnamed register ("), the last yank/delete
+2. the numbered registers (0-9)
+  1. give access to the last 9 yank/delete (1-9)
+  2. give access to the last yank (0)
+3. The small delete register "-
+4. the user registers (a-z), the user set them
+  1. the user registers appended (A-Z), appends the content to the one already existing
+5. three read-only registers (:.%), the last command (:), the last interted text (.), the current file (%)
+6. alternate buffer register (#)
+7. the expression register (=)
+8. The selection and drop registers (\*), (+) and (~), the copy (+), the mouse highlight (\*) of the system
+9. The black hole register (\_)
+10. Last search pattern register (/)
+
 `:registers` to see the list of registers  
 `"<register>y` save the yank in the register  
+`"<register>d` delete and store it in the register  
+`"<register>p` paste the content of the register  
+`:let @<REGISTER>='i;'` append the action to the end of the macro
+`:let @<register>='<C-r w>` correct the macro, add ' to the end to close the macro text
 
 registers can also be filled with macros
 `q<register><sequence of actions>q` to record a macro  
@@ -15,19 +41,44 @@ macros can be modified and saved through copy/paste, being simply text commands
 
 ## marks
 marks save the current position  
-marks can be of __X__ kinds:
+marks can be of 4 kinds:
 1. the user local marks (a-z), set by the user and local to the file/buffer
-1. the user global marks (A-Z), set by the user and shared between files/buffers, open the file if closed
+2. the user global marks (A-Z), set by the user and shared between files/buffers, open the file if closed
+3. the numbered marks (0-9), the location of the cursor when vim was closed (0), one before (1), ...
+4. the yank/change marks ([]), the first([)/last(]) character of the last yanked or changed test
+5. the visual area marks (<>), the first(<)/last(>) line or character of the last selected visual area
+6. the jump marks ('\`), the latest line (')/ character (\`) jump
+7. the buffer mark ("), the cursor position the last time the buffer was opened
+8. the inster mark (^), the position of the cursor for the end of the last insert mode, same as __gi__
 
-`m<mark>` to set a mark
-`'<mark` to go back to the start of the marked lnie
-`<backquote><mark>` to go back to the exact position saved
+`m<mark>` to set a mark  
+`'<mark` to go back to the start of the marked line  
+`<backquote><mark>` to go back to the exact position saved  
 
 ## miscellaneous
-`q:` to enter the command-line window
+`q:` to enter the command-line window  
+`*` next occurence of the word under the cursor  
+`#` previous occurence of the word under the cursor  
+
+`=` fix indentation, `==` fix current line, `gg=G` fix all file
+
+`gi` jump to last insert mode end  
+`g;` and `g,` jump back/forward to last changes  
+ jump forward to last changes  
+`(` and `)` jump to the start/end of the current sentence  
+`{` and `}` jump to the start/end of the current paragraph  
+`<C-o>` and `<C-i` jump to older/newer cursor position in jump list  
+`:jumps` print the jump list  
+
+`:map` user-defined mapping of keys
+`:imap` user-defined mapping of keys or insert mode
+
+`:noh[ighlightsearch]` clear the search highlight
+
 
 # INSERT MODE (i/a/..., R)
 > `:help ins-special-keys`
+
 `<C-w>` to remove a word  
 `<C-h>` to remove a character  
 `<C-u>` to delete all characters on the line (similar to `d0`)
@@ -37,12 +88,16 @@ marks can be of __X__ kinds:
 
 `<C-j>` or `<C-M>` to enter a new line  
 `<C-i>` to insert a tab
+`<C-t>` and `<C-d>` to insert/delete one shiftwidth of intend at the start of the line  
+`0 <C-d>`to remove all inserts at the start of the line  
+`<C-a>` to insert the last inserted/yanked test  
 
-`<C-a>` to insert the last inserted/yanked test
-`<C-r><register>` to insert the content of a register
+`<C-r><register>` to insert the content of a register  
+`<C-r>=<expression>` to insert the result of an expression  
+* `<C-r>=4*3` gives 12
+* `<C-r>=system('ls')` gives the result of ls
 
 `<C-o>` to issue a single command in normal mode
-
 
 # COMMAND MODE (:)
 > :h ex-edit-index
