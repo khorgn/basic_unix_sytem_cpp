@@ -1,1 +1,0 @@
-{"rustc":11779505878581416876,"features":"[]","target":15527581547853059019,"profile":12098284368033728851,"path":1036222786711178230,"deps":[["rand v0.3.22","rand",10000333260635833233],["rand v0.3.22","rand",12227099315861974680]],"local":[{"Precalculated":"1548250241.484110176s (/home/hugo/Programming/Rust/guessing_game/src/main.rs)"}],"rustflags":[],"edition":"Edition2018"}
