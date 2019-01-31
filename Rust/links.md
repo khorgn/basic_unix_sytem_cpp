@@ -11,3 +11,5 @@
 [an unofficial grouping of Rust information](https://github.com/rust-unofficial)
 
 [a state of Rust GUI](http://areweguiyet.com/newsfeed/2018-01-13_rust2019.html)
+
+[a book on unstable features](https://doc.rust-lang.org/unstable-book/)
