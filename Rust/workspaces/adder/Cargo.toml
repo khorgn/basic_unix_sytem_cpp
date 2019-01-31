@@ -1,0 +1,10 @@
+[package]
+name = "adder"
+version = "0.1.0"
+authors = ["DaMianYang <DaMianYang@outlook.fr>"]
+edition = "2018"
+
+[dependencies]
+# specify the version dependency for when the packages will be published, so it knows which version it should get
+add-one = { path = "../add-one", version = "0.1.0" }
+rand = "0.6"

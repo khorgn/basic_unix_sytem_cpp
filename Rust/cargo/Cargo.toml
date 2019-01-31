@@ -1,0 +1,15 @@
+[package]
+name = "cargo_learn"
+version = "0.1.0"
+authors = ["DaMianYang <DaMianYang@outlook.fr>"]
+edition = "2018"
+
+[dependencies]
+
+# the way to change the build profiles
+[profile.dev]
+opt-level = 0 # the default optimisation level for dev
+
+[profile.release]
+opt-level = 3 # the default optimisation level for release
+

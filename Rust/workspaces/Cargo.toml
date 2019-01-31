@@ -1,0 +1,6 @@
+# a table containing info on the workspace
+[workspace]
+members = [
+	"adder",
+	"add-one",
+]
