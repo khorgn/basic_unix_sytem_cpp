@@ -1,5 +1,7 @@
 [https://doc.rust-lang.org/book/]
 
+[to write Rust in browser for tests](https://play.rust-lang.org/=
+
 [a book to learn through short examples](https://doc.rust-lang.org/rust-by-example/index.html)
 
 [a cookbook to find ways to do different things](https://rust-lang-nursery.github.io/rust-cookbook/)

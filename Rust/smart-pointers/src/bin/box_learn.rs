@@ -1,3 +1,9 @@
+fn main() {
+    store_i32_on_heap();
+    use_list();
+    use_deref_box();
+}
+
 fn store_i32_on_heap() {
     let b = Box::new(5);
     println!("b = {}", b);

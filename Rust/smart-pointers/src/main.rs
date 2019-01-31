@@ -34,6 +34,4 @@ fn main() {
     let _c: RefCell<i32> = RefCell::new(5);
 }
 
-mod box_learn;
 mod custom_smartpointer;
-mod drop_impl;
