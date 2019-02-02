@@ -1,6 +1,6 @@
 [https://doc.rust-lang.org/book/]
 
-[to write Rust in browser for tests](https://play.rust-lang.org/=
+[to write Rust in browser for tests](https://play.rust-lang.org/)
 
 [a book to learn through short examples](https://doc.rust-lang.org/rust-by-example/index.html)
 

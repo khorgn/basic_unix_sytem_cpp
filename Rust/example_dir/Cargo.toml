@@ -1,0 +1,13 @@
+[package]
+name = "example_dir"
+version = "0.1.0"
+authors = ["DaMianYang <hugo.dupuyroudel@outlook.com>"]
+edition = "2018"
+
+[dependencies]
+
+# a dev-dependency is a dependency not used when building
+# it's only used when compiling tests, examples, and benchmarks
+# it's also not propagated to packages using the library
+[dev-dependencies]
+cc = "1"
