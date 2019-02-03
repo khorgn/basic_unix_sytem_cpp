@@ -1,0 +1,72 @@
+//========== Associated Types ==========//
+// an advantage of associated types over generics is to reduce type annotation
+// since the trait can only be implemented once, we don't need to annotate next() each type we want
+// to use it
+
+pub struct Counter {}
+
+pub trait Iterator {
+    // placeholder type
+    type Item;
+
+    fn next(&mut self) -> Option<Self::Item>;
+}
+
+impl Iterator for Counter {
+    type Item = u32;
+    fn next(&mut self) -> Option<Self::Item> {
+        None
+    }
+}
+
+pub trait IteratorGeneric<T> {
+    fn next(&mut self) -> Option<T>;
+}
+
+
+//========== Default Generic Type Parameters ==========//
+trait TraitWithDefault<T=u32> {
+    fn add(t1: T, t2: T) -> T;
+}
+
+struct BasicStruct {}
+
+impl TraitWithDefault for BasicStruct {
+    fn add(t1: u32, t2: u32) -> u32 {
+        0
+    }
+}
+
+//========== Operator Overloading ==========//
+use std::ops::Add;
+
+#[derive(Debug, PartialEq)]
+struct Point {
+    x: i32,
+    y: i32,
+}
+
+impl Add for Point {
+    type Output = Point;
+
+    fn add(self, other: Point) -> Point {
+        Point {
+            x: self.x + other.x,
+            y: self.y + other.y,
+        }
+    }
+}
+
+check_add() {
+    assert_eq!(Point {x: 1, y: 0} + Point {x: 2, y: 3},
+               Point {x: 3, y: 3});
+
+//========== Fully Qualified Syntax ==========//
+
+
+
+//========== Supertraits ==========//
+
+
+
+//========== The Newtype Pattern ==========//

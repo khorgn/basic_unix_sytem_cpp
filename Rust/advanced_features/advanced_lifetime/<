@@ -1,0 +1,22 @@
+//========== Lifetime subtyping ==========//
+//========== Lifetime bound ==========//
+//========== Inference of trait objects Lifetime ==========//
+//========== Anonymous Lifetime ==========//
+// The compiler can elise lifetime notations under certain rules explained before
+// a self reference parameter, only one reference parameter
+
+// exemple struct needing lifetime notation
+struct StrWrap<'a>(&'a str);
+
+fn fooVerbose<'a>(string: &'a str) -> StrWrap<'a> {
+    StrWrap(string)
+}
+
+fn fooElided(string: & str) -> StrWrap<'_> {
+    StrWrap(string)
+}
+
+trait ATraitVerbose {}
+trait ATraitElided {}
+impl<'a> ATraitElided for StrWrap<'a> {}
+impl ATraitVerbose for StrWrap<'_> {}
