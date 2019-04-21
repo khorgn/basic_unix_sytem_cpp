@@ -1,9 +1,0 @@
-[workspace]
-members = [
-	"unsafe_rust",
-	"advanced_lifetime",
-	"advanced_traits",
-	"advanced_types",
-	"advanced_funcs",
-	"macros",
-]
