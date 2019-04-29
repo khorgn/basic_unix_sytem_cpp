@@ -23,12 +23,17 @@ mod file_manipulation {
     }
 }
 
+/// # Configuration
+/// module containing all the configurations for the program
 mod configuration {
     use std::env;
+    /// # CatArgs
+    /// Structure organizing the arguments used for the program
     pub struct CatArgs {
         pub file_paths: Vec<String>,
     }
 
+    /// Parse the command-line arguments to fill the structure CatArgs
     pub fn parse() -> Result<CatArgs, String> {
         let args: Vec<String> = env::args().collect();
 
