@@ -46,3 +46,66 @@ treeGoUpmost l = treeGoUpmost (treeGoUp l)
 
 treeModify :: (Tree a -> Tree a) -> TreeZ a -> TreeZ a
 treeModify f (t, c) = (f t, c)
+
+-- file system
+
+type Name = String
+type Data = String
+
+data FSItem = File Name Data | Folder Name [FSItem] deriving (Show)
+
+-- files are ordered
+-- the first list is the items before the one currently focused
+-- the second list is the items after the one currently focused
+data FSCtx = FSCtx Name [FSItem] [FSItem] deriving (Show)
+
+type FSZipper = (FSItem, [FSCtx])
+
+defaultDisk :: FSItem
+defaultDisk =
+  Folder "root"
+    [ File "goat.wmv" "baaaaa"
+    , File "pope.avi" "god bless"
+    , Folder "pics"
+      [ File "ape.jpg" "bleargh"
+      , File "watermelon.gif" "smash"
+      , File "skull.bmp" "Yi"
+      ]
+    , File "dijon.doc" "best mustard"
+    , Folder "programs"
+      [ File "prog1.exe" "go"
+      , File "owl.dmg" "h00t"
+      , File "virtus.exe" "virus"
+      , Folder "source code"
+        [ File "best_prog.hs" "main = print (fix error)"
+        , File "random.hs" "main = print 4"
+        ]
+      ]
+    ]
+
+
+
+fsUp :: FSZipper -> FSZipper
+-- the inner parentheses for FSCtx are not necessary but make it easier to understand
+fsUp (item, (FSCtx name lfiles rfiles):ctxs) = (Folder name (lfiles ++ [item] ++ rfiles), ctxs)
+
+fsTo :: Name -> FSZipper -> FSZipper
+fsTo name (Folder folderName items, ctxs) =
+  -- break :: (a -> Bool) -> [a] -> ([a], [a])
+  -- first element evaluate to false, second the first one to evaluate to true
+  let (lfiles, item:rfiles) = break (nameIs name) items
+  in (item, FSCtx folderName lfiles rfiles:ctxs)
+
+nameIs :: Name -> FSItem -> Bool
+nameIs name (Folder folderName _) = name == folderName
+nameIs name (File fileName _) = name == fileName
+
+fsRename :: Name -> FSZipper -> FSZipper
+fsRename newName (Folder name items, ctxs) = (Folder newName items, ctxs)
+fsRename newName (File name dat, ctxs) = (File newName dat, ctxs)
+
+
+
+
+(-:) :: a -> (a -> b) -> b
+x -: f = f x
