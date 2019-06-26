@@ -35,6 +35,10 @@ withSequence = do
   rs <- sequence [getLine, getLine, getLine]
   print rs
 
+withsequenceIgnore = do
+  -- evaluate each monadic action, and discard the result
+  sequence_ [getLine, getLine, getLine]
+
 -- usefull with mapping IO functions
 onlyMap = map print [1,2,3] -- evaluates to [print 1, print 2, print 3], it didn't execute the actions
 sequenceOfMap = sequence $ map print [1,2,3] -- executes them
