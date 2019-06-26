@@ -7,34 +7,53 @@ basic install `sudo apt install cabal-install`
 run ghci for interactive shell  
 
 # links
-[main site](https://www.haskell.org/)  
-[learn you a haskell](http://learnyouahaskell.com/chapters)  
-[Wiki](https://wiki.haskell.org/Haskell)  
-[Hoogle](https://hoogle.haskell.org/)  
-[central package archive/documentation](https://hackage.haskell.org/)  
-[example documentation](https://hackage.haskell.org/package/base/docs/Data-Maybe.html)  
-[Why functional programming matters](https://github.com/rust-lang/rustlings)  
-<http://conal.net/blog/posts/semantic-editor-combinators>  
-[index for the standard library](https://downloads.haskell.org/~ghc/latest/docs/html/libraries/)  
-[state of haskell ecosystem](https://github.com/Gabriel439/post-rfc/blob/master/sotu.md)  
-[haskell trainings google](https://github.com/google/haskell-trainings)  
-[haskell codelab google](https://github.com/google/haskell-codelab)  
-[functors, applicatives and monads in pictures](adit.io)  
-["what I wish I knew when learning haskell"](http://dev.stephendiehl.com/hask/) 
-<http://www-cs-students.stanford.edu/~blynn/haskell/>  
+
+## Officials
+* [main site](https://www.haskell.org/)  
+* [Hoogle](https://hoogle.haskell.org/)  
+* [central package archive/documentation](https://hackage.haskell.org/)  
+* [example documentation](https://hackage.haskell.org/package/base/docs/Data-Maybe.html)  
+* [index for the standard library](https://downloads.haskell.org/~ghc/latest/docs/html/libraries/)  
+
+
+## Wiki
+* [Wiki](https://wiki.haskell.org/Haskell)  
+* [meta-tutorial](https://wiki.haskel.org/meta-tutorial)
+* [Typeclassopedia](https://wiki.haskel.org/Typeclassopedia)
+* [liquid haskell](https://wiki.haskel.org/liquid_haskell)
+* [Idioms](https://wiki.haskell.org/Category:Idioms)  
+
+## Wikibooks
+* [Wikibook](https://en.wikibooks.org/wiki/Haskell)
+
+## Miscellaneous
+* [learn you a haskell](http://learnyouahaskell.com/chapters)  
+* [Why functional programming matters](https://github.com/rust-lang/rustlings)  
+* <http://conal.net/blog/posts/semantic-editor-combinators>  
+* [state of haskell ecosystem](https://github.com/Gabriel439/post-rfc/blob/master/sotu.md)  
+* [haskell trainings google](https://github.com/google/haskell-trainings)  
+* [haskell codelab google](https://github.com/google/haskell-codelab)  
+* [functors, applicatives and monads in pictures](adit.io)  
+* ["what I wish I knew when learning haskell"](http://dev.stephendiehl.com/hask/) 
+* <http://www-cs-students.stanford.edu/~blynn/haskell/>  
+* [haskell pitfalls](lorepub.com/post/2016-12-17-Haskell-Pitfalls)
+* [DataHaskell: Current environment](www.datahaskell.org/docs/community/current-environment.html)
+* [Rosetta-code](Rosettacode.org/wiki/100_door#Haskell)
+* [view-patterns](gitlab.haskell.org/ghc/wikis/view-patterns)
+* [liquid-haskell tutorial](ucsd-progsys.github.io/liquidhaskell-tutorial)
 
 # books
-[Learn me a haskell](http://learnyouahaskell.com/chapters)  
-[haskell first principle](haskellbook.com)  
-[real world haskell](book.realworldhaskell.org)  
-thinking functionally with haskell  
+* [Learn me a haskell](http://learnyouahaskell.com/chapters)  
+* [haskell first principle](haskellbook.com)  
+* [real world haskell](book.realworldhaskell.org)  
+* thinking functionally with haskell  
 
 # sites
-hackerranks  
-codewars  
+* hackerranks  
+* codewars  
 
 # videos
-_"Dependent Types in Haskell" by Stephanie Weirich_ on youtube
+* "Dependent Types in Haskell" by Stephanie Weirich_ on youtube
 
 # concepts
 * foldable/traversable
@@ -47,4 +66,11 @@ _"Dependent Types in Haskell" by Stephanie Weirich_ on youtube
 * dependent types
 
 # toolset
-[stack](https://docs.haskellstack.org/en/stable/README/)
+* [stack](https://docs.haskellstack.org/en/stable/README/)
+* Nix
+
+# ghci
+* set \+t \+m \+s
+
+# ghc
+* `{-# OPTION_GHC -Wall #-}`

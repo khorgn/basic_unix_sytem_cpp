@@ -21,10 +21,17 @@
 
 # Algorithms
 * Dijkstra
+* A*
 * Alpha-Beta
 * Newton-raphson square roots
 * numerical differenciation
 * numerical integration
+* Hash
+* Markov chain
+
+# Sequences
+* Fibonacci
+
 
 # simulations
 * the game of life
