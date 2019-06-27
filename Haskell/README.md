@@ -48,10 +48,6 @@ run ghci for interactive shell
 * [real world haskell](book.realworldhaskell.org)  
 * thinking functionally with haskell  
 
-# sites
-* hackerranks  
-* codewars  
-
 # videos
 * "Dependent Types in Haskell" by Stephanie Weirich_ on youtube
 
