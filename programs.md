@@ -31,6 +31,17 @@
 * Markov chain
 * [Discrete intervale encoding tree](http://web.engr.oregonstate.edu/~erwig/papers/Diet_JFP98.pdf) ([Rust implementation](https://bitbucket.org/nikhilm/rust-diet/src/default/src/diet.rs))
 
+# Machine learning
+## Supervised learning
+* [Linear Regresion](https://en.wikipedia.org/wiki/Linear_regression)
+* [K-Nearest Neighbors](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm)
+* [Linear Discriminant Analysis / Quadratic Discriminant Analysis](https://en.wikipedia.org/wiki/Linear_discriminant_analysis) (also used to reduce dimensionality)
+* [Decision tree](https://en.wikipedia.org/wiki/Decision_tree_learning)
+## Clustering
+* [K-Means](https://en.wikipedia.org/wiki/K-means_clustering)
+* [Expectation-Maximization](https://en.wikipedia.org/wiki/Expectation%E2%80%93maximization_algorithm)
+
+
 #APIs
 * [CRUD]
 * [RESTful](https://restfulapi.net/)
