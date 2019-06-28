@@ -1,13 +1,23 @@
 # Line-command tools
-* echo
-* cat
-* ls
-* grep
-* wc
-* sed
-* tee
-* head, tail
-* column
+> [C source code](http://git.savannah.gnu.org/cgit/coreutils.git/tree/src)  
+> [Rust implementations](https://github.com/uutils)
+* echo (prints a line of text)
+* cat (prints the content of a file)
+* ls (lists the contents of a directory)
+* grep (searchs occurences in a file)
+* wc (counts the lines, characters, and bytes in a file)
+* sed 
+* tee (reads from stdin and writes to both stdout and files)
+* head, tail (prints the x first/last lines in a text file)
+* column (columnate lists)
+* tr (translates or deletes characters)
+* strings (extracts plaintext strings from a binary file)
+* nc (reads and writes bytes to network sockets)
+* tree (prints a graphical representation of a directory tree)
+* cal (prints a text calendar)
+* cut (extracts delimited fields from linewise text records)
+* sort (sorts lines)
+* uniq (prints only unique lines)
 
 # Games
 * Rock Paper Scissors
@@ -15,6 +25,7 @@
 * Chess
 * Go
 * 2048
+* labyrinth
 
 # Parsers
 > [Parser Combinators](https://en.wikipedia.org/wiki/Parser_combinator)  
