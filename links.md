@@ -3,8 +3,9 @@
   a file to organize formats in a project
 
 # exercises
-* hackerranks
-* codewars
+* [advent of code](https://adventofcode.com/)
+* [hackerranks](https://www.hackerrank.com/)
+* [codewars](https://www.codewars.com/)
 
 # sample code
 * [Rosetta-code 100 door](Rosettacode.org/wiki/100_door)
