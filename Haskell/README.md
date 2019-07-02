@@ -49,14 +49,18 @@ run ghci for interactive shell
 * thinking functionally with haskell  
 
 # videos
-* "Dependent Types in Haskell" by Stephanie Weirich_ on youtube
+* "Dependent Types in Haskell" by _Stephanie Weirich_ on youtube
 
 # concepts
-* foldable/traversable
+* [foldable/traversable](https://wiki.haskell.org/Foldable_and_Traversable)
 * functors
 * applicative
 * monads (IO, State, Maybe, Either, Reader, Writer)
-* monad transformers
+* [monad transformers](https://wiki.haskell.org/Monad_Transformers_Explained)
+  [wikibooks chapter](https://en.wikibooks.org/wiki/Haskell/Monad_transformers)
+* [Generalised algebraic datatype](https://wiki.haskell.org/Generalised_algebraic_datatype)
+  [stack overflow answer on the topic](https://stackoverflow.com/questions/8245288/what-does-data-where-mean-in-haskell)  
+  [Wikibooks chapter](https://en.wikibooks.org/wiki/Haskell/GADT)  
 * category theory (math)
 * [lens](http://lens.github.io/tutorial.html)
 * dependent types

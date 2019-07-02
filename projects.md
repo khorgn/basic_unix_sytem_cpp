@@ -39,7 +39,7 @@
 
 # Algorithms
 * Dijkstra
-* A*
+* A\*
 * Alpha-Beta
 * Newton-raphson square roots
 * numerical differenciation
