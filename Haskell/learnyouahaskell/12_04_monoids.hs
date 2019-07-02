@@ -8,7 +8,7 @@ import Data.Monoid ( Sum(Sum, getSum)
 -- example: Natural numbers with the function addition and the neutral element 0
 -- haskell examples of monoids: List, Sum, Product
 
-class MyMonoid m where
+class Semigroup m => MyMonoid m where
   -- the identy value
   myMempty :: m
   -- the binary function combining two elements of the set
@@ -25,6 +25,8 @@ monoidSecondLaw x = x `mappend` mempty == x
 monoidThirdLaw :: (Monoid a, Eq a) => a -> a -> a -> Bool
 monoidThirdLaw x y z = (x `mappend` y) `mappend` z == x `mappend` (y `mappend` z)
 
+-- == Semigroups == --
+-- a semigroup is a set with a binary function, it doesn't need to have an identity element
 
 -- == Lists as monoids == --
 
@@ -44,6 +46,9 @@ exampleList4 = "aaa" `mappend` mempty == "aaa"
 newtype MyProduct a = MyProduct { getMyProduct :: a } deriving (Eq, Ord, Read, Show, Bounded)
 newtype MySum a = MySum { getMySum :: a } deriving (Eq, Ord, Read, Show, Bounded)
 
+instance Num a => Semigroup (MyProduct a) where
+  MyProduct x <> MyProduct y = MyProduct (x * y)
+
 instance Num a => Monoid (MyProduct a) where
   mempty = MyProduct 1
   MyProduct x `mappend` MyProduct y = MyProduct (x * y)
@@ -62,6 +67,9 @@ exampleSum3 = ( getSum . mconcat . map Sum $ [1, 2, 3] ) == 6
 newtype MyAny = MyAny { getMyAny :: Bool }
   deriving (Eq, Ord, Read, Show, Bounded)
 
+instance Semigroup MyAny where
+  MyAny x <> MyAny y = MyAny (x || y)
+
 instance Monoid MyAny where
   mempty = MyAny False
   MyAny x `mappend` MyAny y = MyAny (x || y)
@@ -69,4 +77,34 @@ instance Monoid MyAny where
 exampleAny1 = ( getAny $ Any True `mappend` Any False ) == True
 exampleAny2 = ( getAny $ mempty `mappend` Any True ) == True
 exampleAny3 = ( getAny . mconcat . map Any $ [False, False, True, False] ) == True
+
+
+-- == Ordering == --
+-- ordering is used when comparing values, and has three variants: LT, EQ, GT
+
+exampleUsingOrdering = 1 `compare` 2 == LT
+
+data MyOrdering = MyLT | MyEQ | MyGT
+
+instance Semigroup MyOrdering where
+  MyLT <> _ = MyLT
+  MyEQ <> x = x
+  MyGT <> _ = MyGT
+
+instance Monoid MyOrdering where
+  mempty = MyEQ
+  mappend = (<>) -- default impl
+
+-- monoid allows an sequence of ordering
+exampleOrderingNoMonoid1 x y = lengthCompare x y
+  where lengthCompare x y = let a = length x `compare` length y
+                                b = x `compare` y
+                            in if a == EQ then b else a
+exampleOrderingMonoid2 x y = lengthCompare x y
+  where lengthCompare x y = (length x `compare` length y) `mappend` (x `compare` y)
+
+exampleOrdering3 x y = (length x `compare` length y) `mappend`
+                       (vowels x `compare` vowels y) `mappend`
+                       (x `compare` y)
+  where vowels = length . filter (`elem` "aeiou")
 
