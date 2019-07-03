@@ -2,7 +2,11 @@ import Data.Monoid ( Sum(Sum, getSum)
                    , Product(..) -- the function getProduct is also imported
                    , Any(..)
                    , All(..)
+                   , First(..)
+                   , Last(..)
                    )
+import Data.Semigroup ( Semigroup(..)
+                      )
 
 -- Monoids: a set with an operator combining two elements of the set into another element, and a neutral element that when combined with another element always returns the other element
 -- example: Natural numbers with the function addition and the neutral element 0
@@ -13,6 +17,7 @@ class Semigroup m => MyMonoid m where
   myMempty :: m
   -- the binary function combining two elements of the set
   myMappend :: m -> m -> m
+  myMappend = (<>)
   myMconcat :: [m] -> m
   myMconcat = foldr myMappend myMempty
 
@@ -51,7 +56,6 @@ instance Num a => Semigroup (MyProduct a) where
 
 instance Num a => Monoid (MyProduct a) where
   mempty = MyProduct 1
-  MyProduct x `mappend` MyProduct y = MyProduct (x * y)
 
 
 exampleSum1 = ( getSum $ Sum 2 `mappend` Sum 9 ) == 11
@@ -72,7 +76,6 @@ instance Semigroup MyAny where
 
 instance Monoid MyAny where
   mempty = MyAny False
-  MyAny x `mappend` MyAny y = MyAny (x || y)
 
 exampleAny1 = ( getAny $ Any True `mappend` Any False ) == True
 exampleAny2 = ( getAny $ mempty `mappend` Any True ) == True
@@ -93,7 +96,6 @@ instance Semigroup MyOrdering where
 
 instance Monoid MyOrdering where
   mempty = MyEQ
-  mappend = (<>) -- default impl
 
 -- monoid allows an sequence of ordering
 exampleOrderingNoMonoid1 x y = lengthCompare x y
@@ -107,4 +109,45 @@ exampleOrdering3 x y = (length x `compare` length y) `mappend`
                        (vowels x `compare` vowels y) `mappend`
                        (x `compare` y)
   where vowels = length . filter (`elem` "aeiou")
+
+
+-- == Maybe == --
+
+data MyMaybe a = MyNothing | MyJust a deriving (Eq, Ord, Read, Show)
+
+instance Semigroup a => Semigroup (MyMaybe a) where
+  MyNothing <> m = m
+  m <> MyNothing = m
+  MyJust m1 <> MyJust m2 = MyJust (m1 <> m2)
+
+instance Monoid a => Monoid (MyMaybe a) where
+  mempty = MyNothing
+
+exampleMaybe1 = mempty <> Just "andy" == Just "andy"
+exampleMaybe2 = Just LT <> mempty == Just LT
+exampleMaybe3 = Just (Sum 3) <> Just (Sum 4) == Just (Sum 7)
+
+-- one problem with this instance is that the content of Maybe must also be a monoid
+-- to allow the use of monoid even with non-monoid content a newtype exists
+newtype MyFirst a = MyFirst { getMyFirst :: MyMaybe a }
+  deriving (Eq, Ord, Read, Show)
+
+instance Semigroup (MyFirst a) where
+  MyFirst (MyJust x) <> _ = MyFirst (MyJust x)
+  MyFirst MyNothing <> x = x
+
+instance Monoid (MyFirst a) where
+  mempty = MyFirst MyNothing
+
+exampleFirst1 = ( getFirst $ First (Just 'a') <> First (Just 'b') ) == Just 'a'
+exampleFirst2 = ( getFirst $ First Nothing <> First (Just 'b') ) == Just 'b'
+exampleFirst3 = ( getFirst $ First (Just 'a') <> First Nothing ) == Just 'a'
+-- First allows with lists of maybes if at least one of them is Just
+exampleFirst4 = ( getFirst . mconcat . map First $ [Nothing, Just 9, Just 10] ) == Just 9
+-- Last also exists for the opposite of First
+exampleLast1 = ( getLast $ Last (Just 'a') <> Last (Just 'b') ) == Just 'b'
+exampleLast2 = ( getLast . mconcat . map Last $ [Nothing, Just 9, Just 10] ) == Just 10
+
+
+-- == Use of Monoids with Foldable == --
 

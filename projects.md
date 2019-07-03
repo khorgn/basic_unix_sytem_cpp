@@ -72,7 +72,7 @@
 * [RSS](https://en.wikipedia.org/wiki/RSS)
 * [Atom](https://en.wikipedia.org/wiki/Atom_(Web_standard))
 
-# Sequences / Sets
+# Sequences / Sets / Series
 * [Fibonacci number](https://en.wikipedia.org/wiki/Fibonacci_number) (decimal sequence)
 * [Fibonacci word](https://en.wikipedia.org/wiki/Fibonacci_word) (binary sequence)
 * [Thue-Morse sequence](https://en.wikipedia.org/wiki/Thue%E2%80%93Morse_sequence) (binary sequence)
@@ -82,6 +82,8 @@
 * [Prime number](https://en.wikipedia.org/wiki/Prime_number) (natural sequence)
 * [Kolakosi sequence](https://en.wikipedia.org/wiki/Kolakoski_sequence) (set of naturals sequence)
 * [Mandelbrot set](https://en.wikipedia.org/wiki/Mandelbrot_set)
+* [Fourier series](https://en.wikipedia.org/wiki/Fourier_series) (series of rotating vectors)
+  [3Blue1Brown's video on Fourier series](https://www.youtube.com/watch?v=r6sGWTCMz2k)  
 
 # Databases
 * [small database](http://birrell.org/andrew/papers/024-DatabasesPaper-SOSP.pdf) ([Rust implementation](http://nikhilism.com/post/2016/writing-simple-database-in-rust-part-1/))
