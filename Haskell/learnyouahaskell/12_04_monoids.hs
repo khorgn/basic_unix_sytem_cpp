@@ -150,4 +150,37 @@ exampleLast2 = ( getLast . mconcat . map Last $ [Nothing, Just 9, Just 10] ) == 
 
 
 -- == Use of Monoids with Foldable == --
+-- we can also use monoids to make it easier to define folds threw the Foldable typeclass
+-- foldable has one of two functions that must be implented to be instancied: foldr or foldMap
+-- foldmap is easier to implement with monoids
+-- foldMap :: (Monoid m, Foldable t) => (a -> m) -> t a -> m
+data Tree a = Empty | Node a (Tree a) (Tree a)
+  deriving (Show, Read, Eq)
+
+-- infix fold
+instance Foldable Tree where
+  foldMap f Empty = mempty
+  foldMap f (Node x l r) = foldMap f l
+                           `mappend` f x
+                           `mappend` foldMap f r
+
+testTree = Node 5
+             (Node 3
+               (Node 1 Empty Empty)
+               (Node 6 Empty Empty)
+             )
+             (Node 9
+               (Node 8 Empty Empty)
+               (Node 10 Empty Empty)
+             )
+
+
+exampleTree1 = foldl1 (+) testTree == 42
+exampleTree2 = foldl1 (*) testTree == 64800
+exampleTree3 = foldl (flip (:)) [] testTree == [10, 9, 8, 5, 6, 3, 1]
+exampleTree4 = foldr (:) [] testTree == [1, 3, 6, 5, 8, 9, 10]
+-- example use of foldMap: we check if at least one of the elements of the tree equal to 3
+exampleTree5 = ( getAny $ foldMap (\x -> Any $ x == 3) testTree ) == True
+exampleTree6 = ( getAny $ foldMap (\x -> Any $ x > 15) testTree ) == False
+exampleTree7 = ( foldMap (\x -> [x]) testTree ) == [1, 3, 6, 5, 8, 9, 10]
 
