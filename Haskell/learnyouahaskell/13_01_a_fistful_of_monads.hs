@@ -57,5 +57,43 @@ instance MyMonad MyMaybe where
 
 exampleBind1 :: Maybe String
 exampleBind1 = return "WHAT" :: Maybe String
-exampleBind2 = ( Just 9 >>= \x -> return (x*10) ) == 90 -- doesn't compile
+-- Integer is a int of arbitrary size, while Int is a 32 or 64 bits int
+exampleBind2 = (( Just 9 >>= \x -> return (x*10) ) :: Maybe Integer) == Just 90
 exampleBind3 = ( Nothing >>= \x -> return (x*10) ) == Nothing
+
+-- == Using mondas: "walk the line" == --
+-- a tightrope walker gets birds on its pole, need to check if he is falling, it falls if the difference between each side is bigger than 3
+type Birds = Int
+-- left side and right side
+type Pole = (Birds, Birds)
+
+landLeft :: Birds -> Pole -> Pole
+landLeft n (l, r) = (l+n, r)
+
+landRight :: Birds -> Pole -> Pole
+landRight n (l, r) = (l, r+n)
+
+x -: f = f x
+
+exampleChainingLand1 = landLeft 2 (landRight 1 (landLeft 1 (0, 0))) == (3, 1)
+-- using a chaining application to make it read from left to right
+exampleChainingLand2 = (0, 0) -: landLeft 1 -: landRight 1 -: landLeft 2 == (3, 1)
+
+-- we also need to represent the possibility of falling for the tightrope walker
+-- it should have fallend here but the end result seems fine
+exampleChainingLand3 = (0, 0) -: landLeft 1 -: landRight 4 -: landLeft (-1) -: landRight (-2) == (0, 2)
+
+-- we use maybe to represent the possibilty of falling
+landLeftMaybe :: Birds -> Pole -> Maybe Pole
+landLeftMaybe n (l, r)
+  | abs ((l + n) - r) < 4 = Just (l + n, r)
+  | otherwise             = Nothing
+landRightMaybe :: Birds -> Pole -> Maybe Pole
+landRightMaybe n (l, r)
+  | abs (l - (r + n)) < 4 = Just (l, r + n)
+  | otherwise             = Nothing
+
+exampleChainingMaybePole1 = (0, 0) -: landRightMaybe 1 >>= landLeftMaybe 2
+exampleChainingMaybePole2 = ( (0, 0) -: landLeftMaybe 1 >>= landRightMaybe 4 >>= landLeftMaybe (-1) >>= landRightMaybe (-2) ) == Nothing
+
+
