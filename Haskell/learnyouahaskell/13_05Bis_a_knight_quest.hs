@@ -25,7 +25,7 @@ moveKnightBind :: KnightPos -> [KnightPos]
 moveKnightBind (c, r) = 
   [(c+2, r-1), (c+2, r+1), (c-2, r-1), (c-2, r+1)
   , (c+1, r-2), (c+1, r+2), (c-1, r-2), (c-1, r+2)
-  ] >>= \p@(c', r') -> M.guard (onBoard p)
+  ] >>= \p'@(c', r') -> M.guard (onBoard p')
   >> return (c', r')
   where onBoard (c, r) = c `elem` [1..8] && r `elem` [1..8]
 

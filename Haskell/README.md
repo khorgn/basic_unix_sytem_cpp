@@ -41,6 +41,7 @@ run ghci for interactive shell
 * [Rosetta-code](Rosettacode.org/wiki/100_door#Haskell)
 * [view-patterns](gitlab.haskell.org/ghc/wikis/view-patterns)
 * [liquid-haskell tutorial](ucsd-progsys.github.io/liquidhaskell-tutorial)
+* [Understanding Haskell's error messages](http://ics.p.lodz.pl/~stolarek/_media/pl:research:stolarek_understanding_basic_haskell_error_messages.pdf)
 
 # books
 * [Learn me a haskell](http://learnyouahaskell.com/chapters)  
