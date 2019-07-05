@@ -1,6 +1,7 @@
 # Tools
 * [EditorConfig](htpps://editorcondif.org)
   a file to organize formats in a project
+* [Nix package manager / OS](https://nixos.org)
 
 # exercises
 * [advent of code](https://adventofcode.com/)

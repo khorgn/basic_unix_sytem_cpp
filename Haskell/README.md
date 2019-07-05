@@ -11,7 +11,8 @@ run ghci for interactive shell
 ## Officials
 * [main site](https://www.haskell.org/)  
 * [Hoogle](https://hoogle.haskell.org/)  
-* [central package archive/documentation](https://hackage.haskell.org/)  
+* [Documentation on haskell](https://www.haskell.org/documentation/)
+* [central package archive/package documentation](https://hackage.haskell.org/)  
 * [example documentation](https://hackage.haskell.org/package/base/docs/Data-Maybe.html)  
 * [index for the standard library](https://downloads.haskell.org/~ghc/latest/docs/html/libraries/)  
 
@@ -22,6 +23,12 @@ run ghci for interactive shell
 * [Typeclassopedia](https://wiki.haskel.org/Typeclassopedia)
 * [liquid haskell](https://wiki.haskel.org/liquid_haskell)
 * [Idioms](https://wiki.haskell.org/Category:Idioms)  
+* [Tools to write a haskell program](https://wiki.haskell.org/How_to_write_a_Haskell_program)
+  * Documentation: [Haddock](https://www.haskell.org/haddock/)
+  * Tests
+    * pure: [QuickCheck](https://hackage.haskell.org/package/QuickCheck), [SmallCheck](https://www.mail-archive.com/haskell@haskell.org/msg19215.html)
+    * impure: [Hspec](https://hspec.github.io/), [HUnit](https://hackage.haskell.org/package/HUnit)
+  * Build tools: [Stack](https://docs.haskellstack.org/en/stable/README/) [Nix](https://cah6.github.io/technology/nix-haskell-1/)
 
 ## Wikibooks
 * [Wikibook](https://en.wikibooks.org/wiki/Haskell)
