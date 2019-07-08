@@ -1,10 +1,16 @@
 # Installation
-[stack](https://docs.haskellstack.org/en/stable/README/)  
-`sudo apt install haskell-stack`  
-`stack upgrade`  
+## Cabal
+`cabal update`  
+`cabal install cabal-install`  
 
 basic install `sudo apt install cabal-install`  
 run ghci for interactive shell  
+
+## [stack](https://docs.haskellstack.org/en/stable/README/)  
+`sudo apt install haskell-stack`  
+`stack upgrade`  
+`stack setup`
+
 
 # links
 
