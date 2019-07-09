@@ -83,8 +83,12 @@ run ghci for interactive shell
 * [stack](https://docs.haskellstack.org/en/stable/README/)
 * Nix
 
+# libraries
+* [SubHask](https://github.com/mikeizbicki/subhask) (a library to rewrite the prelude using subcategories in category theories)
+
 # ghci
 * set \+t \+m \+s
 
 # ghc
 * `{-# OPTION_GHC -Wall #-}`
+
