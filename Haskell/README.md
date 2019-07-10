@@ -84,7 +84,9 @@ run ghci for interactive shell
 * Nix
 
 # libraries
-* [SubHask](https://github.com/mikeizbicki/subhask) (a library to rewrite the prelude using subcategories in category theories)
+* [Safe](https://hackage.haskell.org/package/safe) (contains safe version of classic functions like `head` or `tail`)
+* [Containers](https://hackage.haskell.org/package/containers) (contains multiple efficient containers)
+* [SubHask](https://hackage.haskell.org/package/subhask) (a library to rewrite the prelude using subcategories in category theories)
 
 # ghci
 * set \+t \+m \+s
