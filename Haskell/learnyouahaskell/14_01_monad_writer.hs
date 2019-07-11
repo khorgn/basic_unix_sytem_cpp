@@ -76,4 +76,25 @@ exampleDo1 = runWriter multWithLog == (15, ["Got number: 3", "Got number: 5", "G
 
 
 -- == Adding logging to programs == --
+-- example: euclids greatest common divisor (exists as gcd in haskell) (and lcm for least common multiple)
+gcd' :: Int -> Int -> Int
+gcd' a b
+  | b == 0 = a
+  | otherwise = gcd' b (a `mod` b)
+
+-- we want to log this function
+gcdLog' :: Int -> Int -> Writer [String] Int
+gcdLog' a b
+  | b == 0 = do
+          tell ["Finished with " ++ show a]
+          return a
+  | otherwise = do
+          tell [show a ++ " mod " ++ show b ++ " = " ++ show (a `mod` b)]
+          gcdLog' b (a `mod` b)
+
+exampleLogging = mapM_ putStrLn $ snd $ runWriter $ gcdLog' 8 3
+-- reminder for mapM_ :: (Foldable t, Monad m) => (a -> m b) -> t a -> m ()
+-- a mapper that disregard the result, (mainly usefull for IOs)
+-- sequence is with foldable of monads being transformed into one monad
+
 
