@@ -81,6 +81,7 @@ run ghci for interactive shell
 * category theory (math)
 * [lens](http://lens.github.io/tutorial.html)
 * dependent types
+* [constraint trick](https://www.reddit.com/r/haskell/comments/3afi3t/the_constraint_trick_for_instances/) (a way to be stricter in instance constraints)
 
 # toolset
 * [stack](https://docs.haskellstack.org/en/stable/README/)
