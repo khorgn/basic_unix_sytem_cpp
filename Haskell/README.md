@@ -55,6 +55,7 @@ run ghci for interactive shell
 * [view-patterns](gitlab.haskell.org/ghc/wikis/view-patterns)
 * [liquid-haskell tutorial](ucsd-progsys.github.io/liquidhaskell-tutorial)
 * [Understanding Haskell's error messages](http://ics.p.lodz.pl/~stolarek/_media/pl:research:stolarek_understanding_basic_haskell_error_messages.pdf)
+* [explanations State, StateT and MonadState](https://stackoverflow.com/questions/43438875/confusion-about-statet-state-and-monadstate/43441289#43441289)
 
 # books
 * [Learn me a haskell](http://learnyouahaskell.com/chapters)  
