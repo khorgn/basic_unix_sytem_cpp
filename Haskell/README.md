@@ -21,6 +21,8 @@ run ghci for interactive shell
 * [central package archive/package documentation](https://hackage.haskell.org/)  
 * [example documentation](https://hackage.haskell.org/package/base/docs/Data-Maybe.html)  
 * [index for the standard library](https://downloads.haskell.org/~ghc/latest/docs/html/libraries/)  
+* [GHC manual](https://downloads.haskell.org/~ghc/latest/docs/html/)
+  [example page](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html?highlight=typeclass%20extensions#extension-FlexibleInstances)
 
 
 ## Wiki
@@ -101,5 +103,12 @@ run ghci for interactive shell
 * `:set +s` gives the execution time and memory usage after each evaluation (note: functions tend to run slower in ghci than in direct execution)
 
 # ghc
+## GHC options
 * `{-# OPTION_GHC -Wall #-}`
+## language options
+* `{-# LANGUAGE FlexibleInstances #-}` (allows to instancie concrete subtypes (ex: Maybe Int))
+  can also be passed as compiler argument as `-XFlexibleInstances`
+## pragmas
+* `instance {-# OVERLAPPING #-} <typeclass> <type> where ...` (design this instance as overlapping another)
+   connected pragmas: `OVERLAPPABLE` and `OVERLAPS`
 
