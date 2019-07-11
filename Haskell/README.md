@@ -87,9 +87,17 @@ run ghci for interactive shell
 * [Safe](https://hackage.haskell.org/package/safe) (contains safe version of classic functions like `head` or `tail`)
 * [Containers](https://hackage.haskell.org/package/containers) (contains multiple efficient containers)
 * [SubHask](https://hackage.haskell.org/package/subhask) (a library to rewrite the prelude using subcategories in category theories)
+* [dlist](https://hackage.haskell.org/package/dlist) (difference lists are list-like types supporting O(1) append)
+* [criterion](http://hackage.haskell.org/package/criterion) (provide ways to measure software performances)
+* [statistics](http://hackage.haskell.org/package/statistics) (provide tools for stats)
+* [test-framework](http://hackage.haskell.org/package/test-framework) (organize tests from [QuickCheck](https://hackage.haskell.org/package/QuickCheck) or [HUnit](http://hackage.haskell.org/package/HUnit))
 
 # ghci
-* set \+t \+m \+s
+## set/unset
+* `:set` list the options currently set
+* `:set +t` print type after evaluation
+* `:set +m` allow multiline commands
+* `:set +s` gives the execution time and memory usage after each evaluation (note: functions tend to run slower in ghci than in direct execution)
 
 # ghc
 * `{-# OPTION_GHC -Wall #-}`

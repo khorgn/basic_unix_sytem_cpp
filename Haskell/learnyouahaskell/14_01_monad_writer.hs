@@ -77,3 +77,104 @@ exampleDo1 = runWriter multWithLog == (15, ["Got number: 3", "Got number: 5", "G
 
 -- == Adding logging to programs == --
 
+
+-- == inefficient list construction == --
+-- when doing frequent appends, lists can become very slow with the need to always go through the first list
+-- in gcdLog' the logging is fast because the appending is done like this: a ++ (b ++ (c ++ d ++ (e ++ f)))
+-- lists are constructed from left to right, and with this way each part of the list is only passed through once (a is constructed, then b is construct, then c ...
+-- if the list is constructed this way instead: ((((a ++ b) ++ c) ++ d) ++ e) ++ f the left part need to be reconstructed at each step
+
+gcdLogR :: Int -> Int -> Writer [String] Int
+gcdLogR a b
+  | b == 0 = do
+          tell ["Finished with " ++ show a]
+          return a
+  | otherwise = do
+          -- this gcd does the recursion before doing the log, so this log will be after the log of lower recursions
+          -- ++ is associated to the left instead of to the right, so it is inefficient
+          result <- gcdLogR b (a `mod` b)
+          tell [show a ++ "mod " ++ show b ++ " = " ++ show (a `mod` b)]
+          return result
+
+exampleLogR = mapM_ putStrLn $ snd $ runWriter (gcdLogR 8 3)
+
+
+-- == Difference lists == --
+-- a difference is a list representation through functions
+-- a dlist is a function that takes a list and prepend another list to it
+-- [1, 2, 3]
+exampleDiffList1 xs = [1, 2, 3] ++ xs
+-- []
+exampleDiffList2 = ([]++)
+-- chain appending become a composition of functions, which helps resolution
+append :: (b -> c) -> (a -> b) -> a -> c
+f `append` g = \xs -> f (g xs)
+-- equivalent to \xs -> [1,2,3] ++ ([4,5,6] ++ xs)
+exampleDiffList3 = exampleAppend [] == [1, 2, 3, 4, 5, 6]
+  where
+  exampleAppend = ([1, 2, 3]++) `append` ([4, 5, 6]++)
+
+-- = implementing the DiffList = --
+-- we define a difflist as a function that takes a list and return a list
+newtype DiffList a = DiffList { getDiffList :: [a] -> [a] }
+-- to create a difflist we make a function that takes the list and prepend it
+toDiffList :: [a] -> DiffList a
+toDiffList xs = DiffList(xs++)
+-- to recover the list we apply this function to an empty list
+fromDiffList :: DiffList a -> [a]
+fromDiffList (DiffList f) = f []
+
+instance Monoid (DiffList a) where
+  mempty = DiffList (\xs -> [] ++ xs)
+  (DiffList f) `mappend` (DiffList g) = DiffList (\xs -> (f . g) xs) -- same as f (g xs)
+
+exampleDiffList4 = ( fromDiffList $ (toDiffList [1,2,3] `mappend` toDiffList [4,5,6]) ) == [1,2,3,4,5,6]
+
+gcdLogR' :: Int -> Int -> Writer (DiffList String) Int
+gcdLogR' a b
+  | b == 0 = do
+            tell (toDiffList ["Finished with " ++ show a])
+            return a
+  | otherwise = do
+            result <- gcdLogR' b (a `mod` b)
+            tell (toDiffList [show a ++ " mod " ++ show b ++ " = " ++ show (a `mod` b)])
+            return result
+
+
+exampleGcdLogR' = mapM_ putStrLn . fromDiffList . snd . runWriter $ gcdLogR' 110 34
+
+-- == Comparing performances == --
+-- comparing performances between list and difflist
+finalCountDownL :: Int -> Writer [String] ()
+finalCountDownL 0 = do
+      tell ["0"]
+finalCountDownL x = do
+      finalCountDownL (x-1)
+      tell [show x]
+
+finalCountDownDL :: Int -> Writer (DiffList String) ()
+finalCountDownDL 0 = do
+      tell (toDiffList ["0"])
+finalCountDownDL x = do
+      finalCountDownDL (x-1)
+      tell (toDiffList [show x])
+
+finalCountDownRL :: Int -> Writer [String] ()
+finalCountDownRL 0 = do
+      tell ["0"]
+finalCountDownRL x = do
+      finalCountDownRL (x-1)
+      tell [show x]
+
+finalCountDownRDL :: Int -> Writer (DiffList String) ()
+finalCountDownRDL 0 = do
+      tell (toDiffList ["0"])
+finalCountDownRDL x = do
+      finalCountDownRDL (x-1)
+      tell (toDiffList [show x])
+
+compareL = mapM_ putStrLn . snd . runWriter $ finalCountDownL 10000 -- 7.41s; 4,350,599,640b
+compareDL = mapM_ putStrLn . fromDiffList . snd . runWriter $ finalCountDownDL 10000 -- 0.50s; 54,731,152b
+compareRL = mapM_ putStrLn . snd . runWriter $ finalCountDownRL 10000 -- 6.86s; 4,350,593,384b
+compareRDL = mapM_ putStrLn . fromDiffList . snd . runWriter $ finalCountDownRDL 10000 -- 0.45s; 54,727,432b
+
