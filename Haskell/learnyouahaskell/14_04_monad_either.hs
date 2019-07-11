@@ -18,6 +18,8 @@ instance Monad (MyEither a) where
   MyLeft x >>= _ = MyLeft x
   MyRight x >>= f = f x
 
+-- out of date in current ghc, were we have Monad and MonadFail
+{-
 -- we overlap the instanciation of either with a special instance when a is String
 -- not the actual implementation of Either
 instance {-# OVERLAPPING #-} Monad (MyEither String) where 
@@ -27,7 +29,8 @@ instance {-# OVERLAPPING #-} Monad (MyEither String) where
 
 exampleFail1 = ( fail "aa" :: MyEither String Int ) == MyLeft "aa"
 exampleFail2 = fail "aa" :: MyEither Int Int -- exception
+-}
 
 exampleEither1 = ( Left "boom" >>= \x -> return (x+1) ) == Left "boom"
-exampleEither2 = ( Right 3 >>= \x -> return (x+100) ) == Right 103
+exampleEither2 = ( Right 3 >>= \x -> return (x+100) :: Either String Int ) == Right 103
 

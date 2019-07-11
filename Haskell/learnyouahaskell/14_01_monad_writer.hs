@@ -83,16 +83,16 @@ gcd' a b
   | otherwise = gcd' b (a `mod` b)
 
 -- we want to log this function
-gcdLog' :: Int -> Int -> Writer [String] Int
-gcdLog' a b
+gcdLog :: Int -> Int -> Writer [String] Int
+gcdLog a b
   | b == 0 = do
           tell ["Finished with " ++ show a]
           return a
   | otherwise = do
           tell [show a ++ " mod " ++ show b ++ " = " ++ show (a `mod` b)]
-          gcdLog' b (a `mod` b)
+          gcdLog b (a `mod` b)
 
-exampleLogging = mapM_ putStrLn $ snd $ runWriter $ gcdLog' 8 3
+exampleLogging = mapM_ putStrLn $ snd $ runWriter $ gcdLog 8 3
 -- reminder for mapM_ :: (Foldable t, Monad m) => (a -> m b) -> t a -> m ()
 -- a mapper that disregard the result, (mainly usefull for IOs)
 -- sequence is with foldable of monads being transformed into one monad
@@ -145,9 +145,10 @@ toDiffList xs = DiffList(xs++)
 fromDiffList :: DiffList a -> [a]
 fromDiffList (DiffList f) = f []
 
+instance Semigroup (DiffList a) where
+  (DiffList f) <>(DiffList g) = DiffList (\xs -> (f . g) xs) -- same as f (g xs)
 instance Monoid (DiffList a) where
   mempty = DiffList (\xs -> [] ++ xs)
-  (DiffList f) `mappend` (DiffList g) = DiffList (\xs -> (f . g) xs) -- same as f (g xs)
 
 exampleDiffList4 = ( fromDiffList $ (toDiffList [1,2,3] `mappend` toDiffList [4,5,6]) ) == [1,2,3,4,5,6]
 
