@@ -1,6 +1,7 @@
 -- === Data.Char === --
 import qualified Data.Char as C
 import Data.Function (on)
+import Data.List (groupBy)
 
 -- = predicates = -- 
 -- signature: Char -> Bool
@@ -22,10 +23,10 @@ isb = C.isLetter 'b'
 -- is a mark char (combines in new letters, such as accents)
 -- C.isMark
 is3 = C.isNumber '3'
-isComma = isPunctuation ','
+isComma = C.isPunctuation ','
 -- isSymbol
 
-isNewLine = isSeparator '\n'
+isNewLine = C.isSeparator '\n'
 
 -- isAscii
 
@@ -37,9 +38,9 @@ isNewLine = isSeparator '\n'
 
 
 -- check if the full string is alphaNum
-isallAlphaNum = all isAlphaNum "aezr232"
+isallAlphaNum = all C.isAlphaNum "aezr232"
 -- implement words
-  words' = filter (not . any isSpace) . groupBy ((==) `on` isSpace) $ "AA BB CC DDD"
+words' = filter (not . any C.isSpace) . groupBy ((==) `on` C.isSpace) $ "AA BB CC DDD"
 
 
 -- = general category = --
@@ -48,12 +49,12 @@ category = C.generalCategory ' '
 
 
 -- = conversion = --
-convertUpper = toUpper 'a'
-convertLower = toLower 'B'
-convertTitle = toTitle 'c' -- for most chars, title-case is the same as upper-case
-convertDigit = digitToInt 'f'
-convertDigit' = digitToInt '3'
-convertInt = intToDigit 3
-convertInt = intToDigit 15 -- 'f'
-convertCharCode = ord 'a' -- 97
-convertCharCode' = chr 97 -- 'a' 
+convertUpper = C.toUpper 'a'
+convertLower = C.toLower 'B'
+convertTitle = C.toTitle 'c' -- for most chars, title-case is the same as upper-case
+convertDigit = C.digitToInt 'f'
+convertDigit' = C.digitToInt '3'
+convertInt = C.intToDigit 3
+convertInt' = C.intToDigit 15 -- 'f'
+onvertCharCode = C.ord 'a' -- 97
+convertCharCode' = C.chr 97 -- 'a' 

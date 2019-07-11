@@ -179,7 +179,7 @@ mapBy3 = map ($ 3) [(4+), (+4), (10*), (^2), sqrt]
 
 -- subtract has the inverted arguments of (-)
 -- flip inverts the arguments of (-)
-equalsMinus1 = map ($ 3) [subtract 4, flip () 4, (-4+)]
+equalsMinus1 = map ($ 3) [subtract 4, flip (-) 4, (-4+)]
 equals1 = map ($ 3) [(4-), (-) 4]
 
 

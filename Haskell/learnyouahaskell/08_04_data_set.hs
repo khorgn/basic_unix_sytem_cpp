@@ -21,9 +21,9 @@ relativeComplement2 = S.difference set2 set1 -- fromList "!Tbcgvw"
 unionSet = S.union set1 set2 -- fromList " !.?AIRTabcdefghijlmnorstuvwy"
 
 -- check if set A is a subset of B (less or equal)
-AisSubsetOfB1 = S.fromList [2, 3, 4] `S.isSubsetOf` S.fromList [1, 2, 3, 4, 5] -- True
+aIsSubsetOfB1 = S.fromList [2, 3, 4] `S.isSubsetOf` S.fromList [1, 2, 3, 4, 5] -- True
 -- check if set A is a proper subset of B (less)
-AisSubsetOfB1 = S.fromList [2, 3, 4] `S.isProperSubsetOf` S.fromList [2, 3, 4] -- False
+aIsSubsetOfB1 = S.fromList [2, 3, 4] `S.isProperSubsetOf` S.fromList [2, 3, 4] -- False
 
 -- null, size, member, empty, singleton, insert, delete works similarly as in List
 -- idem for map and filter

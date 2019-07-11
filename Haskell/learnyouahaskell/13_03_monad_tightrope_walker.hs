@@ -45,12 +45,12 @@ exampleChainingMaybePole5 = ( Nothing >> Just 3 ) == Nothing
 
 exampleChainingMaybePole6 = ( return (0, 0) >>= landLeftMaybe 1 >> Nothing >>= landRightMaybe 1 ) == Nothing
 
-exampleChainingMaybePoleNoBind = case landLeft 1 (0, 0) of
+exampleChainingMaybePoleNoBind = case landLeftMaybe 1 (0, 0) of
   Nothing -> Nothing
-  Just pole1 -> case landRight 4 pole1 of
+  Just pole1 -> case landRightMaybe 4 pole1 of
     Nothing -> Nothing
-    Just pole2 -> case landRight 2 pole2 of
+    Just pole2 -> case landRightMaybe 2 pole2 of
       Nothing -> Nothing
-      Just pole3 -> landLeft 1 pole3
+      Just pole3 -> landLeftMaybe 1 pole3
 
 

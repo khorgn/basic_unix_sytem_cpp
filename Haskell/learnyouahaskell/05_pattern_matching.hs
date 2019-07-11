@@ -1,4 +1,4 @@
-lucky :: (Intergral a) => a -> String
+lucky :: (Integral a) => a -> String
 lucky 7 = "LUCKY NUMBER SEVEN!"
 lucky x = "Sorry, you're out of luck, pal!"
 
@@ -27,43 +27,43 @@ capital all@(x:xs) = "The first letter of  " ++ all ++ " is " ++ [x]
 -- Gards
 bmiTell :: (RealFloat a) => a -> String
 bmiTell bmi
-	| bmi <= 18.5 = "You're underweight, you emo, you!"
-	| bmi <= 25.0 = "You're supposedly normal. Pffft, I bet you're ugly!"
-	| bmi <= 30.0 = "You're fat! Lose some weight, fatty!"
-	| otherwise = "You're a whale, congratulations!"
+    | bmi <= 18.5 = "You're underweight, you emo, you!"
+    | bmi <= 25.0 = "You're supposedly normal. Pffft, I bet you're ugly!"
+    | bmi <= 30.0 = "You're fat! Lose some weight, fatty!"
+    | otherwise = "You're a whale, congratulations!"
 
 bmiTell' :: (RealFloat a) => a -> a -> String
-bmiTell' wheight height
-	| bmi <= skinny = "You're underweight, you emo, you!"
-	| bmi <= normal = "You're supposedly normal. Pffft, I bet you're ugly!"
-	| bmi <= fat = "You're fat! Lose some weight, fatty!"
-	| otherwise = "You're a whale, congratulations!"
-	where bmi = weight / height ^ 2
-	      (skinny, normal, fat) = (18.5, 25.0, 30.0)
+bmiTell' weight height
+    | bmi <= skinny = "You're underweight, you emo, you!"
+    | bmi <= normal = "You're supposedly normal. Pffft, I bet you're ugly!"
+    | bmi <= fat = "You're fat! Lose some weight, fatty!"
+    | otherwise = "You're a whale, congratulations!"
+    where bmi = weight / height ^ 2
+          (skinny, normal, fat) = (18.5, 25.0, 30.0)
 
 -- functions can also be defined in infix
 a `myCompare` b
-	| a > b = GT
-	| a == b = EQ
-	| otherwise = LT
+    | a > b = GT
+    | a == b = EQ
+    | otherwise = LT
 
 
-intials :: String -> String -> String
+initials :: String -> String -> String
 initials firstname lastname = [f] ++ ". " ++ [l] ++ "."
-	where 	(f:_) = firstname
-		(l:_) = lastname
+    where   (f:_) = firstname
+            (l:_) = lastname
 
 calcBmis :: (RealFloat a) => [(a, a)] -> [a]
 calcBmis xs = [bmi w h | (w, h) <- xs]
-	where 	bmi weight height = weight / height ^ 2
+    where   bmi weight height = weight / height ^ 2
 
 -- let bindings
 -- the definitions after let are only available after in
 cylinder :: (RealFloat a) => a -> a -> a
 cylinder r h =
-	let	sideArea = 2 * pi * r* h
-		tpoArea = pi * r ^2
-	in sideArea + 2 * topArea
+    let sideArea = 2 * pi * r* h
+        topArea = pi * r ^2
+    in sideArea + 2 * topArea
 
 squares = [let square x = x * x in (square 5, square 3, square 2)]
 hey = (let a = 100; b = 200; c = 300 in a*b*c, let foo="Hey "; bar = "there!" in foo ++ bar)
@@ -78,13 +78,14 @@ myhead'' [] = error "No head of empty lists!"
 myhead'' (x:_) = x
 
 myhead''' :: [a] -> a
-myhead''' xs = case xs of [] -> error "No head for empty lists!"
-			  (x:_) -> x
+myhead''' xs = case xs of
+              [] -> error "No head for empty lists!"
+              (x:_) -> x
 
 describeList :: [a] -> String  
 describeList xs = "The list is " ++ case xs of [] -> "empty."  
-					       [x] -> "a singleton list."   
-					       xs -> "a longer list."  
+                                               [x] -> "a singleton list."   
+                                               xs -> "a longer list."  
 
 describeList' :: [a] -> String  
 describeList' xs = "The list is " ++ what xs  

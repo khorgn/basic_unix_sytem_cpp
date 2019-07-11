@@ -2,7 +2,7 @@ addThree :: Int -> Int -> Int -> Int
 addThree x y z = x + y + z
 
 removeNonUppercase :: [Char] -> [Char]
-removeNonUppercase st = [c | c -< st, c `elem` ['A'..'Z']]
+removeNonUppercase st = [c | c <- st, c `elem` ['A'..'Z']]
 
 -- type :t <function|definition> to see the type of the function or definition
 

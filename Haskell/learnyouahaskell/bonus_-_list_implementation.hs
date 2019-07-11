@@ -1,6 +1,7 @@
 import Data.Semigroup (Semigroup(..))
 import Control.Applicative (liftA2, Alternative(..))
 import Control.Monad (MonadPlus(..))
+import Control.Monad.Fail (MonadFail(..))
 
 
 data List a = Empty | a `Cons` List a deriving (Show, Eq)
@@ -53,6 +54,8 @@ testApplicative = routine == 10 `Cons` (100 `Cons` (1000 `Cons` (20 `Cons` (200 
 instance Monad List where
   Empty >>= _ = Empty
   xs >>= f = foldr1 (+++) (fmap f xs)
+
+instance MonadFail List where
   fail _ = Empty
 
 testMonad = routine == 3`Cons`((-3)`Cons`(4`Cons`((-4)`Cons`(5`Cons`((-5)`Cons`Empty)))))
@@ -116,7 +119,7 @@ instance Alternative List where
   empty = Empty
   (<|>) = (+++)
 
-exampleAlternative
+exampleAlternative = undefined
 
 -- = Alternative, Monad => MonadPlus = --
 -- a Monad that is also a monoid

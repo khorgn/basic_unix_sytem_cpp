@@ -5,7 +5,7 @@ import Data.Function (on)
 
 numUniques :: (Eq a) => [a] -> Int
 -- nub removes duplicates from a list
-numUniques = length . nub
+numUniques = length . L.nub
 
 -- equivalent to \xs length (nub xs)
 -- a lot of functions in Prelude comes from it (map, filter)
@@ -67,7 +67,7 @@ search needle haystack =
   -- transform the list in a list of list with the start of each list corresponding to the next index in the original list
   -- the take the first nlen elements in the sublist and check if it's equal to the list searched
   -- it will pass all the elements thanks to tails
-  in  foldl (\acc x -> if take nlen x == needle then True else acc) False (tails haystack)
+  in  foldl (\acc x -> if take nlen x == needle then True else acc) False (L.tails haystack)
 
 -- equivalent to search
 catIsInText1 = "cat" `L.isInfixOf` "im a cat burglar"
@@ -89,7 +89,7 @@ partitionOfUppercases = L.partition (`elem` ['A'..'Z']) "BOBsidneyMORGANeddy" --
 
 
 firstElementMoreThan4 = L.find (>4) [1,2,3,4,5,6] -- Just 5
-indexFirstElementMoreThan4 = findIndex (>4) [1,2,3,4,5,6] -- Just 5
+indexFirstElementMoreThan4 = L.findIndex (>4) [1,2,3,4,5,6] -- Just 5
 
 -- zip3..zip7 and zipWith3..zipWith7 exists for zipping n lists in n tuple or with functions taking n arguments
 
@@ -100,7 +100,7 @@ unlistLines = L.unlines ["first line", "second line", "third line"] -- "first li
 listWords = L.words "foo bar toto" -- ["foo", "bar", "toto"]
 unlistWords = L.unwords ["foo", "bar", "toto"] -- "foo bar toto"
 
-deleteFirsth = delete 'h' "hello hugo" -- "ello hugo"
+deleteFirsth = L.delete 'h' "hello hugo" -- "ello hugo"
 
 -- remove all occurences of elements from the right list in the left list
 differenceLists = [1..10] L.\\ [2,5,9] -- [1,3,4,6,7,8,10]
@@ -128,7 +128,7 @@ gReplicate = L.genericReplicate
 -- they take a predicate instead of testing (==)
 groupedByPassing0 =
   let values = [-4.3, -2.4, -1.2, 0.4, 2.3, 5.9, 10.5, 29.1, 5.3, -2.4, -14.5, 2.9, 2.3]
-  in groupBy (\x y -> (x > 0) == (y > 0)) values -- [[-4.3,-2.4,-1.2],[0.4,2.3,5.9,10.5,29.1,5.3],[-2.4,-14.5],[2.9,2.3]]
+  in L.groupBy (\x y -> (x > 0) == (y > 0)) values -- [[-4.3,-2.4,-1.2],[0.4,2.3,5.9,10.5,29.1,5.3],[-2.4,-14.5],[2.9,2.3]]
 -- (\x y -> (x > 0) == (y > 0)) is equivalent to ((==) `on` (> 0))
 
 -- general versions for sort, insert, maximum, minimum
@@ -136,5 +136,5 @@ groupedByPassing0 =
 -- they take a function returning an Ordering (LT, EQ, GT) instead of testing (compare)
 sortedByLength =
   let xs = [[5,4,5,4,4],[1,2,3],[3,5,4,3],[],[2],[2,2]]
-  in sortBy (\x y ->length x `compare` length y) xs -- [[],[2],[2,2],[1,2,3],[3,5,4,3],[5,4,5,4,4]]
+  in L.sortBy (\x y ->length x `compare` length y) xs -- [[],[2],[2,2],[1,2,3],[3,5,4,3],[5,4,5,4,4]]
 -- (\x y -> length x `compare` length y) is equivalent to (compare `on` length)

@@ -114,7 +114,8 @@ sequenceAExampleOfNeed = ( (:) <$> Just 2 <*> ((:) <$> Just 3 <*> Just [4]) ) ==
 mySequenceA :: (Applicative f) => [f a] -> f [a]
 mySequenceA [] = pure []
 mySequenceA (x:xs) = (:) <$> x <*> sequenceA xs
-mySequenceA xs = foldr (A.liftA2 (:)) (pure []) xs -- another way to implement it
+mySequenceA' :: (Applicative f) => [f a] -> f [a] -- another way to implement it
+mySequenceA' xs = foldr (A.liftA2 (:)) (pure []) xs
 
 withSequenceA = sequenceA [Just 2, Just 3, Just 4] == Just [2, 3, 4]
 

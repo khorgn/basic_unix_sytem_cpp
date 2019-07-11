@@ -61,7 +61,7 @@ phoneBook =
     ]
 
 -- if two entries have the same key, the values are concatenated
-intoMap = M.fromListWith (\number1 number2 -> ++ ", " ++ number2) phoneBook
+intoMap = M.fromListWith (\number1 number2 -> number1 ++ ", " ++ number2) phoneBook
 intoMap' = M.fromListWith (++) $ map (\(k, v) -> (k, [v])) phoneBook
 
 intoMap2 = M.fromListWith max [(2,3),(2,5),(2,100),(3,29),(3,22),(3,11),(4,22),(4,15)]
