@@ -21,6 +21,8 @@ run ghci for interactive shell
 * [central package archive/package documentation](https://hackage.haskell.org/)  
 * [example documentation](https://hackage.haskell.org/package/base/docs/Data-Maybe.html)  
 * [index for the standard library](https://downloads.haskell.org/~ghc/latest/docs/html/libraries/)  
+* [GHC manual](https://downloads.haskell.org/~ghc/latest/docs/html/)
+  [example page](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html?highlight=typeclass%20extensions#extension-FlexibleInstances)
 
 
 ## Wiki
@@ -55,6 +57,7 @@ run ghci for interactive shell
 * [view-patterns](gitlab.haskell.org/ghc/wikis/view-patterns)
 * [liquid-haskell tutorial](ucsd-progsys.github.io/liquidhaskell-tutorial)
 * [Understanding Haskell's error messages](http://ics.p.lodz.pl/~stolarek/_media/pl:research:stolarek_understanding_basic_haskell_error_messages.pdf)
+* [explanations State, StateT and MonadState](https://stackoverflow.com/questions/43438875/confusion-about-statet-state-and-monadstate/43441289#43441289)
 
 # books
 * [Learn me a haskell](http://learnyouahaskell.com/chapters)  
@@ -87,10 +90,25 @@ run ghci for interactive shell
 * [Safe](https://hackage.haskell.org/package/safe) (contains safe version of classic functions like `head` or `tail`)
 * [Containers](https://hackage.haskell.org/package/containers) (contains multiple efficient containers)
 * [SubHask](https://hackage.haskell.org/package/subhask) (a library to rewrite the prelude using subcategories in category theories)
+* [dlist](https://hackage.haskell.org/package/dlist) (difference lists are list-like types supporting O(1) append)
+* [criterion](http://hackage.haskell.org/package/criterion) (provide ways to measure software performances)
+* [statistics](http://hackage.haskell.org/package/statistics) (provide tools for stats)
+* [test-framework](http://hackage.haskell.org/package/test-framework) (organize tests from [QuickCheck](https://hackage.haskell.org/package/QuickCheck) or [HUnit](http://hackage.haskell.org/package/HUnit))
 
 # ghci
-* set \+t \+m \+s
+## set/unset
+* `:set` list the options currently set
+* `:set +t` print type after evaluation
+* `:set +m` allow multiline commands
+* `:set +s` gives the execution time and memory usage after each evaluation (note: functions tend to run slower in ghci than in direct execution)
 
 # ghc
+## GHC options
 * `{-# OPTION_GHC -Wall #-}`
+## language options
+* `{-# LANGUAGE FlexibleInstances #-}` (allows to instancie concrete subtypes (ex: Maybe Int))
+  can also be passed as compiler argument as `-XFlexibleInstances`
+## pragmas
+* `instance {-# OVERLAPPING #-} <typeclass> <type> where ...` (design this instance as overlapping another)
+   connected pragmas: `OVERLAPPABLE` and `OVERLAPS`
 
