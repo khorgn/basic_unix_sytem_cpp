@@ -50,4 +50,13 @@ cleanIn3 = (L.sort . L.nub . in3)
 
 canReachIn3 :: KnightPos -> KnightPos -> Bool
 canReachIn3 start end = end `elem` in3 start
+--
 -- improvements: give the moves to reach it with a Maybe
+-- improvements using monadic composition (see 14_05)
+inMany :: Int -> KnightPos -> [KnightPos]
+-- replicate returns a list of size x of moverKnight functions
+inMany x start = return start >>= foldr (M.<=<) return (replicate x moveKnight)
+
+canReachIn :: Int -> KnightPos -> KnightPos -> Bool
+canReachIn x start end = end `elem` inMany x start
+
