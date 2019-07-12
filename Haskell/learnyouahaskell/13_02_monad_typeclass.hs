@@ -1,3 +1,8 @@
+import Control.Monad ( Monad
+                     , (<=<)
+                     , (>=>)
+                     )
+
 -- == The monad typeclass
 class Applicative m => MyMonad m where
   myReturn :: a -> m a
@@ -33,3 +38,13 @@ exampleBind1 = return "WHAT" :: Maybe String
 exampleBind2 = (( Just 9 >>= \x -> return (x*10) ) :: Maybe Integer) == Just 90
 exampleBind3 = ( Nothing >>= \x -> return (x*10) ) == Nothing
 
+-- = Monad composition = --
+
+leftComposition :: Monad m => (b -> m c) -> (a -> m b) -> a -> m c
+leftComposition = (<=<)
+rightComposition :: Monad m =>  (a -> m b) -> (b -> m c) -> a -> m c
+rightComposition = (>=>)
+
+exampleComposition1 = ((+1) . (*2)) 3 == 7
+exampleComposition2 = ((\y -> return (y+1)) <=< (\x -> return (x*2))) 3 == Just 7
+exampleComposition3 = ((\x -> return (x*2)) >=> (\y -> return (y+1))) 3 == Just 7
