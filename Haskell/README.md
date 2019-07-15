@@ -86,6 +86,7 @@ run ghci for interactive shell
 # toolset
 * [stack](https://docs.haskellstack.org/en/stable/README/)
 * Nix
+* [Haskell-ci](https://hackage.haskell.org/package/haskell-ci) (script generator for continuous integration with [Travis-CI](https://travis-ci.org/))
 
 # libraries
 * [Safe](https://hackage.haskell.org/package/safe) (contains safe version of classic functions like `head` or `tail`)
@@ -95,6 +96,25 @@ run ghci for interactive shell
 * [criterion](http://hackage.haskell.org/package/criterion) (provide ways to measure software performances)
 * [statistics](http://hackage.haskell.org/package/statistics) (provide tools for stats)
 * [test-framework](http://hackage.haskell.org/package/test-framework) (organize tests from [QuickCheck](https://hackage.haskell.org/package/QuickCheck) or [HUnit](http://hackage.haskell.org/package/HUnit))
+* [Software Transactional Memory](http://hackage.haskell.org/package/stm) (for concurrent communication)
+* [mtl](https://hackage.haskell.org/package/mtl) (monad classes and monad transformers)
+* [extensible-effects](https://hackage.haskell.org/package/extensible-effects) (an alternative to monad transformers)
+
+## UI
+* GUI
+  * [Gloss](https://hackage.haskell.org/package/gloss) (simple 2D vector graphics)
+  * [Miso](https://haskell-miso.org/) (a framework for front-end single web-page)
+* TUI
+  * [Brick](https://hackage.haskell.org/package/brick)
+* CLI
+  * [cli](https://hackage.haskell.org/package/cli)
+  * [Structured\_cli](https://hackage.haskell.org/package/structured-cli) (interactive cli)
+* WEB
+  * [Electron](https://electronjs.org/) (to use the app on desktop)
+  * [Elm](https://elm-lang.org/) (a FP language)
+  * [Reflex-Dom](https://hackage.haskell.org/package/reflex-dom) (WEB framework based on the Reflex engine)
+* Functional Reactive Programing
+  * [Reflex](https://hackage.haskell.org/package/reflex) (a FRP interface and engine) (note: uses nix)
 
 # ghci
 ## set/unset

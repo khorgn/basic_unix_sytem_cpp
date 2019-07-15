@@ -20,12 +20,12 @@
 * uniq (prints only unique lines)
 
 # Games
-* Rock Paper Scissors
-* Tick Tack Toe
-* Chess
-* Go
-* 2048
-* labyrinth
+* [Rock Paper Scissors](https://en.wikipedia.org/wiki/Rock%E2%80%93paper%E2%80%93scissors)
+* [Tick Tack Toe](https://en.wikipedia.org/wiki/Tic-tac-toe)
+* [Chess](https://en.wikipedia.org/wiki/Chess)
+* [Go](https://en.wikipedia.org/wiki/Go_(game))
+* [2048](https://en.wikipedia.org/wiki/2048_(video_game))
+* [labyrinth](https://en.wikipedia.org/wiki/Labyrinth_(paper-and-pencil_game))
 
 # Parsers
 > [Parser Combinators](https://en.wikipedia.org/wiki/Parser_combinator)  
@@ -38,14 +38,14 @@
 * [Chip-8 Interpreter](http://devernay.free.fr/hacks/chip8/C8TECH10.HTM#0.0)
 
 # Algorithms
-* Dijkstra
-* A\*
-* Alpha-Beta
-* Newton-raphson square roots
-* numerical differenciation
-* numerical integration
-* Hash
-* Markov chain
+* [Dijkstra](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
+* [A\*](https://en.wikipedia.org/wiki/A*_search_algorithm)
+* [Alpha-Beta](https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning)
+* [Newton-raphson square roots](https://en.wikipedia.org/wiki/Newton's_method)
+* [numerical differenciation](https://en.wikipedia.org/wiki/Numerical_differentiation)
+* [numerical integration](https://en.wikipedia.org/wiki/Numerical_integration)
+* [Hash](https://en.wikipedia.org/wiki/Hash_function) ([MD5](https://en.wikipedia.org/wiki/MD5))
+* [Markov chain](https://en.wikipedia.org/wiki/Markov_chain)
 * [Discrete intervale encoding tree](http://web.engr.oregonstate.edu/~erwig/papers/Diet_JFP98.pdf) ([Rust implementation](https://bitbucket.org/nikhilm/rust-diet/src/default/src/diet.rs))
 
 # Machine learning
@@ -88,7 +88,17 @@
 # Databases
 * [small database](http://birrell.org/andrew/papers/024-DatabasesPaper-SOSP.pdf) ([Rust implementation](http://nikhilism.com/post/2016/writing-simple-database-in-rust-part-1/))
   * implements a simple [Data Manipulation Language](https://en.wikipedia.org/wiki/Data_manipulation_language)
+  * [ACID principles](https://en.wikipedia.org/wiki/ACID)
 
 # simulations
-* the game of life
-* simulate natural selection ("simulating natural selection" from _primer_)
+* [the game of life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
+* simulate natural selection (["simulating natural selection" from _primer_](https://www.youtube.com/watch?v=0ZGbIKd0XrM))
+
+# UIs
+* Command-Line Interface
+  * Interactive Command-Line Interface
+  * Piping between programs
+* Terminal User Interface
+* Graphical User Interface
+* WEB front-end (also electron)
+
