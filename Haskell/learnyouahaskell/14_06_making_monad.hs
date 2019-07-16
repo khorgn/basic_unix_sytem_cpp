@@ -1,3 +1,4 @@
+import Prelude hiding (fail)
 import Data.Ratio ( Rational(..)
                   , (%)
                   )

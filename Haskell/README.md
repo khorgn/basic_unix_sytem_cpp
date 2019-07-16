@@ -82,6 +82,7 @@ run ghci for interactive shell
 * [lens](http://lens.github.io/tutorial.html)
 * dependent types
 * [constraint trick](https://www.reddit.com/r/haskell/comments/3afi3t/the_constraint_trick_for_instances/) (a way to be stricter in instance constraints)
+* [Existentially Quantified Types](https://en.m.wikibooks.org/wiki/Haskell/Existentially_quantified_types) (a way to qualify types by their typeclasses constraint (similar to Box<> in Rust))
 
 # toolset
 * [stack](https://docs.haskellstack.org/en/stable/README/)
@@ -127,8 +128,18 @@ run ghci for interactive shell
 ## GHC options
 * `{-# OPTION_GHC -Wall #-}`
 ## language options
+* [Interesting extensions](https://www.schoolofhaskell.com/school/to-infinity-and-beyond/pick-of-the-week/guide-to-ghc-extensions/basic-syntax-extensions)
 * `{-# LANGUAGE FlexibleInstances #-}` (allows to instancie concrete subtypes (ex: Maybe Int))
   can also be passed as compiler argument as `-XFlexibleInstances`
+* `{-# LANGUAGE BangPatterns #-}` (allows an easier way to use strictness)
+* `{-# LANGUAGE TupleSections #-}` (makes it easier to make functions returning partial tuples)
+* `{-# LANGUAGE PackageImports #-}` (allows to specify the package where the module come from, to prevent conflicts)
+* `{-# LANGUAGE OverloadedStrings #-}` (make strings literal acts like number literals (they can be Int, Factional, ... depending on context). This way literals can be Text or ByteString or any type being an instance of IsString)
+* `{-# LANGUAGE LambdaCase, EmptyCase #-}` (make `case x of` more comfortable. LambdaCase allows `\case ...` instead of `\x -> case x of ...`)
+* `{-# LANGUAGE MultiWayIf #-}` (make `if ... then ... else if ... then ... else ...` more confortable by making it look like guards `if | ... -> ...; | ... -> ...; | otherwise -> ...`)
+* `{-# LANGUAGE ScopedTypeVariables #-}` (allows to reuse free type variables in sub-functions)
+* `{-# LANGUAGE MultiParamTypeClasses #-}`
+
 ## pragmas
 * `instance {-# OVERLAPPING #-} <typeclass> <type> where ...` (design this instance as overlapping another)
    connected pragmas: `OVERLAPPABLE` and `OVERLAPS`
