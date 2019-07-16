@@ -5,6 +5,15 @@ import Control.Monad ( join
                      )
 import Control.Monad.Fail ( MonadFail(..)
                           )
+import Data.List ( partition
+                 , groupBy
+                 , sortBy
+                 )
+import Data.Map ( fromListWith
+                , toList
+                )
+import Data.Function ( on
+                     )
 -- Making a type with probabilities where the sum is 1
 
 examplePrototype = [(3, 0.5), (5, 0.25), (9, 0.25)]
@@ -68,3 +77,39 @@ flipThree = do
   b <- coin
   c <- loadedCoin
   return $ all (==Tails) [a,b,c]
+
+exampleFlipThree =  getProb flipThree == [(False,1 % 40),(False,9 % 40),(False,1 % 40),(False,9 % 40),(False,1 % 40),(False,9 % 40),(False,1 % 40),(True,9 % 40)]
+
+
+-- == improve result presentation == --
+-- = specific implementation = --
+sumProbsBool :: Prob Bool -> Prob Bool
+ -- partition a list acording to a predicate
+sumProbsBool (Prob probs) = let (trueHalf, falseHalf) = partition (\(x, p) -> x) probs
+                                probTrue = sum $ map snd trueHalf
+                                probFalse = sum $ map snd falseHalf
+                            in Prob $ [(True, probTrue), (False, probFalse)]
+
+
+-- = generalising = --
+sumProbsListConversion :: (Ord a) => Prob a -> Prob a
+sumProbsListConversion = Prob
+                       -- convert back to list
+                       . toList
+                       -- convert the list of tuples to a Map, with an aggregator function when there are multiple values for a key
+                       -- Ord is because the key in a map must be ordered, and a is the type of the key in the temporary map
+                       . fromListWith (+)
+                       . getProb
+
+
+sumProbs :: (Ord a) => Prob a -> Prob a
+sumProbs (Prob ps) = 
+                   --- sum the elements of each list and bring them back in a Prob
+                   Prob . map reduce
+                   -- group by comparison between two elements to see them as equal
+                   . groupBy ((==) `on` fst)
+                   -- sort by ordering between two elements to order them
+                   $ sortBy (compare `on` fst)
+                   ps
+  where reduce = foldr1 (\(b, r) (_, r') -> (b, r+r'))
+
