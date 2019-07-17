@@ -129,6 +129,7 @@ run ghci for interactive shell
 * `{-# OPTION_GHC -Wall #-}`
 ## language options
 * [Interesting extensions](https://www.schoolofhaskell.com/school/to-infinity-and-beyond/pick-of-the-week/guide-to-ghc-extensions/basic-syntax-extensions)
+* [Interesting extensions](https://mmhaskell.com/blog/2019/3/4/extending-haskells-syntax)
 * `{-# LANGUAGE FlexibleInstances #-}` (allows to instancie concrete subtypes (ex: Maybe Int))
   can also be passed as compiler argument as `-XFlexibleInstances`
 * `{-# LANGUAGE BangPatterns #-}` (allows an easier way to use strictness)
