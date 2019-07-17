@@ -138,7 +138,8 @@ run ghci for interactive shell
 * `{-# LANGUAGE LambdaCase, EmptyCase #-}` (make `case x of` more comfortable. LambdaCase allows `\case ...` instead of `\x -> case x of ...`)
 * `{-# LANGUAGE MultiWayIf #-}` (make `if ... then ... else if ... then ... else ...` more confortable by making it look like guards `if | ... -> ...; | ... -> ...; | otherwise -> ...`)
 * `{-# LANGUAGE ScopedTypeVariables #-}` (allows to reuse free type variables in sub-functions)
-* `{-# LANGUAGE MultiParamTypeClasses #-}`
+* `{-# LANGUAGE MultiParamTypeClasses #-}` (allows to have typeclasses with multiple type parameters
+  often used in tandem with `{-# LANGUAGE FlexibleContext #-}`  (allows to define concrete types in typeclasses constraints for functions)
 
 ## pragmas
 * `instance {-# OVERLAPPING #-} <typeclass> <type> where ...` (design this instance as overlapping another)
