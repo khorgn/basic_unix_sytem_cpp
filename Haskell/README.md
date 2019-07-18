@@ -58,6 +58,7 @@ run ghci for interactive shell
 * [liquid-haskell tutorial](ucsd-progsys.github.io/liquidhaskell-tutorial)
 * [Understanding Haskell's error messages](http://ics.p.lodz.pl/~stolarek/_media/pl:research:stolarek_understanding_basic_haskell_error_messages.pdf)
 * [explanations State, StateT and MonadState](https://stackoverflow.com/questions/43438875/confusion-about-statet-state-and-monadstate/43441289#43441289)
+* [Four months of Haskell](https://lexi-lambda.github.io/blog/2016/06/12/four-months-with-haskell/)
 
 # books
 * [Learn me a haskell](http://learnyouahaskell.com/chapters)  
@@ -130,6 +131,7 @@ run ghci for interactive shell
 ## language options
 * [Interesting extensions](https://www.schoolofhaskell.com/school/to-infinity-and-beyond/pick-of-the-week/guide-to-ghc-extensions/basic-syntax-extensions)
 * [Interesting extensions](https://mmhaskell.com/blog/2019/3/4/extending-haskells-syntax)
+* [Good extensions](https://stackoverflow.com/questions/10845179/which-haskell-ghc-extensions-should-users-use-avoid)
 * `{-# LANGUAGE FlexibleInstances #-}` (allows to instancie concrete subtypes (ex: Maybe Int))
   can also be passed as compiler argument as `-XFlexibleInstances`
 * `{-# LANGUAGE BangPatterns #-}` (allows an easier way to use strictness)
@@ -141,6 +143,9 @@ run ghci for interactive shell
 * `{-# LANGUAGE ScopedTypeVariables #-}` (allows to reuse free type variables in sub-functions)
 * `{-# LANGUAGE MultiParamTypeClasses #-}` (allows to have typeclasses with multiple type parameters
   often used in tandem with `{-# LANGUAGE FlexibleContext #-}`  (allows to define concrete types in typeclasses constraints for functions)
+* Easier `newtype` handling
+  * `{-# LANGUAGE GeneralizedNewtypeDeriving #-}` allows to derive typeclass instancied by the original type of the newtype, to reduce boilerplate and code copy
+  * `{-# LANGUAGE StandaloneDeriving #-}` allows to precise a particular type of a generalized type (ex: `deriving instance ToText (Id User)`)
 
 ## pragmas
 * `instance {-# OVERLAPPING #-} <typeclass> <type> where ...` (design this instance as overlapping another)
