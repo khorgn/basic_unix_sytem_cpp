@@ -12,7 +12,7 @@ run ghci for interactive shell
 `stack setup`
 
 
-# links
+# Links
 
 ## Officials
 * [main site](https://www.haskell.org/)  
