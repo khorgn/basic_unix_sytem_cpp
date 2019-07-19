@@ -26,3 +26,12 @@
 * [Rosetta-code 100 door](Rosettacode.org/wiki/100_door)
   a site describing a problem in multiple languages
 
+# Editors
+* spacemacs
+
+# Useful programs
+## Markdown readers
+* <https://github.com/axiros/terminal_markdown_viewer>
+* [Grip](https://github.com/joeyespo/grip) (launchs a server and uses GitHub's API)
+* `pandoc <file> -t plain | less` or `pandoc <file> -t html | lynx --stdin`
+* `gem install mdless`
