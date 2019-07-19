@@ -68,7 +68,14 @@ reminderFilter pred (x:xs)
 exampleFilter = filter (\x -> x < 4) [9,1,5,2,10,3] == [1,2,3]
 
 -- allows us to filter using a predicate with context
+-- the result has a general context
 myFilterM :: (Applicative m) => (a -> m Bool) -> [a] -> m [a]
+-- liftA2 takes a binary function and lifts it in its applicative context
+-- the lambda takes one argument and return a function, or to append x to something or to return the something (filter)
+-- this lambda is lifted to take a contextual argument
+-- its flag is the application of p on x (a contextual result), x is the element, the reason why the inner lambda returns a function is to apply it to the accumulator not binded
+-- the initial version of the foldr is a contextual empty list
+-- the filtered list is not binded
 myFilterM p = foldr (\x -> liftA2 (\flg -> if flg then (x:) else id) (p x)) (pure [])
 
 exampleFilterM1 = ( snd $ runWriter $ filterM keepSmall [9,1,5,2,10,3] ) == ["9 is too large, throwing it away","Keeping 1","5 is too large, throwing it away","Keeping 2","10 is too large, throwing it away","Keeping 3"]
@@ -97,9 +104,14 @@ reminderFoldl :: (a -> b -> a) -> a -> [b] -> a
 reminderFoldl _f acc [] = acc
 reminderFoldl f acc (x:xs) = reminderFoldl f (f acc x) xs
 
+-- allows us to use accumulator function with context
+-- the accumulate result also has a context
 myFoldM :: (Foldable t, Monad m) => (a -> b -> m a) -> a -> t b -> m a
 myFoldM f z0 xs = foldr f' return xs z0
-  where f' x k z = f z x >>= k
+  where
+    -- used in a foldr
+    -- f' :: b -> (a -> m c) -> a -> m c
+    f' x k z = f z x >>= k
 
 exampleFoldM1 = (foldM binSmalls 0 [2,8,3,1] == Just 14)
              && (foldM binSmalls 0 [2,11,3,1] == Nothing)

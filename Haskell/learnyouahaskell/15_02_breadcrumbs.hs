@@ -40,7 +40,7 @@ goUp :: (Tree a, Breadcrumbs a) -> (Tree a, Breadcrumbs a)
 goUp (t, LeftCrumb x r:bs) = (Node x t r, bs)
 goUp (t, RightCrumb x l:bs) = (Node x l t, bs)
 
--- 
+-- Zip together a current focus and its surrounding context
 type Zipper a = (Tree a, Breadcrumbs a)
 
 modify :: (a -> a) -> Zipper a -> Zipper a
