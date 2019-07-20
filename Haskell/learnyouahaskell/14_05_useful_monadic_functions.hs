@@ -107,10 +107,14 @@ reminderFoldl f acc (x:xs) = reminderFoldl f (f acc x) xs
 -- allows us to use accumulator function with context
 -- the accumulate result also has a context
 myFoldM :: (Foldable t, Monad m) => (a -> b -> m a) -> a -> t b -> m a
+-- return is the starting state
+-- after the foldr, the resulting function is applied to z0
 myFoldM f z0 xs = foldr f' return xs z0
   where
     -- used in a foldr
-    -- f' :: b -> (a -> m c) -> a -> m c
+    -- f' :: x@b -> k@(a -> m c) -> z@a -> m c
+    -- f z x :: m a
+    -- k is the accumulator
     f' x k z = f z x >>= k
 
 exampleFoldM1 = (foldM binSmalls 0 [2,8,3,1] == Just 14)

@@ -1,0 +1,20 @@
+$ mkdir zoo
+
+$ cd zoo
+
+$ git init
+
+$ vi animals.txt
+...
+
+$ cat animals.txt
+Cat
+Dog
+Octopus
+Octocat
+
+$ git add animals.txt
+
+$ git commit -m "init"
+
+$ git branch octodog

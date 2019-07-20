@@ -42,14 +42,14 @@ macros can be modified and saved through copy/paste, being simply text commands
 ## marks
 marks save the current position  
 marks can be of 4 kinds:
-1. the user local marks (a-z), set by the user and local to the file/buffer
-2. the user global marks (A-Z), set by the user and shared between files/buffers, open the file if closed
-3. the numbered marks (0-9), the location of the cursor when vim was closed (0), one before (1), ...
-4. the yank/change marks ([]), the first([)/last(]) character of the last yanked or changed test
-5. the visual area marks (<>), the first(<)/last(>) line or character of the last selected visual area
-6. the jump marks ('\`), the latest line (')/ character (\`) jump
-7. the buffer mark ("), the cursor position the last time the buffer was opened
-8. the inster mark (^), the position of the cursor for the end of the last insert mode, same as __gi__
+1. the user local marks (a-z), set by the user and local to the file/buffer  
+2. the user global marks (A-Z), set by the user and shared between files/buffers, open the file if closed  
+3. the numbered marks (0-9), the location of the cursor when vim was closed (0), one before (1), ...  
+4. the yank/change marks ([]), the first([)/last(]) character of the last yanked or changed test  
+5. the visual area marks (<>), the first(<)/last(>) line or character of the last selected visual area  
+6. the jump marks ('\`), the latest line (')/ character (\`) jump  
+7. the buffer mark ("), the cursor position the last time the buffer was opened  
+8. the inster mark (^), the position of the cursor for the end of the last insert mode, same as __gi__  
 
 `m<mark>` to set a mark  
 `'<mark` to go back to the start of the marked line  
@@ -70,11 +70,44 @@ marks can be of 4 kinds:
 `<C-o>` and `<C-i` jump to older/newer cursor position in jump list  
 `:jumps` print the jump list  
 
-`:map` user-defined mapping of keys
-`:imap` user-defined mapping of keys or insert mode
+`:map` user-defined mapping of keys  
+`:imap` user-defined mapping of keys or insert mode  
 
-`:noh[ighlightsearch]` clear the search highlight
+`:noh[ighlightsearch]` clear the search highlight  
 
+`zo` open folded lines  
+`zc` close folded lines  
+
+## Windows
+`<C-W>_` max size buffer vertically  
+`<C-W>|` max size buffer horizontally  
+`<C-W>=` equal size buffers  
+`<C-W>+` increase size buffer  
+`:sview file` split file in readonly  
+`:hide` close current window  
+`:only` only keep the current window open  
+
+## Tabs
+`:tab split` split the current buffer to a new tab (can be shortcuted tt)  
+`:tab c` close tab  
+
+## Diff
+_Local_ your current branch, the one merged into  
+_Base_ The common ancestor  
+_Remote_ The branch you merge into, usually origin/branch  
+_Merged_ The merge result  
+
+`]c` and `[c` bring the cursor to the differences  
+when the cursor in _merged_ is on a difference, to choose the right change, or non if it's a mix:  
+`:diffg(et) RE(MOTE)`  
+`:diffg(et) BA(SE)`  
+`:diffg(et) LO(CAL)`  
+`:diffu(pdate)` update the differences, to change what is seen as a difference
+
+`do` diff optain  
+`dp` diff put  
+
+> A good pluggin to check is __ConflictMotions__  
 
 # INSERT MODE (i/a/..., R)
 > `:help ins-special-keys`
