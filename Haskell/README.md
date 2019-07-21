@@ -103,6 +103,7 @@ run ghci for interactive shell
 * [mtl](https://hackage.haskell.org/package/mtl) (monad classes and monad transformers)
 * [extensible-effects](https://hackage.haskell.org/package/extensible-effects) (an alternative to monad transformers)
 * [prettyprinter](https://hackage.haskell.org/package/prettyprinter) (a printer to display info in a more readable way)
+* [Haskeline](https://hackage.haskell.org/package/haskeline) (for interactive CLI interface)
 
 ## UI
 * GUI
