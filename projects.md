@@ -32,6 +32,7 @@
 > [Context-Free Grammar](https://en.wikipedia.org/wiki/Context-free_grammar)  
 > [Parsing Expression Grammer](https://en.wikipedia.org/wiki/Parsing_expression_grammar)  
 * [Awk compiler](https://en.wikipedia.org/wiki/AWK)
+* [A stack-based programming language](https://en.wikipedia.org/wiki/Stack-oriented_programming)
 * Imperative language parser ([example in haskell](https://wiki.haskell.org/Parsing_a_simple_imperative_language))
 * [TOML parser](https://en.wikipedia.org/wiki/Toml)
 * [YAML Parser](https://en.wikipedia.org/wiki/YAML)

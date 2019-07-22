@@ -91,6 +91,9 @@ run ghci for interactive shell
 * [Haskell-ci](https://hackage.haskell.org/package/haskell-ci) (script generator for continuous integration with [Travis-CI](https://travis-ci.org/))
 
 # libraries
+## Standard libraries
+* System.Console.GetOpt (handle argument parsing)
+## External libraries
 > [Practical libraries](https://guide.aelve.com/haskell)  
 * [Safe](https://hackage.haskell.org/package/safe) (contains safe version of classic functions like `head` or `tail`)
 * [Containers](https://hackage.haskell.org/package/containers) (contains multiple efficient containers)
@@ -104,6 +107,7 @@ run ghci for interactive shell
 * [extensible-effects](https://hackage.haskell.org/package/extensible-effects) (an alternative to monad transformers)
 * [prettyprinter](https://hackage.haskell.org/package/prettyprinter) (a printer to display info in a more readable way)
 * [Haskeline](https://hackage.haskell.org/package/haskeline) (for interactive CLI interface)
+* [potparse-applicative](https://hackage.haskell.org/package/optparse-applicative) (for powerful parsing CL options)
 
 ## UI
 * GUI
