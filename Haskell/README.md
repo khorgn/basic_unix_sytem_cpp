@@ -37,6 +37,7 @@ run ghci for interactive shell
     * pure: [QuickCheck](https://hackage.haskell.org/package/QuickCheck), [SmallCheck](https://www.mail-archive.com/haskell@haskell.org/msg19215.html)
     * impure: [Hspec](https://hspec.github.io/), [HUnit](https://hackage.haskell.org/package/HUnit)
   * Build tools: [Stack](https://docs.haskellstack.org/en/stable/README/) [Nix](https://cah6.github.io/technology/nix-haskell-1/)
+* [Argument handling in CLI with System.Console.GetOpt](https://wiki.haskell.org/Tutorials/Programming_Haskell/Argument_handling)
 
 ## Wikibooks
 * [Wikibook](https://en.wikibooks.org/wiki/Haskell)
