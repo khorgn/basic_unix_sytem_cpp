@@ -5,10 +5,13 @@
   a low-level efficient and secure programming language
 * [Racket](https://racket-lang.org/)
   a language oriented programming language of the Lisp family
+* [Prolog](https://www.swi-prolog.org/)
+  A logic programming language
 
 # Languages agnostic resources
 * [How to Design Programs](https://en.wikipedia.org/wiki/How_to_Design_Programs)
 * [Structure and Interpretation of Computer Programs](https://en.wikipedia.org/wiki/Structure_and_Interpretation_of_Computer_Programs)
+* [The Elements of Computing Systems: Building a Modern Computer from First Principles](http://f.javier.io/rep/books/The%20Elements%20of%20Computing%20Systems.pdf)
 
 # Tools
 * [EditorConfig](htpps://editorcondif.org)
