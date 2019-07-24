@@ -28,11 +28,12 @@ or -E to disable the interpretation of backlash escapes
 
 -}
 
+-- to display a string with the escapes, use show on the string
+
 main :: IO ()
 main = do
   args <- getArgs
-  case parseArgs args of
-    Just p -> putStrLn $ optionsGetContent p
-    Nothing -> putStrLn "Error"
+  putStr $ parseArgs args
 
-  return ()
+-- NOTES: don't know why, but the escape sequences are not handled if :main is not given quoted strings in ghci
+-- same behavior as echo, but strange behavior nonetheless
