@@ -7,8 +7,15 @@
   a language oriented programming language of the Lisp family
 
 # Languages agnostic resources
+
+## Questions
+* [Is OOP a failure](https://www.quora.com/Was-object-oriented-programming-a-failure/answer/Michael-O-Church)
+
+## Books
 * [How to Design Programs](https://en.wikipedia.org/wiki/How_to_Design_Programs)
 * [Structure and Interpretation of Computer Programs](https://en.wikipedia.org/wiki/Structure_and_Interpretation_of_Computer_Programs)
+* [Artificial Intelligence: A Modern Approach](https://en.wikipedia.org/wiki/Artificial_Intelligence:_A_Modern_Approach)
+* [The Art of Metaobject Protocol](https://en.wikipedia.org/wiki/The_Art_of_the_Metaobject_Protocol)
 
 # Tools
 * [EditorConfig](htpps://editorcondif.org)
