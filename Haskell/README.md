@@ -121,7 +121,8 @@ run ghci for interactive shell
   * [Structured\_cli](https://hackage.haskell.org/package/structured-cli) (interactive cli)
 * WEB
   * [Electron](https://electronjs.org/) (to use the app on desktop)
-  * [Elm](https://elm-lang.org/) (a FP language)
+  * [Elm](https://elm-lang.org/) (a simple FP language)
+  * [PureScript](http://www.purescript.org/) (<https://mmhaskell.com/purescript>) (a FP language strongly inspired by Haskell)
   * [Reflex-Dom](https://hackage.haskell.org/package/reflex-dom) (WEB framework based on the Reflex engine)
 * Functional Reactive Programing
   * [Reflex](https://hackage.haskell.org/package/reflex) (a FRP interface and engine) (note: uses nix)
