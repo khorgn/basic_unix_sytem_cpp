@@ -93,7 +93,9 @@ run ghci for interactive shell
 
 # libraries
 ## Standard libraries
-* System.Console.GetOpt (handle argument parsing)
+* [Base](https://hackage.haskell.org/package/base)
+  * [Prelude](https://hackage.haskell.org/package/base-4.12.0.0/docs/Prelude.html)
+  * [System.Console.GetOpt](https://hackage.haskell.org/package/base-4.12.0.0/docs/System-Console-GetOpt.html) (handle argument parsing)
 ## External libraries
 > [Practical libraries](https://guide.aelve.com/haskell)  
 * [Safe](https://hackage.haskell.org/package/safe) (contains safe version of classic functions like `head` or `tail`)

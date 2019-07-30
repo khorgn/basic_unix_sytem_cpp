@@ -1,12 +1,18 @@
 # Interresting languages
+## Deep check
 * [Haskell](https://www.haskell.org/)
-  a pure functionnal language with a strong static type system
-* [Rust](https://www.rust-lang.org/)
-  a low-level efficient and secure programming language
+  a pure functional language with a strong static type system
 * [Racket](https://racket-lang.org/)
   a language oriented programming language of the Lisp family
+* [Rust](https://www.rust-lang.org/)
+  a low-level efficient and secure programming language
+## Quick check
 * [Prolog](https://www.swi-prolog.org/)
   A logic programming language
+* [Erlang](https://www.erlang.org/)
+  A functional language for distributed systems and message-passing
+* [Clojure](https://clojure.org/)
+  A functional language making use of the Java ecosystem of the Lisp family
 
 # Languages agnostic resources
 
@@ -19,6 +25,13 @@
 * [The Elements of Computing Systems: Building a Modern Computer from First Principles](http://f.javier.io/rep/books/The%20Elements%20of%20Computing%20Systems.pdf)
 * [Artificial Intelligence: A Modern Approach](https://en.wikipedia.org/wiki/Artificial_Intelligence:_A_Modern_Approach)
 * [The Art of Metaobject Protocol](https://en.wikipedia.org/wiki/The_Art_of_the_Metaobject_Protocol)
+
+## Blog-posts
+* [Object-Oriented-Programming the trillion dollar disaster](https://medium.com/better-programming/object-oriented-programming-the-trillion-dollar-disaster-%EF%B8%8F-92a4b666c7c7)
+* [Yes, silver bullet](https://blog.ploeh.dk/2019/07/01/yes-silver-bullet/?source=techstories.org) (about essential and accidental complexity in source code)
+
+# Unix
+* [To test OSs](https://www.ostechnix.com/test-100-linux-and-unix-operating-systems-online-for-free/)
 
 # Tools
 * [EditorConfig](htpps://editorcondif.org)
