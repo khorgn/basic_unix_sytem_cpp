@@ -29,6 +29,7 @@
 ## Blog-posts
 * [Object-Oriented-Programming the trillion dollar disaster](https://medium.com/better-programming/object-oriented-programming-the-trillion-dollar-disaster-%EF%B8%8F-92a4b666c7c7)
 * [Yes, silver bullet](https://blog.ploeh.dk/2019/07/01/yes-silver-bullet/?source=techstories.org) (about essential and accidental complexity in source code)
+* [Gradual typing](https://blog.sigplan.org/2019/07/12/gradual-typing-theory-practice/)
 
 # Unix
 * [To test OSs](https://www.ostechnix.com/test-100-linux-and-unix-operating-systems-online-for-free/)
