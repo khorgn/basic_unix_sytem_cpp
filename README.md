@@ -11,6 +11,8 @@
   A logic programming language
 * [Erlang](https://www.erlang.org/)
   A functional language for distributed systems and message-passing
+* [Elixir](https://elixir-lang.org/)
+  A functional language based on erlang
 * [Clojure](https://clojure.org/)
   A functional language making use of the Java ecosystem of the Lisp family
 
