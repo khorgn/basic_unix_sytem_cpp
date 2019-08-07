@@ -61,13 +61,13 @@ run ghci for interactive shell
 * [explanations State, StateT and MonadState](https://stackoverflow.com/questions/43438875/confusion-about-statet-state-and-monadstate/43441289#43441289)
 * [Four months of Haskell](https://lexi-lambda.github.io/blog/2016/06/12/four-months-with-haskell/)
 * [Haskell weekly](https://haskellweekly.news/)
-* [Haskell Phrasebook](https://typeclasses.com/phrasebook) (a book of examples to learn haskell)
 
 # books
 * [Learn me a haskell](http://learnyouahaskell.com/chapters)  
 * [haskell first principle](haskellbook.com)  
 * [real world haskell](book.realworldhaskell.org)  
 * thinking functionally with haskell  
+* [Haskell Phrasebook](https://typeclasses.com/phrasebook) (a book of examples to learn haskell)
 
 # videos
 * "Dependent Types in Haskell" by _Stephanie Weirich_ on youtube
@@ -92,6 +92,7 @@ run ghci for interactive shell
 * [stack](https://docs.haskellstack.org/en/stable/README/)
 * Nix
 * [Haskell-ci](https://hackage.haskell.org/package/haskell-ci) (script generator for continuous integration with [Travis-CI](https://travis-ci.org/))
+* [hlint](https://hackage.haskell.org/package/hlint) (tool to suggest possible improvements to Haskell code)
 
 # libraries
 ## Standard libraries
