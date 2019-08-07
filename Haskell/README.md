@@ -94,6 +94,7 @@ run ghci for interactive shell
 * [Haskell-ci](https://hackage.haskell.org/package/haskell-ci) (script generator for continuous integration with [Travis-CI](https://travis-ci.org/))
 * [hlint](https://hackage.haskell.org/package/hlint) (tool to suggest possible improvements to Haskell code)
 * [argon](https://hackage.haskell.org/package/argon) (tool to measure [cyclomatic complexity](https://en.wikipedia.org/wiki/Cyclomatic_complexity))
+* [brittany](https://hackage.haskell.org/package/brittany) (haskell source code formatter)
 
 # libraries
 ## Standard libraries
