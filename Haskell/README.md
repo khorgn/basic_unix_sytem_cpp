@@ -60,6 +60,8 @@ run ghci for interactive shell
 * [Understanding Haskell's error messages](http://ics.p.lodz.pl/~stolarek/_media/pl:research:stolarek_understanding_basic_haskell_error_messages.pdf)
 * [explanations State, StateT and MonadState](https://stackoverflow.com/questions/43438875/confusion-about-statet-state-and-monadstate/43441289#43441289)
 * [Four months of Haskell](https://lexi-lambda.github.io/blog/2016/06/12/four-months-with-haskell/)
+* [Haskell weekly](https://haskellweekly.news/)
+* [Haskell Phrasebook](https://typeclasses.com/phrasebook) (a book of examples to learn haskell)
 
 # books
 * [Learn me a haskell](http://learnyouahaskell.com/chapters)  
@@ -105,6 +107,7 @@ run ghci for interactive shell
 * [Containers](https://hackage.haskell.org/package/containers) (contains multiple efficient containers)
 * [statistics](http://hackage.haskell.org/package/statistics) (provide tools for stats)
 * [test-framework](http://hackage.haskell.org/package/test-framework) (organize tests from [QuickCheck](https://hackage.haskell.org/package/QuickCheck) or [HUnit](http://hackage.haskell.org/package/HUnit))
+* [Vector: Efficient Arrays](https://hackage.haskell.org/package/vector) (a library to use boxed and unboxed vectors instead of single-linked lists)
 #### Advanced
 * [Software Transactional Memory](http://hackage.haskell.org/package/stm) (for concurrent communication)
 * [mtl](https://hackage.haskell.org/package/mtl) (monad classes and monad transformers)
