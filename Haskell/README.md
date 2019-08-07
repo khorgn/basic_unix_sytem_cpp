@@ -99,18 +99,26 @@ run ghci for interactive shell
   * [Debug.Trace](https://hackage.haskell.org/package/base-4.12.0.0/docs/Debug-Trace.html) (allow printf debugging)
 ## External libraries
 > [Practical libraries](https://guide.aelve.com/haskell)  
+### Standards
+#### Basics
 * [Safe](https://hackage.haskell.org/package/safe) (contains safe version of classic functions like `head` or `tail`)
 * [Containers](https://hackage.haskell.org/package/containers) (contains multiple efficient containers)
-* [SubHask](https://hackage.haskell.org/package/subhask) (a library to rewrite the prelude using subcategories in category theories)
-* [dlist](https://hackage.haskell.org/package/dlist) (difference lists are list-like types supporting O(1) append)
-* [criterion](http://hackage.haskell.org/package/criterion) (provide ways to measure software performances)
 * [statistics](http://hackage.haskell.org/package/statistics) (provide tools for stats)
 * [test-framework](http://hackage.haskell.org/package/test-framework) (organize tests from [QuickCheck](https://hackage.haskell.org/package/QuickCheck) or [HUnit](http://hackage.haskell.org/package/HUnit))
+#### Advanced
 * [Software Transactional Memory](http://hackage.haskell.org/package/stm) (for concurrent communication)
 * [mtl](https://hackage.haskell.org/package/mtl) (monad classes and monad transformers)
-* [extensible-effects](https://hackage.haskell.org/package/extensible-effects) (an alternative to monad transformers)
+* [criterion](http://hackage.haskell.org/package/criterion) (provide ways to measure software performances)
+* [Operational](http://hackage.haskell.org/package/operational) (a library to implement monads with tricky control flow, like DSL)
+  [operational monad tutorial](https://apfelmus.nfshost.com/articles/operational-monad.html?_sm_au_=iVV2WlMqr48BBmkVJ6F3jKH7c2fV2)
+### Specialized
+#### Basics
+* [dlist](https://hackage.haskell.org/package/dlist) (difference lists are list-like types supporting O(1) append)
 * [prettyprinter](https://hackage.haskell.org/package/prettyprinter) (a printer to display info in a more readable way)
+#### Advanced
 * [Haskeline](https://hackage.haskell.org/package/haskeline) (for interactive CLI interface)
+* [SubHask](https://hackage.haskell.org/package/subhask) (a library to rewrite the prelude using subcategories in category theories)
+* [extensible-effects](https://hackage.haskell.org/package/extensible-effects) (an alternative to monad transformers)
 * [potparse-applicative](https://hackage.haskell.org/package/optparse-applicative) (for powerful parsing CL options)
 
 ## UI

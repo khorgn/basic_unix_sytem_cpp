@@ -27,3 +27,37 @@ however, it would return '(zip-code "01234"), a lot less detailled
 
 ; == bf tokenizer == ;
 ; every character outside of the eight used in the grammar are ignored, so they will be tossed out
+
+; we write a reader with a tokenizer using our parser
+(require "05_parser.rkt")
+; we require brag/support to get access to lexer
+(require brag/support)
+
+(define (read-syntax path port)
+  ; instead of manually reading strings of code from port, we pass the port to make-tokenizer, which reads characters from the port and generates tokens
+  ; we then pass these tokens to parse from 05_parser.rkt to make the parse-tree from our grammar
+  (define parse-tree (parse path (make-tokenizer port)))
+  ; we create a module datum representing the code of a module
+  (define module-datum `(module bf-mod "05_expander.rkt" ,parse-tree))
+  (datum->syntax #f module-datum))
+(provide read-syntax)
+
+;; make-tokenizer returns a function next-token to retrieve the next token, instead of reading all tokens
+(define (make-tokenizer port)
+  (define (next-token)
+    ; the tokenizer relies on a lexer for its tokenizing rules
+    ; a lexer is a tree, each branch is a rule. On the left side of the branch is a pattern (like regex), on the right side a token-creating expression
+    (define bf-lexer
+      (lexer
+       ; first branch, we let through
+       ; char-set is a lexer helper function to match one of the characters given
+       ; lexeme is a special lexer variable binding to the thing just matched
+       [(char-set "><-.,+[]") lexeme]
+       ; any-char is a lexer helper function to match any character
+       ; since these characters should be ignored, we just call next-token
+       [any-char (next-token)]
+       ; the port emits a oef signal when it reaches the end of the file, it must be handled by the lexer. But we can also rely on lexer's default behavior:
+       ; lexer will emit an oef token, which will stop the parser
+       ))
+    (bf-lexer port))
+  next-token)
