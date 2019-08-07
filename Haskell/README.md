@@ -42,6 +42,12 @@ run ghci for interactive shell
 ## Wikibooks
 * [Wikibook](https://en.wikibooks.org/wiki/Haskell)
 
+## FP-complete
+* [Exceptions Best Practices](https://www.fpcomplete.com/blog/2016/11/exceptions-best-practices-haskell)
+  [Safe exception handling](https://www.fpcomplete.com/blog/2016/11/exceptions-best-practices-haskell)
+  [Async exception handling](https://www.fpcomplete.com/blog/2018/04/async-exception-handling-haskell)
+* [The rio standard library](https://haskell.fpcomplete.com/library/rio)
+
 ## Miscellaneous
 * [learn you a haskell](http://learnyouahaskell.com/chapters)  
 * [Why functional programming matters](https://github.com/rust-lang/rustlings)  
