@@ -149,6 +149,19 @@ run ghci for interactive shell
 * `:set +m` allow multiline commands
 * `:set +s` gives the execution time and memory usage after each evaluation (note: functions tend to run slower in ghci than in direct execution)
 
+## Debugging
+* `:break <function name>` sets a breakpoint at the start of the function
+* `:step` steps into the function, it also allows to access inner functions
+```
+foo x = g (x + 2)
+  where g y = x^y
+
+: break foo
+:step
+:t g
+g 2
+```
+
 # ghc
 ## GHC options
 * `{-# OPTION_GHC -Wall #-}`
