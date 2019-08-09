@@ -211,3 +211,6 @@ g 2
 * `instance {-# OVERLAPPING #-} <typeclass> <type> where ...` (design this instance as overlapping another)
    connected pragmas: `OVERLAPPABLE` and `OVERLAPS`
 
+# Stack
+## profiling
+* `stack build --profile` will build the code and profile it
