@@ -100,7 +100,11 @@ run ghci for interactive shell
 * [Haskell-ci](https://hackage.haskell.org/package/haskell-ci) (script generator for continuous integration with [Travis-CI](https://travis-ci.org/))
 * [hlint](https://hackage.haskell.org/package/hlint) (tool to suggest possible improvements to Haskell code)
 * [argon](https://hackage.haskell.org/package/argon) (tool to measure [cyclomatic complexity](https://en.wikipedia.org/wiki/Cyclomatic_complexity))
-* [brittany](https://hackage.haskell.org/package/brittany) (haskell source code formatter)
+* Code formatters
+  * [stylish-haskell](https://hackage.haskell.org/package/stylish-haskell) (a tool to clean-up import statements and other things not part of the main code)
+  * [brittany](https://hackage.haskell.org/package/brittany) (a tool to optimize the use of vertical space, and reorder expressions)
+    Makes more changes than hindent, but may be more context sensitive
+  * [hindent](https://hackage.haskell.org/package/hindent) ( a tool to reorganize code to be more readable)
 * [ghcid](https://hackage.haskell.org/package/ghcid) (a file-watcher to automatically rebuild when any has changed)
 
 # libraries
