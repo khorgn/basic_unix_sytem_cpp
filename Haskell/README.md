@@ -105,6 +105,8 @@ run ghci for interactive shell
   * [brittany](https://hackage.haskell.org/package/brittany) (a tool to optimize the use of vertical space, and reorder expressions)
     Makes more changes than hindent, but may be more context sensitive
   * [hindent](https://hackage.haskell.org/package/hindent) ( a tool to reorganize code to be more readable)
+  * [Ormolu](https://github.com/tweag/ormolu) (a tool keeping the existing style)
+    Still young for now
 * [ghcid](https://hackage.haskell.org/package/ghcid) (a file-watcher to automatically rebuild when any has changed)
 * [Haskell IDE Engine](https://github.com/haskell/haskell-ide-engine#using-hie-with-spacemacs) (Language-Server-Protocol for Haskell)
 
@@ -211,6 +213,3 @@ g 2
 * `instance {-# OVERLAPPING #-} <typeclass> <type> where ...` (design this instance as overlapping another)
    connected pragmas: `OVERLAPPABLE` and `OVERLAPS`
 
-# Stack
-## profiling
-* `stack build --profile` will build the code and profile it
