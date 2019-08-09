@@ -113,6 +113,7 @@ run ghci for interactive shell
 ### Standards
 #### Basics
 * [Safe](https://hackage.haskell.org/package/safe) (contains safe version of classic functions like `head` or `tail`)
+* [These](http://hackage.haskell.org/package/these) (a type `data These a b = This a | That b | These a b`)
 * [Containers](https://hackage.haskell.org/package/containers) (contains multiple efficient containers)
 * [statistics](http://hackage.haskell.org/package/statistics) (provide tools for stats)
 * [test-framework](http://hackage.haskell.org/package/test-framework) (organize tests from [QuickCheck](https://hackage.haskell.org/package/QuickCheck) or [HUnit](http://hackage.haskell.org/package/HUnit))
@@ -129,6 +130,7 @@ run ghci for interactive shell
 * [prettyprinter](https://hackage.haskell.org/package/prettyprinter) (a printer to display info in a more readable way)
 #### Advanced
 * [Haskeline](https://hackage.haskell.org/package/haskeline) (for interactive CLI interface)
+* [derive](http://hackage.haskell.org/package/derive) (a library to derive instances)
 * [SubHask](https://hackage.haskell.org/package/subhask) (a library to rewrite the prelude using subcategories in category theories)
 * [extensible-effects](https://hackage.haskell.org/package/extensible-effects) (an alternative to monad transformers)
 * [potparse-applicative](https://hackage.haskell.org/package/optparse-applicative) (for powerful parsing CL options)
@@ -191,6 +193,13 @@ g 2
 * Easier `newtype` handling
   * `{-# LANGUAGE GeneralizedNewtypeDeriving #-}` allows to derive typeclass instancied by the original type of the newtype, to reduce boilerplate and code copy
   * `{-# LANGUAGE StandaloneDeriving #-}` allows to precise a particular type of a generalized type (ex: `deriving instance ToText (Id User)`)
+* Deriving
+  * `{-# LANGUAGE Derive<...> #-}` adds deriving for some typeclasses, is a group of extensions
+    Ex: `{-# LANGUAGE DeriveFoldable #-}`
+  * `{-# LANGUAGE <...>Deriving #-}` adds a deriving strategy, is a group of extensions
+    Ex: `{-# LANGUAGE GeneralizedNewTypeDeriving #-}` allows deriving of newtypes from there mother type
+  * `{-# LANGUAGE DirivingStrategies #-}` allows to select the strategy to use when deriving ([infos](https://typeclasses.com/ghc/deriving-strategies))
+  * `{#- LANGUAGE RoleAnnotations #-}` allows to use roles annotations ([link](https://gitlab.haskell.org/ghc/ghc/wikis/roles))
 
 ## pragmas
 * `instance {-# OVERLAPPING #-} <typeclass> <type> where ...` (design this instance as overlapping another)
