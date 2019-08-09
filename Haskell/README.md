@@ -101,6 +101,7 @@ run ghci for interactive shell
 * [hlint](https://hackage.haskell.org/package/hlint) (tool to suggest possible improvements to Haskell code)
 * [argon](https://hackage.haskell.org/package/argon) (tool to measure [cyclomatic complexity](https://en.wikipedia.org/wiki/Cyclomatic_complexity))
 * [brittany](https://hackage.haskell.org/package/brittany) (haskell source code formatter)
+* [ghcid](https://hackage.haskell.org/package/ghcid) (a file-watcher to automatically rebuild when any has changed)
 
 # libraries
 ## Standard libraries
