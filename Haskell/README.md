@@ -106,6 +106,7 @@ run ghci for interactive shell
     Makes more changes than hindent, but may be more context sensitive
   * [hindent](https://hackage.haskell.org/package/hindent) ( a tool to reorganize code to be more readable)
 * [ghcid](https://hackage.haskell.org/package/ghcid) (a file-watcher to automatically rebuild when any has changed)
+* [Haskell IDE Engine](https://github.com/haskell/haskell-ide-engine#using-hie-with-spacemacs) (Language-Server-Protocol for Haskell)
 
 # libraries
 ## Standard libraries
