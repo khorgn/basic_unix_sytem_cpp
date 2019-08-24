@@ -8,7 +8,7 @@ run ghci for interactive shell
 
 ## [stack](https://docs.haskellstack.org/en/stable/README/)  
 `sudo apt install haskell-stack`  
-`stack upgrade`  
+`stack upgrade` upgrade stack   
 `stack setup`
 
 
@@ -67,6 +67,7 @@ run ghci for interactive shell
 * [explanations State, StateT and MonadState](https://stackoverflow.com/questions/43438875/confusion-about-statet-state-and-monadstate/43441289#43441289)
 * [Four months of Haskell](https://lexi-lambda.github.io/blog/2016/06/12/four-months-with-haskell/)
 * [Haskell weekly](https://haskellweekly.news/)
+* [Fundamental Haskell-Notes](https://blog.latukha.com/haskell-notes)
 
 # books
 * [Learn me a haskell](http://learnyouahaskell.com/chapters)  
@@ -85,7 +86,7 @@ run ghci for interactive shell
 * monads (IO, State, Maybe, Either, Reader, Writer)
 * [monad transformers](https://wiki.haskell.org/Monad_Transformers_Explained)
   [wikibooks chapter](https://en.wikibooks.org/wiki/Haskell/Monad_transformers)
-* [Generalised algebraic datatype](https://wiki.haskell.org/Generalised_algebraic_datatype)
+* [Generalised Algebraic DataType](https://wiki.haskell.org/Generalised_algebraic_datatype)
   [stack overflow answer on the topic](https://stackoverflow.com/questions/8245288/what-does-data-where-mean-in-haskell)  
   [Wikibooks chapter](https://en.wikibooks.org/wiki/Haskell/GADT)  
 * category theory (math)
@@ -93,6 +94,10 @@ run ghci for interactive shell
 * dependent types
 * [constraint trick](https://www.reddit.com/r/haskell/comments/3afi3t/the_constraint_trick_for_instances/) (a way to be stricter in instance constraints)
 * [Existentially Quantified Types](https://en.m.wikibooks.org/wiki/Haskell/Existentially_quantified_types) (a way to qualify types by their typeclasses constraint (similar to Box<> in Rust))
+* [TypeFamilies](https://wiki.haskell.org/GHC/Type_families)
+* [DataKinds](https://stackoverflow.com/questions/20558648/what-is-the-datakinds-extension-of-haskell)
+* PolyKinds
+* [RankNTypes](http://sleepomeno.github.io/blog/2014/02/12/Explaining-Haskell-RankNTypes-for-all/)
 
 # toolset
 * [stack](https://docs.haskellstack.org/en/stable/README/)
@@ -180,10 +185,17 @@ foo x = g (x + 2)
 g 2
 ```
 
+# ghcid
+`stack install ghcid && stack ghcid`  
+runs ghci with a file as daemon  
+
 # ghc
 ## GHC options
+> The arguments can also be given when calling ghc
 * `{-# OPTION_GHC -Wall #-}`
+* `{-# OPTION_GHC -Wno-tabs #-}`
 ## language options
+> Can also be given as `-X<extension>`
 * [Interesting extensions](https://www.schoolofhaskell.com/school/to-infinity-and-beyond/pick-of-the-week/guide-to-ghc-extensions/basic-syntax-extensions)
 * [Interesting extensions](https://mmhaskell.com/blog/2019/3/4/extending-haskells-syntax)
 * [Good extensions](https://stackoverflow.com/questions/10845179/which-haskell-ghc-extensions-should-users-use-avoid)
