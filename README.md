@@ -47,6 +47,7 @@
 * [advent of code](https://adventofcode.com/)
 * [hackerranks](https://www.hackerrank.com/)
 * [codewars](https://www.codewars.com/)
+* [typing-club](https://www.typingclub.com)
 
 # sample code
 * [Rosetta-code 100 door](Rosettacode.org/wiki/100_door)
@@ -61,3 +62,7 @@
 * [Grip](https://github.com/joeyespo/grip) (launchs a server and uses GitHub's API)
 * `pandoc <file> -t plain | less` or `pandoc <file> -t html | lynx --stdin`
 * `gem install mdless`
+
+# Communities
+* [freenode](https://freenode.net/)
+

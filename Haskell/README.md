@@ -194,6 +194,7 @@ runs ghci with a file as daemon
 > The arguments can also be given when calling ghc
 * `{-# OPTION_GHC -Wall #-}`
 * `{-# OPTION_GHC -Wno-tabs #-}`
+* `{-# OPTION_GHC -Wunused-imports #-}`
 ## language options
 > Can also be given as `-X<extension>`
 * [Interesting extensions](https://www.schoolofhaskell.com/school/to-infinity-and-beyond/pick-of-the-week/guide-to-ghc-extensions/basic-syntax-extensions)
