@@ -186,8 +186,15 @@ g 2
 ```
 
 # ghcid
-`stack install ghcid && stack ghcid`  
+`stack build ghcid && stack exec -- ghcid`  
 runs ghci with a file as daemon  
+
+# stack
+`stack install <package>` install the given package  
+`stack build <executable>` builds and setup in the project the exec  
+`stack exec -- <executable>` execute the executable  
+
+`stack run <args>` runs the main of the project with the given arguments
 
 # ghc
 ## GHC options
