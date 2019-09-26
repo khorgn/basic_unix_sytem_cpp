@@ -38,6 +38,7 @@ run ghci for interactive shell
     * impure: [Hspec](https://hspec.github.io/), [HUnit](https://hackage.haskell.org/package/HUnit)
   * Build tools: [Stack](https://docs.haskellstack.org/en/stable/README/) [Nix](https://cah6.github.io/technology/nix-haskell-1/)
 * [Argument handling in CLI with System.Console.GetOpt](https://wiki.haskell.org/Tutorials/Programming_Haskell/Argument_handling)
+* [Literate Programming](https://wiki.haskell.org/Literate_programming)
 
 ## Wikibooks
 * [Wikibook](https://en.wikibooks.org/wiki/Haskell)
@@ -121,6 +122,7 @@ run ghci for interactive shell
   * [Prelude](https://hackage.haskell.org/package/base-4.12.0.0/docs/Prelude.html)
   * [System.Console.GetOpt](https://hackage.haskell.org/package/base-4.12.0.0/docs/System-Console-GetOpt.html) (handle argument parsing)
   * [Debug.Trace](https://hackage.haskell.org/package/base-4.12.0.0/docs/Debug-Trace.html) (allow printf debugging)
+  * [GHC.Generics](https://hackage.haskell.org/package/base-4.11.1.0/docs/GHC-Generics.html) (allow the use of the Generic typeclass for datatype-generic functions)
 ## External libraries
 > [Practical libraries](https://guide.aelve.com/haskell)  
 ### Standards
@@ -137,6 +139,7 @@ run ghci for interactive shell
 * [criterion](http://hackage.haskell.org/package/criterion) (provide ways to measure software performances)
 * [Operational](http://hackage.haskell.org/package/operational) (a library to implement monads with tricky control flow, like DSL)
   [operational monad tutorial](https://apfelmus.nfshost.com/articles/operational-monad.html?_sm_au_=iVV2WlMqr48BBmkVJ6F3jKH7c2fV2)
+* [generic-deriving](https://hackage.haskell.org/package/generic-deriving) (a library to generalize the deriving mechanics in haskell)
 ### Specialized
 #### Basics
 * [dlist](https://hackage.haskell.org/package/dlist) (difference lists are list-like types supporting O(1) append)

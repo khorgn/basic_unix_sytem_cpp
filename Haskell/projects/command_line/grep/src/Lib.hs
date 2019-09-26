@@ -1,9 +1,10 @@
 module Lib
     ( filterOutNonMatchingLines
     , filterOutMatchingLines
-    , checkArgs
+    , parseArgs
     , checkArgs'
     , grep
+    , Arg(ArgFile)
     ) where
 
 import System.IO ( openFile
@@ -12,6 +13,8 @@ import System.IO ( openFile
                  , IOMode(..)
                  )
 import Data.List ( isInfixOf
+                 )
+import Data.Char ( toLower
                  )
 
 
@@ -27,6 +30,7 @@ basicRead' = do
   print contents
 
 filterOutNonMatchingLines pattern text = filter (isInfixOf pattern) text
+filterOutNonMatchingLinesIgnoreCase pattern text = filter (isInfixOf (map toLower pattern)) (map (map toLower) text)
 filterOutMatchingLines pattern text = filter (\l -> not $ isInfixOf pattern l) text
 
 -- is Data.List.isInfixOf
@@ -38,7 +42,14 @@ lineMatch l p = isInfixOf p l
 -- the patterns define the filter function
 -- the options change the input/output (for now)
 grep :: [Arg] -> [String] -> [String]
-grep (a:as) (l:ls) = undefined
+grep ass@(a:as) lss@(l:ls) = undefined
+
+filterForArgIgnoreCase as ls = if hasIgnoreCase as then
+                                                   filterOutNonMatchingLinesIgnoreCase ps ls
+                                                   else
+                                                   filterOutNonMatchingLines ps ls
+  where hasIgnoreCase = any $ \x -> case x of { ArgIgnoreCase -> True; otherwise -> False}
+        ps = [x | ArgPattern x <- as]
 
 filterLine (a:as) l = filter (isAccepted) l
   where isAccepted x = undefined
@@ -62,10 +73,9 @@ data Arg = ArgHelp
 checkArgs' :: [String] -> Bool
 checkArgs' xs = if length xs == 1 then True else False
 
-checkArgs :: [String] -> [Arg]
-checkArgs xs = checkOptions [] xs
+parseArgs :: [String] -> [Arg]
+parseArgs xs = checkOptions [] xs
 
-exArgs = ["-i", "-e", "foo", "--regexp", "fuu", "-f", "bar", "aaa", "bbbb", "ccc"]
 
 checkOptions args [] = args
 checkOptions args (x:xs)
@@ -76,3 +86,4 @@ checkOptions args (x:xs)
                             else (fmap (ArgFile) xs) ++ (ArgPattern x):args
 
 
+exArgs = ["-i", "-e", "foo", "--regexp", "fuu", "-f", "bar", "aaa", "bbbb", "ccc"]
