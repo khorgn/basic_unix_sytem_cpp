@@ -55,6 +55,10 @@ marks can be of 4 kinds:
 `'<mark` to go back to the start of the marked line  
 `<backquote><mark>` to go back to the exact position saved  
 
+## folds
+folds allows to make the code more readable
+see the manual: `:help usr_28.txt` for how to use it
+
 ## miscellaneous
 `q:` to enter the command-line window  
 `*` next occurence of the word under the cursor  
@@ -110,6 +114,7 @@ when the cursor in _merged_ is on a difference, to choose the right change, or n
 > A good pluggin to check is __ConflictMotions__  
 
 # INSERT MODE (i/a/..., R)
+> `:h insert.txt`
 > `:help ins-special-keys`
 
 `<C-w>` to remove a word  
@@ -132,9 +137,25 @@ when the cursor in _merged_ is on a difference, to choose the right change, or n
 
 `<C-o>` to issue a single command in normal mode
 
-# COMMAND MODE (:)
-> :h ex-edit-index
+# COMMAND MODE (":", "/", "?", "!")
+> `:h cmdline.txt`
+> `:h ex-edit-index`
 > same commands as in insert mode
-`<C-f>` to enter command-line window
+`<C-f>` to enter command-line window, `<C-c>` to exit
 `<C-b>` to place cursor at the beginning of the line
 `<C-e>` to place cursor at the end of the line
+
+# Digraphs
+> `:h digraphs`
+> `:h digraphs-default`
+`<C-k>` to start a digraph
+
+# Unicode
+> `:h i_CTRL-V`
+> `:h i_CTRL-V_digit`
+> {nnn} is a number with 3 characters
+`ga` gives the unicode representation of the character under the cursor
+`<C-v>{nnn}` enter the unicode representation of the decimal number
+`<C-v>o{nnn}` enter the unicode representation of the octal number
+`<C-v>x{nnn}` enter the unicode representation of the hexadecimal number
+

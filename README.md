@@ -16,6 +16,10 @@
 * [Clojure](https://clojure.org/)
   A functional language making use of the Java ecosystem of the Lisp family
 
+## Ressearch languages
+* [Eff](https://www.eff-lang.org/)
+  A functional language based on __algebraic effect handlers__
+
 # Languages agnostic resources
 
 ## Questions
@@ -27,11 +31,22 @@
 * [The Elements of Computing Systems: Building a Modern Computer from First Principles](http://f.javier.io/rep/books/The%20Elements%20of%20Computing%20Systems.pdf)
 * [Artificial Intelligence: A Modern Approach](https://en.wikipedia.org/wiki/Artificial_Intelligence:_A_Modern_Approach)
 * [The Art of Metaobject Protocol](https://en.wikipedia.org/wiki/The_Art_of_the_Metaobject_Protocol)
+* [Patterns, Principles, and Practices of Domain-Driven Design](https://www.amazon.com/Patterns-Principles-Practices-Domain-Driven-Design/dp/1118714709)
 
 ## Blog-posts
 * [Object-Oriented-Programming the trillion dollar disaster](https://medium.com/better-programming/object-oriented-programming-the-trillion-dollar-disaster-%EF%B8%8F-92a4b666c7c7)
 * [Yes, silver bullet](https://blog.ploeh.dk/2019/07/01/yes-silver-bullet/?source=techstories.org) (about essential and accidental complexity in source code)
 * [Gradual typing](https://blog.sigplan.org/2019/07/12/gradual-typing-theory-practice/)
+
+
+# Functional programming
+
+## Blogs
+* [Domain Driven Design](https://fsharpforfunandprofit.com/ddd/)
+* [Functional Programming Patterns](https://fsharpforfunandprofit.com/fppatterns/)
+
+## Websites
+* [Aligator eggs, children's game on lambda calculus](http://worrydream.com/AlligatorEggs/)
 
 # Unix
 * [To test OSs](https://www.ostechnix.com/test-100-linux-and-unix-operating-systems-online-for-free/)
@@ -66,3 +81,5 @@
 # Communities
 * [freenode](https://freenode.net/)
 
+# News-sources
+* [Linux World News](https://lwn.net/)

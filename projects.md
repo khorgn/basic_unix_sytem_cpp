@@ -1,5 +1,3 @@
-# Line-command tools
-> [C source code](http://git.savannah.gnu.org/cgit/coreutils.git/tree/src)  
 > [Rust implementations](https://github.com/uutils)
 * echo (prints a line of text)
 * cat (prints the content of a file)
@@ -49,6 +47,8 @@
 * [Hash](https://en.wikipedia.org/wiki/Hash_function) ([MD5](https://en.wikipedia.org/wiki/MD5))
 * [Markov chain](https://en.wikipedia.org/wiki/Markov_chain)
 * [Discrete intervale encoding tree](http://web.engr.oregonstate.edu/~erwig/papers/Diet_JFP98.pdf) ([Rust implementation](https://bitbucket.org/nikhilm/rust-diet/src/default/src/diet.rs))
+* [Gradient Descent](http://andrew.gibiansky.com/blog/machine-learning/gradient-descent/)
+  [Choice of variants](http://ruder.io/optimizing-gradient-descent/)
 
 # Machine learning
 ## Supervised learning

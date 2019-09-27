@@ -49,17 +49,20 @@ run ghci for interactive shell
   [Async exception handling](https://www.fpcomplete.com/blog/2018/04/async-exception-handling-haskell)
 * [The rio standard library](https://haskell.fpcomplete.com/library/rio)
 
+## General use
+* [state of haskell ecosystem](https://github.com/Gabriel439/post-rfc/blob/master/sotu.md)  
+* ["what I wish I knew when learning haskell"](http://dev.stephendiehl.com/hask/) 
+* [haskell pitfalls](lorepub.com/post/2016-12-17-Haskell-Pitfalls)
+
+
 ## Miscellaneous
 * [learn you a haskell](http://learnyouahaskell.com/chapters)  
 * [Why functional programming matters](https://github.com/rust-lang/rustlings)  
 * <http://conal.net/blog/posts/semantic-editor-combinators>  
-* [state of haskell ecosystem](https://github.com/Gabriel439/post-rfc/blob/master/sotu.md)  
 * [haskell trainings google](https://github.com/google/haskell-trainings)  
 * [haskell codelab google](https://github.com/google/haskell-codelab)  
 * [functors, applicatives and monads in pictures](adit.io)  
-* ["what I wish I knew when learning haskell"](http://dev.stephendiehl.com/hask/) 
 * <http://www-cs-students.stanford.edu/~blynn/haskell/>  
-* [haskell pitfalls](lorepub.com/post/2016-12-17-Haskell-Pitfalls)
 * [DataHaskell: Current environment](www.datahaskell.org/docs/community/current-environment.html)
 * [Rosetta-code](Rosettacode.org/wiki/100_door#Haskell)
 * [view-patterns](gitlab.haskell.org/ghc/wikis/view-patterns)
@@ -67,18 +70,31 @@ run ghci for interactive shell
 * [Understanding Haskell's error messages](http://ics.p.lodz.pl/~stolarek/_media/pl:research:stolarek_understanding_basic_haskell_error_messages.pdf)
 * [explanations State, StateT and MonadState](https://stackoverflow.com/questions/43438875/confusion-about-statet-state-and-monadstate/43441289#43441289)
 * [Four months of Haskell](https://lexi-lambda.github.io/blog/2016/06/12/four-months-with-haskell/)
-* [Haskell weekly](https://haskellweekly.news/)
 * [Fundamental Haskell-Notes](https://blog.latukha.com/haskell-notes)
+* [Haskell-study-plan](https://github.com/soupi/haskell-study-plan)
+* [Haskell explained](https://haskell-explained.gitlab.io/blog/index.html)
+
+## News
+* [Haskell weekly](https://haskellweekly.news/)
+* [GHC news](https://www.haskell.org/ghc/blog.html)
 
 # books
+## References
+* [Programming in haskell 2nd edition](https://www.amazon.com/Programming-Haskell-Graham-Hutton/dp/1316626229)
+
+## Starting
+* [Haskell Phrasebook](https://typeclasses.com/phrasebook) (a book of examples to learn haskell)
 * [Learn me a haskell](http://learnyouahaskell.com/chapters)  
 * [haskell first principle](haskellbook.com)  
+
+## Specialized
+* [Parallel and concurrent programming in Haskell](https://www.oreilly.com/library/view/parallel-and-concurrent/9781449335939/)
 * [real world haskell](book.realworldhaskell.org)  
 * thinking functionally with haskell  
-* [Haskell Phrasebook](https://typeclasses.com/phrasebook) (a book of examples to learn haskell)
 
 # videos
 * "Dependent Types in Haskell" by _Stephanie Weirich_ on youtube
+* [list of good haskell videos](https://www.reddit.com/r/haskell/comments/cwo96l/what_is_your_favorite_video_with_haskell/) (posted 2019-09-01)
 
 # concepts
 * [foldable/traversable](https://wiki.haskell.org/Foldable_and_Traversable)
@@ -95,10 +111,16 @@ run ghci for interactive shell
 * dependent types
 * [constraint trick](https://www.reddit.com/r/haskell/comments/3afi3t/the_constraint_trick_for_instances/) (a way to be stricter in instance constraints)
 * [Existentially Quantified Types](https://en.m.wikibooks.org/wiki/Haskell/Existentially_quantified_types) (a way to qualify types by their typeclasses constraint (similar to Box<> in Rust))
-* [TypeFamilies](https://wiki.haskell.org/GHC/Type_families)
+* [TypeFamilies and FunctionalDependencies](https://wiki.haskell.org/Functional_dependencies_vs._type_families)
+  * [TypeFamilies](https://wiki.haskell.org/GHC/Type_families)
+  * [Functional Dependencies](https://wiki.haskell.org/Functional_dependencies)
+    [GHC chapter](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#functional-dependencies)
 * [DataKinds](https://stackoverflow.com/questions/20558648/what-is-the-datakinds-extension-of-haskell)
 * PolyKinds
-* [RankNTypes](http://sleepomeno.github.io/blog/2014/02/12/Explaining-Haskell-RankNTypes-for-all/)
+* [HRT and HKT](https://www.stephanboyer.com/post/115/higher-rank-and-higher-kinded-types)
+  * [Rank-N Types / Higher rank types](http://sleepomeno.github.io/blog/2014/02/12/Explaining-Haskell-RankNTypes-for-all/)
+  * Higher Kindred Types
+* [GHC.Generics](https://wiki.haskell.org/GHC.Generics)
 
 # toolset
 * [stack](https://docs.haskellstack.org/en/stable/README/)
@@ -115,6 +137,8 @@ run ghci for interactive shell
     Still young for now
 * [ghcid](https://hackage.haskell.org/package/ghcid) (a file-watcher to automatically rebuild when any has changed)
 * [Haskell IDE Engine](https://github.com/haskell/haskell-ide-engine#using-hie-with-spacemacs) (Language-Server-Protocol for Haskell)
+* [pointfree.io](pointfree.io) (website to convert code to pointfree) (exists as client-side program)
+* [ghcide](https://hackage.haskell.org/package/ghcide) (a core to build IDE's on top of GHC) 
 
 # libraries
 ## Standard libraries
@@ -123,6 +147,8 @@ run ghci for interactive shell
   * [System.Console.GetOpt](https://hackage.haskell.org/package/base-4.12.0.0/docs/System-Console-GetOpt.html) (handle argument parsing)
   * [Debug.Trace](https://hackage.haskell.org/package/base-4.12.0.0/docs/Debug-Trace.html) (allow printf debugging)
   * [GHC.Generics](https://hackage.haskell.org/package/base-4.11.1.0/docs/GHC-Generics.html) (allow the use of the Generic typeclass for datatype-generic functions)
+
+
 ## External libraries
 > [Practical libraries](https://guide.aelve.com/haskell)  
 ### Standards
@@ -132,6 +158,7 @@ run ghci for interactive shell
 * [Containers](https://hackage.haskell.org/package/containers) (contains multiple efficient containers)
 * [statistics](http://hackage.haskell.org/package/statistics) (provide tools for stats)
 * [test-framework](http://hackage.haskell.org/package/test-framework) (organize tests from [QuickCheck](https://hackage.haskell.org/package/QuickCheck) or [HUnit](http://hackage.haskell.org/package/HUnit))
+* [Data.Array](https://hackage.haskell.org/package/array) (the standard Haskell arrays)
 * [Vector: Efficient Arrays](https://hackage.haskell.org/package/vector) (a library to use boxed and unboxed vectors instead of single-linked lists)
 #### Advanced
 * [Software Transactional Memory](http://hackage.haskell.org/package/stm) (for concurrent communication)
@@ -140,6 +167,9 @@ run ghci for interactive shell
 * [Operational](http://hackage.haskell.org/package/operational) (a library to implement monads with tricky control flow, like DSL)
   [operational monad tutorial](https://apfelmus.nfshost.com/articles/operational-monad.html?_sm_au_=iVV2WlMqr48BBmkVJ6F3jKH7c2fV2)
 * [generic-deriving](https://hackage.haskell.org/package/generic-deriving) (a library to generalize the deriving mechanics in haskell)
+* [polysemy](https://hackage.haskell.org/package/polysemy) (an alternative to mtl, considered better by some)
+  [Polysemy is fun!](https://haskell-explained.gitlab.io/blog/posts/2019/07/28/polysemy-is-cool-part-1/)
+
 ### Specialized
 #### Basics
 * [dlist](https://hackage.haskell.org/package/dlist) (difference lists are list-like types supporting O(1) append)
@@ -150,6 +180,11 @@ run ghci for interactive shell
 * [SubHask](https://hackage.haskell.org/package/subhask) (a library to rewrite the prelude using subcategories in category theories)
 * [extensible-effects](https://hackage.haskell.org/package/extensible-effects) (an alternative to monad transformers)
 * [potparse-applicative](https://hackage.haskell.org/package/optparse-applicative) (for powerful parsing CL options)
+* [repa](https://hackage.haskell.org/package/repa) (high-performance arrays) ([tutorial](https://wiki.haskell.org/Numeric_Haskell:_A_Repa_Tutorial))
+
+## Frameworks
+### Web server
+* [Yesod](https://www.yesodweb.com/)
 
 ## UI
 * GUI
@@ -207,6 +242,7 @@ runs ghci with a file as daemon
 * `{-# OPTION_GHC -Wunused-imports #-}`
 ## language options
 > Can also be given as `-X<extension>`
+* [Reference](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html)
 * [Interesting extensions](https://www.schoolofhaskell.com/school/to-infinity-and-beyond/pick-of-the-week/guide-to-ghc-extensions/basic-syntax-extensions)
 * [Interesting extensions](https://mmhaskell.com/blog/2019/3/4/extending-haskells-syntax)
 * [Good extensions](https://stackoverflow.com/questions/10845179/which-haskell-ghc-extensions-should-users-use-avoid)
@@ -221,18 +257,25 @@ runs ghci with a file as daemon
 * `{-# LANGUAGE ScopedTypeVariables #-}` (allows to reuse free type variables in sub-functions)
 * `{-# LANGUAGE MultiParamTypeClasses #-}` (allows to have typeclasses with multiple type parameters
   often used in tandem with `{-# LANGUAGE FlexibleContext #-}`  (allows to define concrete types in typeclasses constraints for functions)
+* `{-# LANGUAGE DefaultSignatures #-}` (allows the definition of default signatures, used along-side GHC.Generics)
 * Easier `newtype` handling
   * `{-# LANGUAGE GeneralizedNewtypeDeriving #-}` allows to derive typeclass instancied by the original type of the newtype, to reduce boilerplate and code copy
   * `{-# LANGUAGE StandaloneDeriving #-}` allows to precise a particular type of a generalized type (ex: `deriving instance ToText (Id User)`)
 * Deriving
+  * `{#- LANGUAGE RoleAnnotations #-}` allows to use roles annotations ([link](https://gitlab.haskell.org/ghc/ghc/wikis/roles))
   * `{-# LANGUAGE Derive<...> #-}` adds deriving for some typeclasses, is a group of extensions
     Ex: `{-# LANGUAGE DeriveFoldable #-}`
   * `{-# LANGUAGE <...>Deriving #-}` adds a deriving strategy, is a group of extensions
     Ex: `{-# LANGUAGE GeneralizedNewTypeDeriving #-}` allows deriving of newtypes from there mother type
   * `{-# LANGUAGE DirivingStrategies #-}` allows to select the strategy to use when deriving ([infos](https://typeclasses.com/ghc/deriving-strategies))
-  * `{#- LANGUAGE RoleAnnotations #-}` allows to use roles annotations ([link](https://gitlab.haskell.org/ghc/ghc/wikis/roles))
+
+## language features
+* [Generic programming](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#generic-programming)
 
 ## pragmas
+> [GHC reference](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#pragmas)
 * `instance {-# OVERLAPPING #-} <typeclass> <type> where ...` (design this instance as overlapping another)
    connected pragmas: `OVERLAPPABLE` and `OVERLAPS`
+   [Reference 1](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#overlapping-overlappable-overlaps-and-incoherent-pragmas)
+   [Reference 2](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#instance-overlap)
 
