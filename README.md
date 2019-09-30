@@ -44,12 +44,28 @@
 ## Blogs
 * [Domain Driven Design](https://fsharpforfunandprofit.com/ddd/)
 * [Functional Programming Patterns](https://fsharpforfunandprofit.com/fppatterns/)
+* [Why I prefer functional programming](https://morgenthum.dev/articles/why-prefer-fp)
+* [Inventing Monads](https://blog.kabir.sh/posts/inventing-monads.html)
 
 ## Websites
 * [Aligator eggs, children's game on lambda calculus](http://worrydream.com/AlligatorEggs/)
 
+## Videos
+* [Simple made easy](https://www.infoq.com/presentations/Simple-Made-Easy/)
+
 # Unix
+## OSs
+* [Archlinux](https://www.archlinux.org/)
+  A technical OS
+* [Manjaro](https://manjaro.org/)
+  An easier OS based on archlinux
+* [Elementary OS](https://elementary.io/)
+  A non-technical friendly OS based on Ubuntu
+* [Linux mint](https://linuxmint.com/)
+  A light-weight OS
+## links
 * [To test OSs](https://www.ostechnix.com/test-100-linux-and-unix-operating-systems-online-for-free/)
+* [To test OSs](https://distrotest.net/)
 
 # Tools
 * [EditorConfig](htpps://editorcondif.org)

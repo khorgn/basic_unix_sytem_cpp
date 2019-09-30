@@ -73,6 +73,12 @@ run ghci for interactive shell
 * [Fundamental Haskell-Notes](https://blog.latukha.com/haskell-notes)
 * [Haskell-study-plan](https://github.com/soupi/haskell-study-plan)
 * [Haskell explained](https://haskell-explained.gitlab.io/blog/index.html)
+* [A cheatsheet to the time library](https://www.williamyaoh.com/posts/2019-09-16-time-cheatsheet.html)
+* [Why "Functor" doesn't matter](https://www.parsonsmatt.org/2019/08/30/why_functor_doesnt_matter.html)
+* [The These datatype](https://fintanh.github.io/posts/these-changes.html)
+* [Why haskell is important](https://www.tweag.io/posts/2019-09-06-why-haskell-is-important.html)
+* [Descriptive variables name: a code smell](http://degoes.net/articles/insufficiently-polymorphic)
+* [When x, y, and z are great variables name](https://blog.ploeh.dk/2015/08/17/when-x-y-and-z-are-great-variable-names/)
 
 ## News
 * [Haskell weekly](https://haskellweekly.news/)
@@ -121,6 +127,10 @@ run ghci for interactive shell
   * [Rank-N Types / Higher rank types](http://sleepomeno.github.io/blog/2014/02/12/Explaining-Haskell-RankNTypes-for-all/)
   * Higher Kindred Types
 * [GHC.Generics](https://wiki.haskell.org/GHC.Generics)
+* [Commonads](https://hackage.haskell.org/package/comonad-5.0.5)
+  ["commonads are objects](http://www.haskellforall.com/2013/02/you-could-have-invented-comonads.html)
+  Commonads can be used to model [co-effects](http://tomasp.net/coeffects/)
+  [Questions about co-monads](https://stackoverflow.com/questions/8428554/what-is-the-comonad-typeclass-in-haskell)
 
 # toolset
 * [stack](https://docs.haskellstack.org/en/stable/README/)

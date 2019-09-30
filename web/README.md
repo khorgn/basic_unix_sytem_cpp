@@ -31,6 +31,8 @@
 # Links
 ## Blogs
 * [elm, elixir and phoenix project](https://teamgaslight.com/blog/elm-elixir-and-phoenix-reflecting-on-a-functional-full-stack-project)
+* [Evaluating CSS frameworks](https://codeburst.io/evaluating-css-frameworks-bulma-vs-foundation-vs-milligram-vs-pure-vs-semantic-vs-uikit-503883bd25a3)
 
 ## GitHubs
 * [Haskell state server](https://github.com/Gabriel439/post-rfc/blob/master/sotu.md#server-side-web-programming)
+
