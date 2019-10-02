@@ -1,6 +1,6 @@
 {-# LANGUAGE ConstraintKinds       #-}
 {-# LANGUAGE DataKinds             #-}
--- allows us to promote values to the type system
+-- allows us to promote values to the type system ('A is type A explicitely promoted to Kind and Type constructor)
 {-# LANGUAGE FlexibleContexts      #-}
 {-# LANGUAGE FlexibleInstances     #-}
 {-# LANGUAGE MultiParamTypeClasses #-}

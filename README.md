@@ -20,6 +20,10 @@
 * [Eff](https://www.eff-lang.org/)
   A functional language based on __algebraic effect handlers__
 
+## Learning languages
+* [Snap](https://snap.berkeley.edu/)
+  A Visual programming language for learning
+
 # Languages agnostic resources
 
 ## Questions

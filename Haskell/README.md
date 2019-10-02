@@ -39,6 +39,7 @@ run ghci for interactive shell
   * Build tools: [Stack](https://docs.haskellstack.org/en/stable/README/) [Nix](https://cah6.github.io/technology/nix-haskell-1/)
 * [Argument handling in CLI with System.Console.GetOpt](https://wiki.haskell.org/Tutorials/Programming_Haskell/Argument_handling)
 * [Literate Programming](https://wiki.haskell.org/Literate_programming)
+* [Lambdabot](https://wiki.haskell.org/Lambdabot)
 
 ## Wikibooks
 * [Wikibook](https://en.wikibooks.org/wiki/Haskell)
@@ -79,10 +80,15 @@ run ghci for interactive shell
 * [Why haskell is important](https://www.tweag.io/posts/2019-09-06-why-haskell-is-important.html)
 * [Descriptive variables name: a code smell](http://degoes.net/articles/insufficiently-polymorphic)
 * [When x, y, and z are great variables name](https://blog.ploeh.dk/2015/08/17/when-x-y-and-z-are-great-variable-names/)
+* [Diagrams quick start tutorial](https://archives.haskell.org/projects.haskell.org/diagrams/doc/quickstart.html)
 
 ## News
 * [Haskell weekly](https://haskellweekly.news/)
 * [GHC news](https://www.haskell.org/ghc/blog.html)
+
+## [Communities](https://www.haskell.org/community/)
+* [IRC](https://www.haskell.org/irc/)
+  [Wiki entry](https://wiki.haskell.org/IRC_channel)
 
 # books
 ## References
@@ -170,6 +176,10 @@ run ghci for interactive shell
 * [test-framework](http://hackage.haskell.org/package/test-framework) (organize tests from [QuickCheck](https://hackage.haskell.org/package/QuickCheck) or [HUnit](http://hackage.haskell.org/package/HUnit))
 * [Data.Array](https://hackage.haskell.org/package/array) (the standard Haskell arrays)
 * [Vector: Efficient Arrays](https://hackage.haskell.org/package/vector) (a library to use boxed and unboxed vectors instead of single-linked lists)
+* [Bifunctor](https://hackage.haskell.org/package/bifunctors)
+* [Profunctor](https://hackage.haskell.org/package/profunctors)
+  used for example with functions as the type (one function called before the profunctor, and one function called after)
+  [video on the subject](https://www.youtube.com/watch?v=OJtGECfksds)
 #### Advanced
 * [Software Transactional Memory](http://hackage.haskell.org/package/stm) (for concurrent communication)
 * [mtl](https://hackage.haskell.org/package/mtl) (monad classes and monad transformers)
