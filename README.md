@@ -45,9 +45,12 @@
 
 # Functional programming
 
-## Blogs
+## F# for fun and profit
 * [Domain Driven Design](https://fsharpforfunandprofit.com/ddd/)
 * [Functional Programming Patterns](https://fsharpforfunandprofit.com/fppatterns/)
+* [Railway Oriented Programming](https://fsharpforfunandprofit.com/rop/)
+
+## Blogs
 * [Why I prefer functional programming](https://morgenthum.dev/articles/why-prefer-fp)
 * [Inventing Monads](https://blog.kabir.sh/posts/inventing-monads.html)
 

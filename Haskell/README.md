@@ -50,6 +50,7 @@ run ghci for interactive shell
   [Async exception handling](https://www.fpcomplete.com/blog/2018/04/async-exception-handling-haskell)
 * [The rio standard library](https://haskell.fpcomplete.com/library/rio)
 
+
 ## General use
 * [state of haskell ecosystem](https://github.com/Gabriel439/post-rfc/blob/master/sotu.md)  
 * ["what I wish I knew when learning haskell"](http://dev.stephendiehl.com/hask/) 
