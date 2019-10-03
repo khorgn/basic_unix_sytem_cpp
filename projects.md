@@ -16,6 +16,7 @@
 * cut (extracts delimited fields from linewise text records)
 * sort (sorts lines)
 * uniq (prints only unique lines)
+* yes (print "y\n" or the given line forever)
 
 # Games
 * [Rock Paper Scissors](https://en.wikipedia.org/wiki/Rock%E2%80%93paper%E2%80%93scissors)
