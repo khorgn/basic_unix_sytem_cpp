@@ -135,10 +135,11 @@ run ghci for interactive shell
   * [Rank-N Types / Higher rank types](http://sleepomeno.github.io/blog/2014/02/12/Explaining-Haskell-RankNTypes-for-all/)
   * Higher Kindred Types
 * [GHC.Generics](https://wiki.haskell.org/GHC.Generics)
-* [Commonads](https://hackage.haskell.org/package/comonad-5.0.5)
-  ["commonads are objects](http://www.haskellforall.com/2013/02/you-could-have-invented-comonads.html)
+* [Comonads](https://hackage.haskell.org/package/comonad-5.0.5)
+  ["comonads are objects](http://www.haskellforall.com/2013/02/you-could-have-invented-comonads.html)
   Commonads can be used to model [co-effects](http://tomasp.net/coeffects/)
   [Questions about co-monads](https://stackoverflow.com/questions/8428554/what-is-the-comonad-typeclass-in-haskell)
+  [Implementation of Conways's game of life with comonads](https://chrispenner.ca/posts/conways-game-of-life)
 
 # toolset
 * [stack](https://docs.haskellstack.org/en/stable/README/)

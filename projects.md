@@ -95,6 +95,7 @@
 
 # simulations
 * [the game of life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
+  [implementing Conway's game of life with Haskell's comonads](https://chrispenner.ca/posts/conways-game-of-life)
 * simulate natural selection (["simulating natural selection" from _primer_](https://www.youtube.com/watch?v=0ZGbIKd0XrM))
 
 # UIs
