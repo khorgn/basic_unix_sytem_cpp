@@ -157,6 +157,11 @@ elem'' e xs = foldl (\acc x -> if e == x then True else acc) False xs
 map'' :: (a -> b) -> [a] -> [b]
 map'' f xs = foldr (\x acc -> f x : acc) [] xs
 
+-- unfoldr is the inverse of foldr, producing a list from an initial value
+-- unfoldl takes a function that return a Maybe(a,b). The a is the next value to pass in the function, and the b is the latest value produced for the new list
+getDecrement10 :: [Int]
+getDecrement10 = unfoldr (\b -> if b == 0 then Nothing else Just (b, b-1)) 10
+
 
 -- scanl, scanr, scanl1, and scanr1 are equivalents to folds, but return the intermediate steps as lists
 listSumsL = scanl (+) 0 [4, 5, 2, 1] -- [0, 4, 9, 11, 12]

@@ -81,6 +81,7 @@ run ghci for interactive shell
 * [Descriptive variables name: a code smell](http://degoes.net/articles/insufficiently-polymorphic)
 * [When x, y, and z are great variables name](https://blog.ploeh.dk/2015/08/17/when-x-y-and-z-are-great-variable-names/)
 * [Diagrams quick start tutorial](https://archives.haskell.org/projects.haskell.org/diagrams/doc/quickstart.html)
+* [What is good about haskell?](https://doisinkidney.com/posts/2019-10-02-what-is-good-about-haskell.html)
 
 ## News
 * [Haskell weekly](https://haskellweekly.news/)
