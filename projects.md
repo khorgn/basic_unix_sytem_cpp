@@ -50,6 +50,7 @@
 * [Discrete intervale encoding tree](http://web.engr.oregonstate.edu/~erwig/papers/Diet_JFP98.pdf) ([Rust implementation](https://bitbucket.org/nikhilm/rust-diet/src/default/src/diet.rs))
 * [Gradient Descent](http://andrew.gibiansky.com/blog/machine-learning/gradient-descent/)
   [Choice of variants](http://ruder.io/optimizing-gradient-descent/)
+* [Flood fill](https://en.wikipedia.org/wiki/Flood_fill)
 
 # Machine learning
 ## Supervised learning
