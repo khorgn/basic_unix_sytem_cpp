@@ -84,6 +84,7 @@ run ghci for interactive shell
 * [Diagrams quick start tutorial](https://archives.haskell.org/projects.haskell.org/diagrams/doc/quickstart.html)
 * [What is good about haskell?](https://doisinkidney.com/posts/2019-10-02-what-is-good-about-haskell.html)
 
+
 ## News
 * [Haskell weekly](https://haskellweekly.news/)
 * [GHC news](https://www.haskell.org/ghc/blog.html)
@@ -98,6 +99,7 @@ run ghci for interactive shell
 
 ## Starting
 * [Haskell Phrasebook](https://typeclasses.com/phrasebook) (a book of examples to learn haskell)
+* [Thinking with types](https://thinkingwithtypes.com/)
 * [Learn me a haskell](http://learnyouahaskell.com/chapters)  
 * [haskell first principle](haskellbook.com)  
 
@@ -140,6 +142,8 @@ run ghci for interactive shell
   Commonads can be used to model [co-effects](http://tomasp.net/coeffects/)
   [Questions about co-monads](https://stackoverflow.com/questions/8428554/what-is-the-comonad-typeclass-in-haskell)
   [Implementation of Conways's game of life with comonads](https://chrispenner.ca/posts/conways-game-of-life)
+* [Memoization](https://wiki.haskell.org/Memoization)
+* [Let vs. Where](https://wiki.haskell.org/Let_vs._Where)
 
 # toolset
 * [stack](https://docs.haskellstack.org/en/stable/README/)
@@ -197,6 +201,8 @@ run ghci for interactive shell
 #### Basics
 * [dlist](https://hackage.haskell.org/package/dlist) (difference lists are list-like types supporting O(1) append)
 * [prettyprinter](https://hackage.haskell.org/package/prettyprinter) (a printer to display info in a more readable way)
+* [Memoize](https://hackage.haskell.org/package/memoize) (a library to generalize memoization)
+  [How to use Memoize](https://stackoverflow.com/questions/23214296/how-to-use-the-memoize-function-in-data-function-memoize)
 #### Advanced
 * [Haskeline](https://hackage.haskell.org/package/haskeline) (for interactive CLI interface)
 * [derive](http://hackage.haskell.org/package/derive) (a library to derive instances)
