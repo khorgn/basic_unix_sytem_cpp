@@ -162,6 +162,7 @@ run ghci for interactive shell
 * [Haskell IDE Engine](https://github.com/haskell/haskell-ide-engine#using-hie-with-spacemacs) (Language-Server-Protocol for Haskell)
 * [pointfree.io](pointfree.io) (website to convert code to pointfree) (exists as client-side program)
 * [ghcide](https://hackage.haskell.org/package/ghcide) (a core to build IDE's on top of GHC) 
+* [happy](https://www.haskell.org/happy/) (a parser generator for haskell)
 
 # libraries
 ## Standard libraries
@@ -187,6 +188,7 @@ run ghci for interactive shell
 * [Profunctor](https://hackage.haskell.org/package/profunctors)
   used for example with functions as the type (one function called before the profunctor, and one function called after)
   [video on the subject](https://www.youtube.com/watch?v=OJtGECfksds)
+* [mono-traversable](https://hackage.haskell.org/package/mono-traversable) (functors, foldable and traversable for monomorhic types)
 #### Advanced
 * [Software Transactional Memory](http://hackage.haskell.org/package/stm) (for concurrent communication)
 * [mtl](https://hackage.haskell.org/package/mtl) (monad classes and monad transformers)

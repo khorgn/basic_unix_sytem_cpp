@@ -15,6 +15,10 @@
   A functional language based on erlang
 * [Clojure](https://clojure.org/)
   A functional language making use of the Java ecosystem of the Lisp family
+* [Elm](https://elm-lang.org/)
+  [An editor to make web applications](https://elm-ui.netlify.com/)
+* [Coconut](http://coconut-lang.org/)
+  An extension to python to support functional programming
 
 ## Ressearch languages
 * [Eff](https://www.eff-lang.org/)
@@ -53,12 +57,17 @@
 ## Blogs
 * [Why I prefer functional programming](https://morgenthum.dev/articles/why-prefer-fp)
 * [Inventing Monads](https://blog.kabir.sh/posts/inventing-monads.html)
+* [Dependency rejection](https://blog.ploeh.dk/2017/02/02/dependency-rejection/)
 
 ## Websites
 * [Aligator eggs, children's game on lambda calculus](http://worrydream.com/AlligatorEggs/)
 
 ## Videos
 * [Simple made easy](https://www.infoq.com/presentations/Simple-Made-Easy/)
+
+## Communities
+* [FPChat](https://functionalprogramming.slack.com/)
+  [to sign-up](https://fpchat-invite.herokuapp.com/)
 
 # Unix
 ## OSs

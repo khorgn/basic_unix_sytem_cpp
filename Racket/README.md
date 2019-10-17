@@ -6,6 +6,7 @@
 
 ## Learning
 * [Beautiful Racket](https://beautifulracket.com/) (a book about Language Oriented Programming with Racket)
+* [Teach yourself racket](https://cs.uwaterloo.ca/~plragde/flaneries/TYR/) (for experienced programmer to learn racket quickly)
 
 ## Miscellaneous
 * [Why Racket, Why Lisp](https://beautifulracket.com/appendix/why-racket-why-lisp.html)  
@@ -26,3 +27,9 @@
   [to register](http://racket-slack.herokuapp.com/)
 * [Google group](https://groups.google.com/forum/#!forum/racket-users)
 * [IRC](http://www.botbot.me/freenode/racket/)
+
+
+# Commands
+
+## Raco
+`raco pkg migrate` to move installed packages to a new racket version
