@@ -40,6 +40,7 @@ run ghci for interactive shell
 * [Argument handling in CLI with System.Console.GetOpt](https://wiki.haskell.org/Tutorials/Programming_Haskell/Argument_handling)
 * [Literate Programming](https://wiki.haskell.org/Literate_programming)
 * [Lambdabot](https://wiki.haskell.org/Lambdabot)
+* [Logic programming examples](https://wiki.haskell.org/Logic_programming_example<Paste>)
 
 ## Wikibooks
 * [Wikibook](https://en.wikibooks.org/wiki/Haskell)
@@ -83,6 +84,8 @@ run ghci for interactive shell
 * [When x, y, and z are great variables name](https://blog.ploeh.dk/2015/08/17/when-x-y-and-z-are-great-variable-names/)
 * [Diagrams quick start tutorial](https://archives.haskell.org/projects.haskell.org/diagrams/doc/quickstart.html)
 * [What is good about haskell?](https://doisinkidney.com/posts/2019-10-02-what-is-good-about-haskell.html)
+* [Constraint programming in haskell](https://overtond.blogspot.com/2008/07/pre.html)
+* [Benefits to using StandalonKindSignatures extension](https://ryanglscott.github.io/2020/01/05/five-benefits-to-using-standalonekindsignatures/)
 
 
 ## News
@@ -144,6 +147,8 @@ run ghci for interactive shell
   [Implementation of Conways's game of life with comonads](https://chrispenner.ca/posts/conways-game-of-life)
 * [Memoization](https://wiki.haskell.org/Memoization)
 * [Let vs. Where](https://wiki.haskell.org/Let_vs._Where)
+* [Tail recursion](https://wiki.haskell.org/Tail_recursion) (having the function calling itself recursively last to optimize call stack)
+  [Tail call recursion is not very important in haskell](https://stackoverflow.com/questions/13042353/does-haskell-have-tail-recursive-optimization)
 
 # toolset
 * [stack](https://docs.haskellstack.org/en/stable/README/)
@@ -205,6 +210,7 @@ run ghci for interactive shell
 * [prettyprinter](https://hackage.haskell.org/package/prettyprinter) (a printer to display info in a more readable way)
 * [Memoize](https://hackage.haskell.org/package/memoize) (a library to generalize memoization)
   [How to use Memoize](https://stackoverflow.com/questions/23214296/how-to-use-the-memoize-function-in-data-function-memoize)
+* [Flow](https://github.com/tfausak/flow) (functions to write more understandable haskell)
 #### Advanced
 * [Haskeline](https://hackage.haskell.org/package/haskeline) (for interactive CLI interface)
 * [derive](http://hackage.haskell.org/package/derive) (a library to derive instances)
@@ -212,6 +218,7 @@ run ghci for interactive shell
 * [extensible-effects](https://hackage.haskell.org/package/extensible-effects) (an alternative to monad transformers)
 * [potparse-applicative](https://hackage.haskell.org/package/optparse-applicative) (for powerful parsing CL options)
 * [repa](https://hackage.haskell.org/package/repa) (high-performance arrays) ([tutorial](https://wiki.haskell.org/Numeric_Haskell:_A_Repa_Tutorial))
+* [SMT solver](https://leventerkok.github.io/sbv/) (a SMT solver for constraint programming)
 
 ## Frameworks
 ### Web server
@@ -299,6 +306,7 @@ runs ghci with a file as daemon
   * `{-# LANGUAGE <...>Deriving #-}` adds a deriving strategy, is a group of extensions
     Ex: `{-# LANGUAGE GeneralizedNewTypeDeriving #-}` allows deriving of newtypes from there mother type
   * `{-# LANGUAGE DirivingStrategies #-}` allows to select the strategy to use when deriving ([infos](https://typeclasses.com/ghc/deriving-strategies))
+* `{-# LANGUAGE StandaloneKindSignatures #-}` allows to write down kind signature for types similarly to type signature for functions, useful for GADT
 
 ## language features
 * [Generic programming](https://downloads.haskell.org/~ghc/latest/docs/html/users_guide/glasgow_exts.html#generic-programming)

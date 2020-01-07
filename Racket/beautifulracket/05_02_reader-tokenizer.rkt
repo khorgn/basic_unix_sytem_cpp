@@ -38,7 +38,7 @@ however, it would return '(zip-code "01234"), a lot less detailled
   ; we then pass these tokens to parse from 05_parser.rkt to make the parse-tree from our grammar
   (define parse-tree (parse path (make-tokenizer port)))
   ; we create a module datum representing the code of a module
-  (define module-datum `(module bf-mod "05_expander.rkt" ,parse-tree))
+  (define module-datum `(module bf-mod "05_02_expander.rkt" ,parse-tree))
   (datum->syntax #f module-datum))
 (provide read-syntax)
 

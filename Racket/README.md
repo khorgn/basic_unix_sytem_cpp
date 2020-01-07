@@ -14,6 +14,7 @@
 * [Fructure: A structured interaction engine](https://github.com/disconcision/fructure)
 * [Syndicate: A Networked, Concurrent, Functional programming language](https://github.com/tonyg/syndicate)
 * [Google group for racket users](https://groups.google.com/forum/#!forum/racket-users)
+* [Lists vs Vectors](https://stackoverflow.com/questions/27584416/in-racket-what-is-the-advantage-of-lists-over-vectors)
 
 
 ## Racket GUI
