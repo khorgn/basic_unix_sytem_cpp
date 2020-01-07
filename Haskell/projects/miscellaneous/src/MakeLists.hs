@@ -7,7 +7,7 @@ module MakeLists
 import Randoms ( randomNums
                )
 
--- === START The good ones === --²
+-- === START The good ones === --
 
 make1D = randomNums 3
 
@@ -21,7 +21,7 @@ make3D = do
   let f xss w = map (\xs -> (map (\x -> w*x)) xs) xss
   return $ zipWith f xsss [1, 4, 8]
 
--- === END The good ones === --²
+-- === END The good ones === --
 
 make2D' = do
   xs1 <- make1D
