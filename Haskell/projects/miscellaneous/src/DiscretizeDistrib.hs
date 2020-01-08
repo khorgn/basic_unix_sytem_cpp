@@ -37,10 +37,3 @@ exMin = foldr1 min exDist1
 exMax = foldr1 max exDist1
 
 
-mean :: (Fractional a) => NonEmpty a -> a
-mean xs = (foldr1 (+) xs) / (fromIntegral $ length xs)
-
-standardDeviation xs = sqrt (eOfx² - e²)
-  where eOfx² = mean (fmap (\x -> x*x) xs)
-        e² = let e = mean xs in e*e
-
