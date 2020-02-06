@@ -211,6 +211,7 @@ run ghci for interactive shell
 * [Memoize](https://hackage.haskell.org/package/memoize) (a library to generalize memoization)
   [How to use Memoize](https://stackoverflow.com/questions/23214296/how-to-use-the-memoize-function-in-data-function-memoize)
 * [Flow](https://github.com/tfausak/flow) (functions to write more understandable haskell)
+* [fmt](http://hackage.haskell.org/package/fmt) (a text formatting library)
 #### Advanced
 * [Haskeline](https://hackage.haskell.org/package/haskeline) (for interactive CLI interface)
 * [derive](http://hackage.haskell.org/package/derive) (a library to derive instances)
