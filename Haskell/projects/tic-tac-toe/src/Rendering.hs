@@ -1,6 +1,7 @@
 module Rendering (gameAsPicture) where
 
 import Graphics.Gloss
+import Data.Array
 
 import Game
 
@@ -24,7 +25,8 @@ gameAsPicture game = -- Gloss coordinates originate on the center of the screen
 boardAsRunningPicture board = 
   pictures [ color playerXColor $ xCellsOfBoard board
            , color playerOColor $ oCellsOfBoard board
-           , boardGrid
+           , color boardGridColor boardGrid
+           ]
 
 boardAsGameOverPicture winner board = -- color colorise a picture according to a given color
                                       color (outcomeColor winner) (boardAsPicture board)
@@ -55,7 +57,7 @@ cellsOfBoard board cell cellPicture =
 xCellsOfBoard :: Board -> Picture
 xCellsOfBoard board = cellsOfBoard board (Full PlayerX) xCell
 oCellsOfBoard :: Board -> Picture
-oCellsOfBoard _ = cellsOfBoard board (Full PlayerO) oCell
+oCellsOfBoard board = cellsOfBoard board (Full PlayerO) oCell
 
 xCell :: Picture
 xCell = -- Gloss doesn't have thick lines so we use rectangles that are rotated
@@ -66,7 +68,7 @@ xCell = -- Gloss doesn't have thick lines so we use rectangles that are rotated
 
 oCell :: Picture
 oCell = thickCircle diameter 10.0
-  where diameter = min CellWidth cellHeight * 0.25
+  where diameter = min cellWidth cellHeight * 0.25
 
 boardGrid :: Picture
 boardGrid = 
@@ -79,7 +81,7 @@ boardGrid =
                             ]
                      -- represents the rows of the grid
                      , line [ (0.0, i*cellHeight)
-                            , (fromIntegral screenWidth, i * screenHeight)
+                            , (fromIntegral screenWidth, i * cellHeight)
                             ]
                      ])
   [0.0 .. fromIntegral n] -- generate a list of n+1 numbers

@@ -228,6 +228,7 @@ run ghci for interactive shell
 ## UI
 * GUI
   * [Gloss](https://hackage.haskell.org/package/gloss) (simple 2D vector graphics)
+    > Note: Requires the package `freeglut3-dev` to access the openGL Utility Toolkit
   * [Miso](https://haskell-miso.org/) (a framework for front-end single web-page)
 * TUI
   * [Brick](https://hackage.haskell.org/package/brick)

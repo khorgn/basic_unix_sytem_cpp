@@ -3,7 +3,7 @@ module Logic (transformGame) where
 import Data.Array
 
 import Game
-import Graphics.Gloss.Interface.Pute.Game
+import Graphics.Gloss.Interface.Pure.Game
 
 isCoordCorrect = inRange ((0, 0) , (n -1, n -1))
 
@@ -18,10 +18,11 @@ playerWon player board= any isVictoryProj projs
                 ++ allColumnCoords
                 ++ allDiagCoords
         -- we list all possibles row coordinates, all possibles columns coordinates and all possible diagonal coordinates
-        allRowCoords = [[(i, j) | j < [0 .. n - 1]] | i <- [0 .. n - 1 ]]
-        allColumnCoords = [[(j, i) | j < [0 .. n - 1]] | i <- [0 .. n - 1 ]]
-        allDiagCoords = [ [(i, i) | i <- [0 .. n - 1 ]
-                        , [(i, n - 1 - i) | i <- [0 .. n - 1]]
+        -- the inner list comprehension generates the coords of the projection, the outer one generates each projection
+        allRowCoords = [[(i, j) | j <- [0 .. n - 1]] | i <- [0 .. n - 1 ]]
+        allColumnCoords = [[(j, i) | j <- [0 .. n - 1]] | i <- [0 .. n - 1 ]]
+        allDiagCoords = [ [(i, i) | i <- [0 .. n - 1 ]] -- upper-left to down-right
+                        , [(i, n - 1 - i) | i <- [0 .. n - 1]] -- upper-right to down-left
                         ]
         -- check if the length of a line of a player is of winning length
         isVictoryProj proj = (n ==)
@@ -45,9 +46,11 @@ checkGameOver game
 
 playerTurn :: Game -> (Int, Int) -> Game
 playerTurn game cellCoord
-  -- if the cell coordinate is correct and the cell is empty, we assign the cell to the player
-  | isCoordCorrect cellCoord && (board ! cellCoord) == Empty = undefined
-    game { gameBoard = board // [(cellCoord, Full $ player)]
+  -- if the cell coordinate is correct and the cell is empty
+  | isCoordCorrect cellCoord && (board ! cellCoord) == Empty =
+      checkGameOver -- then check the game-over on the resulting board
+      $ switchPlayer -- then switch the player on the resulting board
+      $ game { gameBoard = board // [(cellCoord, Full $ player)] } -- we assign the cell to the player
   -- otherwise we don't modify the game (we don't want to do anything if someone click outside the grid
   | otherwise = game
   where board = gameBoard game
@@ -63,6 +66,7 @@ mousePosAsCellCoord (x, y) = -- coordinates in Gloss starts at the center, so sh
 transformGame (EventKey (MouseButton LeftButton) Up _ mousePos) game =
   case gameState game of
     Running -> playerTurn game $ mousePosAsCellCoord mousePos
-    GameOver _ -> initalGame
+    -- if the game is over, it restarts on click
+    GameOver _ -> initialGame
 transformGame _ game = game
 
