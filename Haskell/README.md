@@ -86,6 +86,7 @@ run ghci for interactive shell
 * [What is good about haskell?](https://doisinkidney.com/posts/2019-10-02-what-is-good-about-haskell.html)
 * [Constraint programming in haskell](https://overtond.blogspot.com/2008/07/pre.html)
 * [Benefits to using StandalonKindSignatures extension](https://ryanglscott.github.io/2020/01/05/five-benefits-to-using-standalonekindsignatures/)
+* [Haskell antipattern: Existential Typeclass](https://lukepalmer.wordpress.com/2010/01/24/haskell-antipattern-existential-typeclass/)
 
 
 ## News
