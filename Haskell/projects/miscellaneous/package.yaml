@@ -23,6 +23,7 @@ dependencies:
 - base >= 4.7 && < 5
 - random >= 1.0
 - containers >= 0.6 && < 0.7
+- array
 
 library:
   source-dirs: src
