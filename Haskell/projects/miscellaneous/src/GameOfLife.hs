@@ -6,7 +6,7 @@ module GameOfLife where
  - 3. otherwise => Dead
  -}
 
-import Data.Array (Array, array, listArray)
+import Data.Array (Array, array, listArray, inRange)
 import qualified Data.Array
 import Data.Map (Map)
 import qualified Data.Map
@@ -25,6 +25,7 @@ makeBoard sizeY sizeX coords = (initBoard sizeY sizeX) Data.Array.// map (\c -> 
 
 exBoard1 = initBoard 5 5
 -- exBoard1 = array (0,0) [((10, 10), Dead)]
+exBoard2 = makeBoard 5 5 [(0, 0), (1, 0), (0, 1)]
 
 
 type Coord = (Int, Int)
@@ -42,3 +43,27 @@ neighbors board (y, x) =
   in mapMaybe getC neighBordsCoords
   where getC c = if Data.Array.inRange bounds c then Just(board Data.Array.! c) else Nothing
         bounds@((minY, minX), (maxY, maxX)) = Data.Array.bounds board
+
+updateCell :: Board -> Coord -> Cell
+updateCell b c
+  | cellState == Dead && livingN == 3 = Alive
+  | cellState == Alive && inRange (2, 3) livingN = Alive
+  | otherwise = Dead
+  where livingN = aliveNeighbors b c
+        cellState = b Data.Array.! c
+
+updateCell' :: Board -> Coord -> Board
+updateCell' b c
+  | cellState == Dead && livingN == 3 = b Data.Array.// [(c, Alive)]
+  | cellState == Alive && inRange (2, 3) livingN = b Data.Array.// [(c, Alive)]
+  -- | cellState == Alive && elem livingN [2,3] = b Data.Array.// [(c, Alive)]
+  | otherwise = b Data.Array.// [(c, Dead)]
+  where livingN = aliveNeighbors b c
+        cellState = b Data.Array.! c
+
+updateBoard :: Board -> Board
+updateBoard b = Data.Array.listArray bounds newState
+  where assocs = Data.Array.assocs b
+        bounds = Data.Array.bounds b
+        newState = fmap (\(i, _) -> updateCell b i) assocs
+
