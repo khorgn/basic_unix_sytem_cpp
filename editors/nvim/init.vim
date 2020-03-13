@@ -25,6 +25,7 @@ if dein#load_state('~/.local/share/dein')
 			  \})
 
   call dein#add('junegunn/fzf') " for multi-entry selection UI
+  call dein#add('junegunn/fzf.vim')
 
   " Language-Server-Protocol Client
   call dein#add('autozimu/LanguageClient-neovim', {
@@ -84,6 +85,7 @@ let g:deoplete#enable_at_startup = 1
 
 " ===== Start config fzf =====
 set rtp+=~/.fzf
+let g:fzf_command_prefix = 'Fzf' " set a prefix for all fzf.vim command
 " ===== End config fzf =====
 " ===== Start config vim-airline =====
 let g:airline_powerline_fonts = 1
@@ -109,6 +111,8 @@ filetype plugin indent on
 " all tabs are spaces
 set expandtab
 
+" set completion in command mode, with the longest matching, then selection
+set wildmenu wildmode=longest:full,full
 
 set number relativenumber
 augroup numbertoggle
