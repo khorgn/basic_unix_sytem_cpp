@@ -1,3 +1,4 @@
+# HELP
 > :h  
 > :h ref  
 > :h mapleader
@@ -5,6 +6,15 @@
 :h index, `:h normal-index` `:h insert-index` `:h visual-index`  
 :h map-modes  
 :h map-which-keys  
+
+`:tags` to see the tags stack of jumps
+`CTRL-]` in qwerty to jump to tag, `CTRL-$` in AZERTY
+`CTRL-T` to go back to the previous entry in the tag stack
+
+`:jumps` to see the jump list
+`CTRL-O` to go to the previous entry in the jump list
+`CTRL-I` to go to the next entry in the jump list
+
 
 # NORMAL MODE (Esc)
 ## registers
@@ -144,6 +154,23 @@ when the cursor in _merged_ is on a difference, to choose the right change, or n
 `<C-f>` to enter command-line window, `<C-c>` to exit
 `<C-b>` to place cursor at the beginning of the line
 `<C-e>` to place cursor at the end of the line
+`<C-D>` to see the list of possible completions
+
+`:set <option>` set the option on (ex: `:set number`)
+`:set no<option>` set the option off (ex: `:set nonumber`)
+`:set <option>!` toggle the option on/off (ex: `:set number!`)
+`:set <option>?` checks the option value (ex: `:set number?`)
+`:set all` lists all settings set
+`:help option-list` lists all options and with a short explanation (`help option-summary` for long explanation)
+`:verbose set <option>` to check where the option was last set
+> NOTE: :set only works on settings that are options, variables like `b:current_syntax` (the current syntax of the buffer) can't be accessed or checked with set
+
+## Variables
+special variables: `$<environment variable>`, `&<option variables>`, `@<register variables>`
+
+
+`:echo <variable>` displays a variable value (ex: `echo b:current_syntax` or `echo &number`), variables can have different scope (g[lobal], w[indow], b[uffer], l[ocal], s[cript]) and options can be accessed as variable with &
+`:let <variable>=<value>` sets a value to a variable (ex: `&number = 1`)
 
 # Digraphs
 > `:h digraphs`
