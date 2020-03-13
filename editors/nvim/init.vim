@@ -125,6 +125,15 @@ augroup END
 language messages C
 " ===== End general configs =====
 
+" ===== Start diff configs =====
+" if starting with diff mode
+if &diff
+    syntax off " disables syntax highlighting to not mess with diff highlighting
+endif
+" in case we don't start in diff mode, we check on every buffer entering and
+" buffer new
+" au BufEnter,BufNew * if &diff | syntax off | else | syntax on | endif
+" ===== End diff configs =====
 
 " ===== Start language configs =====
 " == Haskell ==
