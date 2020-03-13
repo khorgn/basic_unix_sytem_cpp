@@ -1,3 +1,4 @@
+" to place as $HOME/.config/nvim/init.vim
 "dein Scripts-----------------------------
 if &compatible
   set nocompatible               " Be iMproved
