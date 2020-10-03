@@ -10,6 +10,7 @@ run ghci for interactive shell
 `sudo apt install haskell-stack`  
 `stack upgrade` upgrade stack   
 `stack setup`
+[how to use stack](https://lexi-lambda.github.io/blog/2018/02/10/an-opinionated-guide-to-haskell-in-2018/#understanding-stacks-model-and-avoiding-its-biggest-gotcha)
 
 
 # Links
@@ -231,6 +232,8 @@ run ghci for interactive shell
   * [Gloss](https://hackage.haskell.org/package/gloss) (simple 2D vector graphics)
     > Note: Requires the package `freeglut3-dev` to access the openGL Utility Toolkit
   * [Miso](https://haskell-miso.org/) (a framework for front-end single web-page)
+  * [gi-gtk-declarative](https://owickstrom.github.io/gi-gtk-declarative/)
+  * [threepenny-gui](https://github.com/HeinrichApfelmus/threepenny-gui/)
 * TUI
   * [Brick](https://hackage.haskell.org/package/brick)
 * CLI
