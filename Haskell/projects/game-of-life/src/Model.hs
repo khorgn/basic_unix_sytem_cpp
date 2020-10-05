@@ -28,19 +28,20 @@ module Model (
                --
                -- $data-types
                Board
-             , Cell
-             , Coordinate
-             , CellState
+             , Cell(..)
+             , Coordinate(..)
+             , CellState(..)
 
                -- * Manipulating functions
                --
                -- | Two functions are available to manipulate the board, to generate it,
                --   and to make it advance to the next step
              , makeBoard
+             , makeBoardTuple
+             , makeDefaultBoard
              , updateBoardState
              ) where
 
-import qualified Data.List (elem)
 
 -- $data-types
 --
@@ -55,23 +56,23 @@ import qualified Data.List (elem)
 data CellState
   = Alive -- ^ The cell is alive
   | Dead -- ^ The cell is dead
-  deriving (Show, Eq)
+  deriving (Show, Eq, Ord)
 
-data Coordinate = Coordinate { getXCoord :: Int, getYCoord :: Int } deriving (Show, Eq)
+data Coordinate = Coordinate { getYCoord :: Int, getXCoord :: Int } deriving (Show, Eq, Ord)
 
 coordinate :: Int -> Int -> Coordinate
 coordinate x y = Coordinate x y
 
-data Cell = Cell { getCoordinate :: Coordinate, getCellState :: CellState } deriving (Show, Eq)
+data Cell = Cell { getCoordinate :: Coordinate, getCellState :: CellState } deriving (Show, Eq, Ord)
 
-
+-- | The board containing the cells
 type Board = [Cell]
 
 type Neighbours = [Cell]
 
 changeCell :: Int -> Cell -> Cell
 changeCell 3 (Cell c Dead) = Cell c Alive
-changeCell n (Cell c Dead) = Cell c Dead
+changeCell _n (Cell c Dead) = Cell c Dead
 changeCell n (Cell c Alive)
   | n `elem` [2, 3] = Cell c Alive
   | otherwise = Cell c Dead
@@ -82,6 +83,7 @@ updateCell n c = changeCell aliveNeighbors c
     aliveNeighbors :: Int
     aliveNeighbors = length $ filter (== Alive) $ map getCellState n
 
+-- | Recovers neighbors from a board and a set of coordinates relative to a cell
 getNeighbors :: Board -> [Coordinate] -> Cell -> Neighbours
 getNeighbors b cs (Cell (Coordinate cX cY) _) = filter (\(Cell c _) -> c `elem` fullCoords) b
   where
@@ -96,9 +98,19 @@ updateBoardState board = map (\(c, n) -> updateCell n c) $ map (\c -> (c, getNei
 
 type Range = (Int, Int)
 
+
+
 -- | Make a new board from a X range, a Y range, and a set of coordinates for Alive cells
 makeBoard :: Range -> Range -> [Coordinate] -> Board
 makeBoard (minX, maxX) (minY, maxY) cs = map (\c -> if c `elem` cs then Cell c Alive else Cell c Dead) allCells
   where
     allCells :: [Coordinate]
     allCells = Coordinate <$> [minX..maxX] <*> [minY..maxY]
+
+makeBoardTuple :: Range -> Range -> [(Int, Int)] -> Board
+makeBoardTuple rX rY cs = makeBoard rX rY $ fmap (uncurry Coordinate) cs
+
+makeDefaultBoard :: [(Int, Int)] -> Board
+makeDefaultBoard cs = makeBoardTuple defRange defRange cs
+  where
+    defRange = (0, 8)
