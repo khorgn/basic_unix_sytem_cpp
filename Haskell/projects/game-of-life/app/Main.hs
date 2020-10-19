@@ -1,8 +1,8 @@
 module Main where
 
-import Model
+import ListModel
 import StringRepresentation
-import Control.Monad
+import Control.Monad ( when )
 import qualified System.Environment as E
 import Text.Read (readMaybe)
 import Data.Maybe (fromJust, isJust)

@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 7974a88b3bbae5e433ae4d017834f23519172874f2fa1573fc6f29f6a9934495
+-- hash: 075c2df531643eec60e9bc6de01fd53ed716b4cc2b971c2807c72fcc9990c81a
 
 name:           game-of-life
 version:        0.1.0.0
@@ -27,8 +27,10 @@ source-repository head
 
 library
   exposed-modules:
+      BaseModel
       Lib
-      Model
+      ListModel
+      MapModel
       StringRepresentation
   other-modules:
       Paths_game_of_life

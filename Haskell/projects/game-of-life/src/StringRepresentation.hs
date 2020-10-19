@@ -2,7 +2,7 @@ module StringRepresentation (
                               representBoard
                             ) where
 
-import Model
+import ListModel
 import qualified Data.List as L
 
 -- | Represents the board as a String, with \'A' and \'D' 'Alive' and 'Dead'

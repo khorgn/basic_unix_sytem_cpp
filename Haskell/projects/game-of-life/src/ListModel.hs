@@ -23,7 +23,7 @@ Example of use:
 >>> let a = makeBoard
 >>> let b = updateBoardState a
 -}
-module Model (
+module ListModel (
                -- * Data types
                --
                -- $data-types
@@ -42,6 +42,8 @@ module Model (
              , updateBoardState
              ) where
 
+import BaseModel
+
 
 -- $data-types
 --
@@ -52,30 +54,11 @@ module Model (
 --     and one to represent the state of the cell
 
 
--- | The state of the cell
-data CellState
-  = Alive -- ^ The cell is alive
-  | Dead -- ^ The cell is dead
-  deriving (Show, Eq, Ord)
-
-data Coordinate = Coordinate { getYCoord :: Int, getXCoord :: Int } deriving (Show, Eq, Ord)
-
-coordinate :: Int -> Int -> Coordinate
-coordinate x y = Coordinate x y
-
-data Cell = Cell { getCoordinate :: Coordinate, getCellState :: CellState } deriving (Show, Eq, Ord)
 
 -- | The board containing the cells
 type Board = [Cell]
 
 type Neighbours = [Cell]
-
-changeCell :: Int -> Cell -> Cell
-changeCell 3 (Cell c Dead) = Cell c Alive
-changeCell _n (Cell c Dead) = Cell c Dead
-changeCell n (Cell c Alive)
-  | n `elem` [2, 3] = Cell c Alive
-  | otherwise = Cell c Dead
 
 updateCell :: Neighbours -> Cell -> Cell
 updateCell n c = changeCell aliveNeighbors c
