@@ -24,3 +24,16 @@ changeCell _n (Cell c Dead) = Cell c Dead
 changeCell n (Cell c Alive)
   | n `elem` [2, 3] = Cell c Alive
   | otherwise = Cell c Dead
+
+type Neighbours = [Cell]
+
+updateCell :: Neighbours -> Cell -> Cell
+updateCell n c = changeCell aliveNeighbors c
+  where
+    aliveNeighbors :: Int
+    aliveNeighbors = length $ filter (== Alive) $ map getCellState n
+
+
+class GameOfLifeBoard f where
+  updateBoard :: f CellState -> f CellState
+  toList :: f CellState -> [Cell]

@@ -58,13 +58,8 @@ import BaseModel
 -- | The board containing the cells
 type Board = [Cell]
 
-type Neighbours = [Cell]
 
-updateCell :: Neighbours -> Cell -> Cell
-updateCell n c = changeCell aliveNeighbors c
-  where
-    aliveNeighbors :: Int
-    aliveNeighbors = length $ filter (== Alive) $ map getCellState n
+
 
 -- | Recovers neighbors from a board and a set of coordinates relative to a cell
 getNeighbors :: Board -> [Coordinate] -> Cell -> Neighbours
