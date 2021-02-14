@@ -1,7 +1,6 @@
 module Model
   ( exampleGrid
   , exampleGridResult
-  , size
   , Grid
   ) where
 
