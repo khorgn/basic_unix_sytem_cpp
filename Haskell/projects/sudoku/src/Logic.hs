@@ -1,18 +1,48 @@
 module Logic
-  (
-  ) where
+  where
 
 
 import Model
 import qualified Data.Array as A
+import Data.Maybe (catMaybes)
+import Data.List (sort)
 
-checkRow g i = fmap (g A.!) [(i, j) | j <- [1..size]]
 
-checkColumn g j = fmap (g A.!) [(i, j) | i <- [1..size]]
+checkGrid g = all (==True) allChecks
+  where
+    checkAllColumns = fmap (checkColumn g) [1..size]
+    checkAllRows = fmap (checkRow g) [1..size]
+    checkAllSquares = fmap (checkSquare g) [1..size]
+    allChecks = checkAllColumns ++ checkAllRows ++ checkAllSquares
 
-checkSquare g n = undefined
-  where nX = n `mod` size 
-        nY = n `div` size
-        sideSquare = floor $ sqrt $ fromIntegral size
-        rangeY = ((nY-1) * sideSquare, nY - (sideSquare - 1))
-        rangeX = ((nX-1) * sideSquare, nX - (sideSquare - 1))
+
+checkListUnique l = not $ hasDupplicate sortedList
+  where sortedList = sort l
+        hasDupplicate :: Eq a => [a] -> Bool
+        hasDupplicate [] = False 
+        hasDupplicate [_] = False 
+        hasDupplicate (x1:x2:xs) = (x1 == x2) || hasDupplicate xs
+
+checkRow :: Grid -> Integer -> Bool
+checkRow g i = checkListUnique list
+  where listWMaybes = fmap (g A.!) [(i, j) | j <- [1..size]]
+        list = catMaybes listWMaybes
+
+checkColumn g j = checkListUnique list
+  where listMaybes = fmap (g A.!) [(i, j) | i <- [1..size]]
+        list = catMaybes  listMaybes
+
+-- NOTE: not wworking correctly right now
+checkSquare g n = checkListUnique list
+  where 
+    -- The index of the square on the X axis
+    nX = ((n-1) `mod` sideSquare) + 1
+    -- The index of the square on the Y axis
+    nY = ((n-1) `div` sideSquare) + 1
+    rangeY = let y' = ((nY -1) * sideSquare) + 1 in (y', y' + sideSquare - 1)
+    rangeX = let x' = ((nX -1) * sideSquare) + 1 in (x', x' + sideSquare - 1)
+    listMaybes = fmap (g A.!) [(i, j) | i <- [fst rangeY..snd rangeY], j <- [fst rangeX..snd rangeX]]
+    list  = catMaybes listMaybes
+
+-- | The number of squares on one size
+sideSquare = floor $ sqrt $ fromIntegral size

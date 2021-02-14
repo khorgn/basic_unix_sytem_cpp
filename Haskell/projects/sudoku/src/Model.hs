@@ -7,7 +7,7 @@ module Model
 
 import qualified Data.Array as A
 
-type Grid = A.Array (Int, Int) (Maybe Int)
+type Grid = A.Array (Integer, Integer) (Maybe Integer)
 
 size :: Integer
 size = 4
